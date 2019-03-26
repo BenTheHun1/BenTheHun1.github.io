@@ -1,1 +1,1 @@
-# Welcome to BenTheHun1.tk!
+The official repository for BenTheHun1's new website.
