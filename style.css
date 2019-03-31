@@ -2,3 +2,6 @@ html {
   min-height:100%;
   background:linear-gradient(#eee, #aaa);
 }
+div {
+  padding: 25px 100px 75px 100px;
+}
