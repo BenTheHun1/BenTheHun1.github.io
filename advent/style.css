@@ -1,0 +1,7 @@
+html {
+  min-height:100%;
+  background:linear-gradient(white 10%, black);
+}
+div {
+  padding: 25px 25% 0px 25%;
+  text-align: left;
