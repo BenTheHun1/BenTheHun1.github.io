@@ -9,7 +9,7 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play MINDJUMP.</tw-noscript></noscript></tw-story>
-<tw-storydata name="MINDJUMP" startnode="96" creator="Twine" creator-version="2.3.13" ifid="D350C166-984D-4819-8C7F-5F7BB6D142DB" zoom="1" format="Harlowe" format-version="3.2.1" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">tw-sidebar {
+<tw-storydata name="MINDJUMP" startnode="93" creator="Twine" creator-version="2.3.13" ifid="D350C166-984D-4819-8C7F-5F7BB6D142DB" zoom="1" format="Harlowe" format-version="3.2.1" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">tw-sidebar {
     display: none;
 }
 
@@ -44,7 +44,7 @@ He offers you a small vial of blue liquid.
 The Professor turns around, and grabs what looks like a small flip-phone. He opens it up and holds it up. The small LED screens shows the word &#39;&#39;Tutorial&#39;&#39;. He closes it and offers it to you.
 
 [[Take it-&gt;Device Get]]
-[[Say Something First]]</tw-passagedata><tw-passagedata pid="8" name="Device Get" tags="" position="900,1000" size="100,100">&quot;Wonderful, give it a moment to calibrate to your biology&quot;
+(if:$TestRunSuccess is true)[[&quot;It worked.&quot;]]</tw-passagedata><tw-passagedata pid="8" name="Device Get" tags="" position="900,1000" size="100,100">&quot;Wonderful, give it a moment to calibrate to your biology&quot;
 (set:$device to &quot;device&quot;)
 [[Wait]]</tw-passagedata><tw-passagedata pid="9" name="Wait" tags="" position="900,1150" size="100,100">&quot;Ah! It should be calibrated now. Now, here&#39;s how it works: Are you familiar with the Multiverse Theory?&quot;
 
@@ -67,47 +67,35 @@ The device is capable of both of these types of jumps, as long as at both points
 [[&quot;Okay&quot;-&gt;Test Run]]</tw-passagedata><tw-passagedata pid="15" name="Test Run" tags="" position="900,1750" size="100,100">&quot;Now, let&#39;s test this out. Take a look at the device.&quot;
 You flip it open. The screen says &#39;&#39;Test Run&#39;&#39;
 &quot;Now, when I showed it you before, do you remember what it said?&quot;
-(set:$TRreturn to not $TRreturn)
+(set:$TestRunReturn to false)
+(set:$TestRunSuccess to true)
 [[Yes-&gt;Remember Yes]]
 [[No-&gt;Remember No]]
-(if:$TRreturn is true)[[&quot;I&#39;m Back&quot;]]</tw-passagedata><tw-passagedata pid="16" name="Remember Yes" tags="" position="825,1900" size="100,100">&quot;Alright, then. When you see key words like that one, you should write them down, so you don&#39;t forget them. Also, they //are// case-sensitive. Now, if you type that phrase into the device and press DIAL, you should make a Vertical JUMP to that point in time. To confirm it works, tell me the phrase //Cranberry//&quot;
+(if:$TRreturn is true)[[&quot;I&#39;m Back&quot;]]</tw-passagedata><tw-passagedata pid="16" name="Remember Yes" tags="" position="825,1900" size="100,100">&quot;Alright, then. When you see key words like that one, you should write them down, so you don&#39;t forget them. They represent that specific point in time and space, and can later be dialed into the device to return. //They are case-sensitive//. Now, if you type the phrase from before into the device and press DIAL, you should make a Vertical JUMP to just before I gave you the device. Just tell me it worked, and I&#39;ll know what you mean.&quot;
 
-[[&quot;Just kidding, I forgot what it said.&quot;]]</tw-passagedata><tw-passagedata pid="17" name="Remember No" tags="" position="975,1900" size="100,100">&quot;That&#39;s okay, it said &#39;&#39;Tutorial&#39;&#39; When you see future key words such as these, you should write them down, so you don&#39;t forget them. Also, they //are// case-sensitive. Now, if you type that into the device and press DIAL, you should make a Vertical JUMP to that point in time. To confirm it works, tell me the phrase //Cranberry//&quot;</tw-passagedata><tw-passagedata pid="18" name="Dial" tags="no-header" position="250,475" size="200,200">You type &quot;$jump&quot; into the $device, and hit DIAL.
+[[&quot;Just kidding, I forgot what it said.&quot;]]</tw-passagedata><tw-passagedata pid="17" name="Remember No" tags="" position="975,1900" size="100,100">&quot;That&#39;s okay, it said &#39;&#39;Tutorial&#39;&#39;. When you see key words like that one, you should write them down, so you don&#39;t forget them. They represent that specific point in time and space, and can later be dialed into the device to return. //They are case-sensitive//. Now, if you type the phrase from before into the device and press DIAL, you should make a Vertical JUMP to just before I gave you the device. Just tell me it worked, and I&#39;ll know what you mean.&quot;</tw-passagedata><tw-passagedata pid="18" name="Dial" tags="no-header" position="250,475" size="200,200">You type &quot;$jump&quot; into the $device, and hit DIAL.
 
-[[CONTINUE]]</tw-passagedata><tw-passagedata pid="19" name="Say Something First" tags="no-header" position="1075,850" size="100,100">You say...
+[[CONTINUE]]</tw-passagedata><tw-passagedata pid="19" name="&quot;You hadn&#39;t tested it before?&quot;" tags="no-header" position="1075,1150" size="100,100">&quot;Well... no. None of my scientists would go near the thing.&quot;
 
-[[Mango-&gt;NoDice]]
-[[Juice-&gt;NoDice]]
-[[Freddy-&gt;NoDice]]
-[[Cranberry]]
-[[Board Games-&gt;NoDice]]
-[[Toilet-&gt;NoDice]]
-[[Slavery-&gt;NoDice]]</tw-passagedata><tw-passagedata pid="20" name="NoDice" tags="no-header" position="1025,1000" size="100,100">&quot;Hmm? What do you mean?&quot;
+[[&quot;Erm...&quot;-&gt;&quot;What now?&quot;]]</tw-passagedata><tw-passagedata pid="20" name="&quot;What now?&quot;" tags="" position="1225,1150" size="100,100">&quot;Well, why don&#39;t you take that with you? Who knows, it might be useful on your next mission. I got word from the General that she needs to debrief you.&quot; He hands you the device.
 
-[[&quot;Nevermind, what&#39;s this about a device?&quot;-&gt;Tutorial]]</tw-passagedata><tw-passagedata pid="21" name="Cranberry" tags="no-header" position="1150,1000" size="100,100">&quot;Ah! So it worked, did it? Wonderful, the first successful Vertical JUMP!&quot;
+[[&quot;See you&quot;-&gt;Christening]]</tw-passagedata><tw-passagedata pid="21" name="Christening" tags="" position="1375,1150" size="100,100">You exit the Professor&#39;s office, the device in hand. You flip it open (noticing the screen displaying &#39;&#39;Christening&#39;&#39;) Come to think of it, he never gave it a name? That&#39;s pretty lame. You&#39;ll call it the... (input-box: bind $device, &quot;==X==&quot;, 1, &quot;JUMPer&quot;) ...from now on.
 
-[[&quot;You hadn&#39;t tested it before?&quot;]]
-[[&quot;What now?&quot;]]</tw-passagedata><tw-passagedata pid="22" name="&quot;You hadn&#39;t tested it before?&quot;" tags="no-header" position="1075,1150" size="100,100">&quot;Well... no. None of my scientists would go near the thing.&quot;
-
-[[&quot;Erm...&quot;-&gt;&quot;What now?&quot;]]</tw-passagedata><tw-passagedata pid="23" name="&quot;What now?&quot;" tags="" position="1225,1150" size="100,100">&quot;Well, why don&#39;t you take that with you? Who knows, it might be useful on your next mission. I got word from the General that she needs to debrief you.&quot; He hands you the device.
-
-[[&quot;See you&quot;-&gt;Christening]]</tw-passagedata><tw-passagedata pid="24" name="Christening" tags="" position="1375,1150" size="100,100">You exit the Professor&#39;s office, the device in hand. You flip it open (noticing the screen displaying &#39;&#39;Christening&#39;&#39;) Come to think of it, he never gave it a name? That&#39;s pretty lame. You&#39;ll call it the... (input-box: bind $device, &quot;==X==&quot;, 1, &quot;JUMPer&quot;) ...from now on.
-
-[[Head to the General&#39;s office]]</tw-passagedata><tw-passagedata pid="25" name="&quot;I&#39;m Back&quot;" tags="" position="750,1750" size="100,100">&quot;You&#39;re back? Ah! It worked then? But why did you come back?&quot;
+[[Head to the General&#39;s office]]</tw-passagedata><tw-passagedata pid="22" name="&quot;I&#39;m Back&quot;" tags="" position="750,1750" size="100,100">&quot;You&#39;re back? Ah! It worked then? But why did you come back?&quot;
 
 [[&quot;No particular reason&quot;]]
-[[&quot;I wanted to go back to the real timeline&quot;]]</tw-passagedata><tw-passagedata pid="26" name="&quot;No particular reason&quot;" tags="" position="675,1900" size="100,100">&quot;Ah! Well, are you going to go back?&quot;
+[[&quot;I wanted to go back to the real timeline&quot;]]</tw-passagedata><tw-passagedata pid="23" name="&quot;No particular reason&quot;" tags="" position="675,1900" size="100,100">&quot;Ah! Well, are you going to go back?&quot;
 
-[[No-&gt;&quot;I wanted to go back to the real timeline&quot;]]</tw-passagedata><tw-passagedata pid="27" name="&quot;I wanted to go back to the real timeline&quot;" tags="" position="525,1900" size="100,100">&quot;Ah! I see.&quot; He sits down on the edge of his desk.
+[[No-&gt;&quot;I wanted to go back to the real timeline&quot;]]</tw-passagedata><tw-passagedata pid="24" name="&quot;I wanted to go back to the real timeline&quot;" tags="" position="525,1900" size="100,100">&quot;Ah! I see.&quot; He sits down on the edge of his desk.
 &quot;If your going to be using this device, you need to expand your thinking. Break away from the notion that just because you made a choice first, that it is the &#39;real&#39; or the &#39;right&#39; choice.&quot; He sighs.
 &quot;You also going to have to accept that sometimes your going to make wrong choices, and leave your physcial body captured, dead, or otherwise incapicated. You can&#39;t save all versions of yourself.&quot;
 
-[[&quot;I still have to try&quot;]]</tw-passagedata><tw-passagedata pid="28" name="&quot;I still have to try&quot;" tags="" position="525,2050" size="100,100">&quot;Well, if you go now, your going to be late for your meeting with the general. I won&#39;t stop you, but just know when to give up and JUMP, okay?&quot;
+[[&quot;I still have to try&quot;]]</tw-passagedata><tw-passagedata pid="25" name="&quot;I still have to try&quot;" tags="" position="525,2050" size="100,100">&quot;Well, if you go now, your going to be late for your meeting with the general. I won&#39;t stop you, but just know when to give up and JUMP, okay?&quot;
 
 (set: $time to 10)
-[[Leave-&gt;Doomed]]</tw-passagedata><tw-passagedata pid="29" name="Head to the General&#39;s office" tags="" position="1375,1300" size="100,100">You put the $device in your pocket, and start walking down the hallway. It would not be wise to make the General wait.
+[[Leave-&gt;Doomed]]</tw-passagedata><tw-passagedata pid="26" name="Head to the General&#39;s office" tags="" position="1375,1300" size="100,100">You put the $device in your pocket, and start walking down the hallway. It would not be wise to make the General wait.
 
-[[Continue walking-&gt;Maze]]</tw-passagedata><tw-passagedata pid="30" name="Maze" tags="" position="1375,1450" size="100,100">(set:$time to 1)(set:$dir to &quot;&quot;)(if: $map is true)[(go-to:&quot;MazeMap&quot;)]
+[[Continue walking-&gt;Maze]]</tw-passagedata><tw-passagedata pid="27" name="Maze" tags="" position="1375,1450" size="100,100">(set:$time to 1)(set:$dir to &quot;&quot;)(if: $map is true)[(go-to:&quot;MazeMap&quot;)]
 How do you get there again...? It&#39;s been a while since you&#39;ve been back at the BASE...
 
 You stand in a hallway. Behind you is the Professor&#39;s Office, and the hallway splits off to your right and left, as well as continuing straight ahead. Pulling out the $device, the word &#39;&#39;Maze&#39;&#39; is shown.
@@ -117,26 +105,26 @@ You stand in a hallway. Behind you is the Professor&#39;s Office, and the hallwa
 [[Go right]]
 [[Go left]]
 [[Keep going straight]]
-[[Go back to the Professor]]</tw-passagedata><tw-passagedata pid="31" name="Go right" tags="" position="1250,1725" size="100,100">(set:$time to $time + 1)
+[[Go back to the Professor]]</tw-passagedata><tw-passagedata pid="28" name="Go right" tags="" position="1250,1725" size="100,100">(set:$time to $time + 1)
 (set:$dir to $dir + &quot;r&quot;)
-(go-to:&quot;WalkingAroundMaze&quot;)</tw-passagedata><tw-passagedata pid="32" name="Go left" tags="" position="1525,1725" size="100,100">(set:$time to $time + 1)
+(go-to:&quot;WalkingAroundMaze&quot;)</tw-passagedata><tw-passagedata pid="29" name="Go left" tags="" position="1525,1725" size="100,100">(set:$time to $time + 1)
 (set:$dir to $dir + &quot;l&quot;)
-(go-to:&quot;WalkingAroundMaze&quot;)</tw-passagedata><tw-passagedata pid="33" name="Keep going straight" tags="" position="1375,1725" size="100,100">(set:$time to $time + 1)
+(go-to:&quot;WalkingAroundMaze&quot;)</tw-passagedata><tw-passagedata pid="30" name="Keep going straight" tags="" position="1375,1725" size="100,100">(set:$time to $time + 1)
 (set:$dir to $dir + &quot;s&quot;)
 (if:$dir is &quot;llrss&quot;)[(go-to:&quot;FoundIt&quot;)]
-(else:)[(go-to:&quot;WalkingAroundMaze&quot;)]</tw-passagedata><tw-passagedata pid="34" name="Go back to the Professor" tags="" position="1525,1450" size="100,100">(set:$time to $time + 1)
+(else:)[(go-to:&quot;WalkingAroundMaze&quot;)]</tw-passagedata><tw-passagedata pid="31" name="Go back to the Professor" tags="" position="1525,1450" size="100,100">(set:$time to $time + 1)
 You turn around, and go back to the professor. 
 &quot;Ah! You&#39;re back so soon? What happened?&quot;
 
 [[&quot;I wanted to say hello&quot;]]
-[[&quot;I don&#39;t... remember how to get to her office&quot;]]</tw-passagedata><tw-passagedata pid="35" name="&quot;I wanted to say hello&quot;" tags="" position="1775,1450" size="100,100">(set:$time to $time + 1)
+[[&quot;I don&#39;t... remember how to get to her office&quot;]]</tw-passagedata><tw-passagedata pid="32" name="&quot;I wanted to say hello&quot;" tags="" position="1775,1450" size="100,100">(set:$time to $time + 1)
 &quot;That&#39;s it? Your going to be late, get back out there!&quot;
 
-[[Go back outside]]</tw-passagedata><tw-passagedata pid="36" name="&quot;I don&#39;t... remember how to get to her office&quot;" tags="" position="1525,1300" size="100,100">(set:$time to $time + 1)
+[[Go back outside]]</tw-passagedata><tw-passagedata pid="33" name="&quot;I don&#39;t... remember how to get to her office&quot;" tags="" position="1525,1300" size="100,100">(set:$time to $time + 1)
 &quot;Ah! You don&#39;t remember? How can that be...&quot; He turns, picking up a piece of chalk. He starts calculating something far above your level of math.
 
 [[Go back outside]]
-[[Wait-&gt;MemoryLostWait]]</tw-passagedata><tw-passagedata pid="37" name="Go back outside" tags="" position="1650,1600" size="100,100">(set:$time to $time + 1)
+[[Wait-&gt;MemoryLostWait]]</tw-passagedata><tw-passagedata pid="34" name="Go back outside" tags="" position="1650,1600" size="100,100">(set:$time to $time + 1)
 You stand in a hallway. Behind you is the Professor&#39;s Office, and the hallway splits off to your right and left, as well as continuing straight ahead.
 
 //It would not be wise to be tardy.//
@@ -144,41 +132,41 @@ You stand in a hallway. Behind you is the Professor&#39;s Office, and the hallwa
 [[Go right]]
 [[Go left]]
 [[Keep going straight]]
-[[Go back to the Professor]]</tw-passagedata><tw-passagedata pid="38" name="MemoryLostWait" tags="" position="1525,1150" size="100,100">(set:$time to $time + 5)
+[[Go back to the Professor]]</tw-passagedata><tw-passagedata pid="35" name="MemoryLostWait" tags="" position="1525,1150" size="100,100">(set:$time to $time + 5)
 You wait patiently for the professor to finish whatever he&#39;s doing.
 He turns to you &quot;How many times have you jumped by now?&quot;
 
 [[&quot;Just the test run&quot;]]
 [[&quot;A couple times&quot;]]
-[[&quot;Too many&quot;]]</tw-passagedata><tw-passagedata pid="39" name="&quot;Just the test run&quot;" tags="" position="1375,1025" size="100,100">&quot;Ah! Really? Hmm...&quot;
+[[&quot;Too many&quot;]]</tw-passagedata><tw-passagedata pid="36" name="&quot;Just the test run&quot;" tags="" position="1375,1025" size="100,100">&quot;Ah! Really? Hmm...&quot;
 
-[[Wait-&gt;MemoryLostWait2]]</tw-passagedata><tw-passagedata pid="40" name="&quot;A couple times&quot;" tags="" position="1525,1025" size="100,100">&quot;Ah! Okay...&quot;
+[[Wait-&gt;MemoryLostWait2]]</tw-passagedata><tw-passagedata pid="37" name="&quot;A couple times&quot;" tags="" position="1525,1025" size="100,100">&quot;Ah! Okay...&quot;
 
-[[Wait-&gt;MemoryLostWait2]]</tw-passagedata><tw-passagedata pid="41" name="&quot;Too many&quot;" tags="" position="1675,1025" size="100,100">&quot;Ah! Really? Did you make a Vertical JUMP back here? Hmm...&quot;
+[[Wait-&gt;MemoryLostWait2]]</tw-passagedata><tw-passagedata pid="38" name="&quot;Too many&quot;" tags="" position="1675,1025" size="100,100">&quot;Ah! Really? Did you make a Vertical JUMP back here? Hmm...&quot;
 
-[[Wait-&gt;MemoryLostWait2]]</tw-passagedata><tw-passagedata pid="42" name="MemoryLostWait2" tags="" position="1525,875" size="100,100">(set:$time to $time + 5)
+[[Wait-&gt;MemoryLostWait2]]</tw-passagedata><tw-passagedata pid="39" name="MemoryLostWait2" tags="" position="1525,875" size="100,100">(set:$time to $time + 5)
 You watch him scribble some more on the chalkboard. Finally, he turns to you.
 &quot;Ah! It&#39;s possible you lost some of your memories from jumping, which is concerning... But not to worry! I can tell you where her office is.
 
 [[&quot;Thanks&quot;]]
-[[&quot;Back up, memory loss?&quot;]]</tw-passagedata><tw-passagedata pid="43" name="&quot;Thanks&quot;" tags="" position="1650,750" size="200,100">&quot;You&#39;ll want to make two lefts, then a right, then go straight twice. Although you&#39;ll probably be way late by now...&quot;
+[[&quot;Back up, memory loss?&quot;]]</tw-passagedata><tw-passagedata pid="40" name="&quot;Thanks&quot;" tags="" position="1650,750" size="200,100">&quot;You&#39;ll want to make two lefts, then a right, then go straight twice. Although you&#39;ll probably be way late by now...&quot;
 
-[[&quot;Thanks&quot;-&gt;Go back outside]] </tw-passagedata><tw-passagedata pid="44" name="&quot;Back up, memory loss?&quot;" tags="" position="1400,750" size="100,100">&quot;Yeah, I&#39;m not sure why or how it&#39;s happening or how to mitigate it. Well, hopefully you won&#39;t lose forget anything important!&quot;
+[[&quot;Thanks&quot;-&gt;Go back outside]] </tw-passagedata><tw-passagedata pid="41" name="&quot;Back up, memory loss?&quot;" tags="" position="1400,750" size="100,100">&quot;Yeah, I&#39;m not sure why or how it&#39;s happening or how to mitigate it. Well, hopefully you won&#39;t lose forget anything important!&quot;
 
-[[&quot;Great...-&gt;&quot;Thanks&quot;]]</tw-passagedata><tw-passagedata pid="45" name="WalkingAroundMaze" tags="" position="1375,1875" size="100,100">The hallway splits off to your right and left, as well as continuing straight ahead.
+[[&quot;Great...-&gt;&quot;Thanks&quot;]]</tw-passagedata><tw-passagedata pid="42" name="WalkingAroundMaze" tags="" position="1375,1875" size="100,100">The hallway splits off to your right and left, as well as continuing straight ahead.
 
 (if:$time &gt; 6)[//You&#39;re definitely late...//](else:)[//It would not be wise to be tardy.//]
 
 [[Go right]]
 [[Go left]]
-[[Keep going straight]]</tw-passagedata><tw-passagedata pid="46" name="FoundIt" tags="" position="1375,2000" size="100,100">You finally find the General&#39;s office.
+[[Keep going straight]]</tw-passagedata><tw-passagedata pid="43" name="FoundIt" tags="" position="1375,2000" size="100,100">You finally find the General&#39;s office.
 
 (if:$time is &gt; 6)[//You&#39;re pretty late...//
 
 [[Go in-&gt;You&#39;re Late]] ]
-(else:)[[Go in-&gt;Mistress]]</tw-passagedata><tw-passagedata pid="47" name="You&#39;re Late" tags="" position="2100,2000" size="100,100">You try to turn the door knob, but it appears to be locked. Perhaps she already left? In your hand, the device clearly states &#39;&#39;You&#39;re Late&#39;&#39;.
+(else:)[[Go in-&gt;Mistress]]</tw-passagedata><tw-passagedata pid="44" name="You&#39;re Late" tags="" position="2100,2000" size="100,100">You try to turn the door knob, but it appears to be locked. Perhaps she already left? In your hand, the device clearly states &#39;&#39;You&#39;re Late&#39;&#39;.
 
-What now?</tw-passagedata><tw-passagedata pid="48" name="Mistress" tags="" position="1375,2125" size="100,100">You head in...
+What now? Could you regain the time you wasted somehow?</tw-passagedata><tw-passagedata pid="45" name="Mistress" tags="" position="1375,2125" size="100,100">You head in...
 
 The General&#39;s office is lavishly furnished. Her antique desk is the centerpeice of the room, but the ornate couches and table are also pretty impressive. Various trinkets, decorations, and knick knacks clutter the walls, table, and her desk. The wall furthest form you is made of glass, which you know to be a two-way mirror, that looks out onto the BASE&#39;s underground hangar, where the various vehicles and aricraft of the organization are stored.
 
@@ -191,27 +179,27 @@ She hasn&#39;t acknowledged your entrance yet. In your hand, the $device carries
 [[Respectfully wait]]
 [[Cough slightly]]
 [[Walk up behind her]]
-[[Yell &quot;Boo&quot;]]</tw-passagedata><tw-passagedata pid="49" name="Respectfully wait" tags="" position="1200,2125" size="100,100">You stand there, waiting for her to turn around and notice you.
+[[Yell &quot;Boo&quot;]]</tw-passagedata><tw-passagedata pid="46" name="Respectfully wait" tags="" position="1200,2125" size="100,100">You stand there, waiting for her to turn around and notice you.
 
 [[Continue to wait]]
 [[Cough slightly]]
 [[Walk up behind her]]
-[[Yell &quot;Boo&quot;]]</tw-passagedata><tw-passagedata pid="50" name="Cough slightly" tags="" position="1300,2275" size="100,100">&quot;Eh-em&quot; you cough slightly. She turns &quot;Oh! Agent. There you are. I need to debrief you for your next mission.&quot;
+[[Yell &quot;Boo&quot;]]</tw-passagedata><tw-passagedata pid="47" name="Cough slightly" tags="" position="1300,2275" size="100,100">&quot;Eh-em&quot; you cough slightly. She turns &quot;Oh! Agent. There you are. I need to debrief you for your next mission.&quot;
 
-[[&quot;Okay&quot;-&gt;Debrief]]</tw-passagedata><tw-passagedata pid="51" name="Walk up behind her" tags="" position="1450,2275" size="100,100">You start to walk up behind her, but before you get too close she turns around and notices your approach.
+[[&quot;Okay&quot;-&gt;Debrief]]</tw-passagedata><tw-passagedata pid="48" name="Walk up behind her" tags="" position="1450,2275" size="100,100">You start to walk up behind her, but before you get too close she turns around and notices your approach.
 &quot;Oh! Agent. When did you get here? You should&#39;ve said something.&quot;
 
-[[&quot;Sorry&quot;-&gt;Debrief]]</tw-passagedata><tw-passagedata pid="52" name="Yell &quot;Boo&quot;" tags="" position="1600,2275" size="100,100">&quot;Boo!&quot;
+[[&quot;Sorry&quot;-&gt;Debrief]]</tw-passagedata><tw-passagedata pid="49" name="Yell &quot;Boo&quot;" tags="" position="1600,2275" size="100,100">&quot;Boo!&quot;
 She jumps, and turns around, and she visibily softens when she sees you.
 &quot;Jesus, Agent! What was that for? Nearly give me a heart attack.&quot;
 
-[[&quot;Sorry&quot;-&gt;Debrief]]</tw-passagedata><tw-passagedata pid="53" name="Continue to wait" tags="" position="1150,2275" size="100,100">She turns around, and jumps a little bit. &quot;Oh! Agent. When did you get here? You should&#39;ve said something.&quot;
+[[&quot;Sorry&quot;-&gt;Debrief]]</tw-passagedata><tw-passagedata pid="50" name="Continue to wait" tags="" position="1150,2275" size="100,100">She turns around, and jumps a little bit. &quot;Oh! Agent. When did you get here? You should&#39;ve said something.&quot;
 
-[[&quot;Sorry&quot;-&gt;Debrief]]</tw-passagedata><tw-passagedata pid="54" name="Debrief" tags="" position="1375,2425" size="100,100">&quot;Alright, so about your upcoming mission. Do you remember when you fought Dr. Edwick, some six years back?&quot;
+[[&quot;Sorry&quot;-&gt;Debrief]]</tw-passagedata><tw-passagedata pid="51" name="Debrief" tags="" position="1375,2426" size="100,100">&quot;Alright, so about your upcoming mission. Do you remember when you fought Dr. Edwick, some six years back?&quot;
 
 [[&quot;He tried to launch a nuke, right?&quot;]]
 [[&quot;He tried to kill the President, right?&quot;-&gt;&quot;He tried to launch a nuke, right?&quot;]]
-[[&quot;He tried to kidnap and marry you, right?&quot;]]</tw-passagedata><tw-passagedata pid="55" name="Success" tags="no-header" position="375,850" size="100,100">You feel your mind slip away from your body, as your vision fades away.
+[[&quot;He tried to kidnap and marry you, right?&quot;]]</tw-passagedata><tw-passagedata pid="52" name="Success" tags="no-header" position="375,850" size="100,100">You feel your mind slip away from your body, as your vision fades away.
 
 After a moment, you feel a jolt as you come to in the new place and time.
 (if:(save-game:&quot;Slot A&quot;))[
@@ -220,8 +208,9 @@ After a moment, you feel a jolt as you come to in the new place and time.
    //There was a problem, and your game has &#39;&#39;not&#39;&#39; been saved.//
   ]
 
+[[Close the $device-&gt;Travel]]
 
-[[Close the $device-&gt;Travel]]</tw-passagedata><tw-passagedata pid="56" name="CONTINUE" tags="no-header" position="375,700" size="100,100">(if:$jump is &quot;Tutorial&quot;)[(go-to: &quot;Success&quot;)]
+(set:$armed to false)</tw-passagedata><tw-passagedata pid="53" name="CONTINUE" tags="no-header" position="375,700" size="100,100">(if:$jump is &quot;Tutorial&quot;)[(go-to: &quot;Success&quot;)]
 (if:$jump is &quot;Test Run&quot;)[(go-to: &quot;Success&quot;)]
 (if:$jump is &quot;Christening&quot;)[(go-to: &quot;Success&quot;)]
 (if:$jump is &quot;Maze&quot;)[(go-to: &quot;Success&quot;)]
@@ -232,45 +221,49 @@ After a moment, you feel a jolt as you come to in the new place and time.
 (if:$jump is &quot;Chit-Chat&quot;)[(go-to: &quot;Success&quot;)]
 (if:$jump is &quot;DIVE&quot;)[(go-to: &quot;Success&quot;)]
 (if:$jump is &quot;Call&quot;)[(go-to: &quot;Success&quot;)]
-(else:[(go-to:&quot;Failure&quot;)]</tw-passagedata><tw-passagedata pid="57" name="Failure" tags="no-header" position="225,700" size="100,100">Nothing seems to happen. Maybe you typed it in wrong?
+(if:$jump is &quot;Choices&quot;)[(go-to: &quot;Success&quot;)]
+(if:$jump is &quot;Caged&quot;)[(go-to: &quot;Success&quot;)]
+(if:$jump is &quot;Shot&quot;)[(go-to: &quot;Success&quot;)]
+(if:$jump is &quot;Unscathed&quot;)[(go-to: &quot;Success&quot;)]
+(else:[(go-to:&quot;Failure&quot;)]</tw-passagedata><tw-passagedata pid="54" name="Failure" tags="no-header" position="225,700" size="100,100">Nothing seems to happen. Maybe you typed it in wrong?
 
-[[Close $device-&gt;Return]]</tw-passagedata><tw-passagedata pid="58" name="Return" tags="no-header" position="225,850" size="100,100">(go-to:$cur)</tw-passagedata><tw-passagedata pid="59" name="Travel" tags="no-header" position="375,1000" size="100,100">(go-to:$jump)</tw-passagedata><tw-passagedata pid="60" name="&quot;Just kidding, I forgot what it said.&quot;" tags="" position="825,2050" size="100,100">&quot;It was &#39;&#39;Tutorial&#39;&#39;. Make sure to write it down every time you see a key word, or you might end up stuck in a unfavorable place in time.&quot;</tw-passagedata><tw-passagedata pid="61" name="&quot;He tried to launch a nuke, right?&quot;" tags="" position="1225,2575" size="100,100">&quot;That&#39;s right, he was going to nuke DC with Russian bomb, to frame Russia and start a third World War. Luckily, you stopped him before he could launch them.&quot;
+[[Close $device-&gt;Return]]</tw-passagedata><tw-passagedata pid="55" name="Return" tags="no-header" position="225,850" size="100,100">(go-to:$cur)</tw-passagedata><tw-passagedata pid="56" name="Travel" tags="no-header" position="375,1000" size="100,100">(go-to:$jump)</tw-passagedata><tw-passagedata pid="57" name="&quot;Just kidding, I forgot what it said.&quot;" tags="" position="825,2050" size="100,100">&quot;It was &#39;&#39;Tutorial&#39;&#39;. Make sure to write it down every time you see a key word, or you might end up stuck in a unfavorable place in time.&quot;</tw-passagedata><tw-passagedata pid="58" name="&quot;He tried to launch a nuke, right?&quot;" tags="" position="1225,2575" size="100,100">&quot;That&#39;s right, he was going to nuke DC with Russian bomb, to frame Russia and start a third World War. Luckily, you stopped him before he could launch them.&quot;
 
 [[&quot;I was a hero.&quot;]]
-[[&quot;What&#39;s he up to now?&quot;]]</tw-passagedata><tw-passagedata pid="62" name="&quot;He tried to kidnap and marry you, right?&quot;" tags="" position="1525,2575" size="100,100">&quot;What? Are you feeling alright, Agent? Now&#39;s not the time for jokes.&quot;
+[[&quot;What&#39;s he up to now?&quot;]]</tw-passagedata><tw-passagedata pid="59" name="&quot;He tried to kidnap and marry you, right?&quot;" tags="" position="1525,2575" size="100,100">&quot;What? Are you feeling alright, Agent? Now&#39;s not the time for jokes.&quot;
 
 [[&quot;I&#39;m fine, what did he do?&quot;]]
 [[&quot;The Professor made this wierd device...&quot;]]
-[[&quot;No, I remember it clearly. I saved you from his clutches...&quot;]]</tw-passagedata><tw-passagedata pid="63" name="&quot;I&#39;m fine, what did he do?&quot;" tags="" position="1375,2725" size="100,100">&quot;Hmm. Well, he was going to nuke DC with Russian bomb, to frame Russia and start a third World War. Luckily, you stopped him before he could launch them.&quot;
+[[&quot;No, I remember it clearly. I saved you from his clutches...&quot;]]</tw-passagedata><tw-passagedata pid="60" name="&quot;I&#39;m fine, what did he do?&quot;" tags="" position="1375,2725" size="100,100">&quot;Hmm. Well, he was going to nuke DC with Russian bomb, to frame Russia and start a third World War. Luckily, you stopped him before he could launch them.&quot;
 
 [[&quot;I was a hero.&quot;]]
-[[&quot;What&#39;s he up to now?&quot;]]</tw-passagedata><tw-passagedata pid="64" name="&quot;The Professor made this wierd device...&quot;" tags="" position="1525,2825" size="100,100">&quot;Device? Oh, that&#39;s right. The time travel one. Yeah, you&#39;ll probably need to to use it for this mission.&quot;
+[[&quot;What&#39;s he up to now?&quot;]]</tw-passagedata><tw-passagedata pid="61" name="&quot;The Professor made this wierd device...&quot;" tags="" position="1525,2825" size="100,100">&quot;Device? Oh, that&#39;s right. The time travel one. Yeah, you&#39;ll probably need to to use it for this mission.&quot;
 
 [[&quot;I&#39;m prepared to. What&#39;s the mission?&quot;-&gt;&quot;What&#39;s he up to now?&quot;]]
-[[&quot;He said it was messing with my memories...&quot;]]</tw-passagedata><tw-passagedata pid="65" name="&quot;No, I remember it clearly. I saved you from his clutches...&quot;" tags="" position="1675,2725" size="100,100">&quot;I assure you, nothing like that happened.&quot;
+[[&quot;He said it was messing with my memories...&quot;]]</tw-passagedata><tw-passagedata pid="62" name="&quot;No, I remember it clearly. I saved you from his clutches...&quot;" tags="" position="1675,2725" size="100,100">&quot;I assure you, nothing like that happened.&quot;
 
 [[&quot;Just kidding, what did this Doctor actually do?&quot;-&gt;&quot;I&#39;m fine, what did he do?&quot;]]
-[[&quot;...I brought you back to my apartment...&quot;]]</tw-passagedata><tw-passagedata pid="66" name="&quot;He said it was messing with my memories...&quot;" tags="" position="1525,2975" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="67" name="&quot;I was a hero.&quot;" tags="" position="1150,2725" size="100,100">&quot;Sure, I guess you could say that. As much of a hero as any of our top Agents.&quot;
+[[&quot;...I brought you back to my apartment...&quot;]]</tw-passagedata><tw-passagedata pid="63" name="&quot;He said it was messing with my memories...&quot;" tags="" position="1525,2975" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="64" name="&quot;I was a hero.&quot;" tags="" position="1150,2725" size="100,100">&quot;Sure, I guess you could say that. As much of a hero as any of our top Agents.&quot;
 
-[[&quot;What&#39;s he up to now?&quot;]]</tw-passagedata><tw-passagedata pid="68" name="&quot;What&#39;s he up to now?&quot;" tags="" position="1425,3100" size="100,100">&quot;Six days ago, the Doctor broke out of prison, and he went off our radar. Last night, Agent Barnes found what would appear to be his gang&#39;s hideout in New York City. BASE has decided that a solo stealth operation, would be the best plan to recapture him. I nominated you as being the best fit for the mission. Don&#39;t make me regret it, okay?&quot;
+[[&quot;What&#39;s he up to now?&quot;]]</tw-passagedata><tw-passagedata pid="65" name="&quot;What&#39;s he up to now?&quot;" tags="" position="1425,3100" size="100,100">&quot;Six days ago, the Doctor broke out of prison, and he went off our radar. Last night, Agent Barnes found what would appear to be his gang&#39;s hideout in New York City. BASE has decided that a solo stealth operation, would be the best plan to recapture him. I nominated you as being the best fit for the mission. Don&#39;t make me regret it, okay?&quot;
 
-[[&quot;Yes Ma&#39;am&quot;]]</tw-passagedata><tw-passagedata pid="69" name="&quot;...I brought you back to my apartment...&quot;" tags="" position="1675,2875" size="100,100">She seems to blush a little, angry and embarassed. &quot;Just what are you insinuating?&quot;
+[[&quot;Yes Ma&#39;am&quot;]]</tw-passagedata><tw-passagedata pid="66" name="&quot;...I brought you back to my apartment...&quot;" tags="" position="1675,2875" size="100,100">She seems to blush a little, angry and embarassed. &quot;Just what are you insinuating?&quot;
 
 [[&quot;I&#39;m just playin&#39; around.&quot;]]
-[[&quot;...and we made love &#39;til the sun came out&quot;]]</tw-passagedata><tw-passagedata pid="70" name="&quot;I&#39;m just playin&#39; around.&quot;" tags="" position="1675,3000" size="100,100">&quot;That&#39;s incredibly inappropirate conduct for an Agent of your stature.&quot;
+[[&quot;...and we made love &#39;til the sun came out&quot;]]</tw-passagedata><tw-passagedata pid="67" name="&quot;I&#39;m just playin&#39; around.&quot;" tags="" position="1675,3000" size="100,100">&quot;That&#39;s incredibly inappropirate conduct for an Agent of your stature.&quot;
 
-[[&quot;Sorry, what&#39;s the mission about?&quot;-&gt;&quot;What&#39;s he up to now?&quot;]]</tw-passagedata><tw-passagedata pid="71" name="&quot;...and we made love &#39;til the sun came out&quot;" tags="" position="1800,2875" size="100,100">She slaps you across the face, and kicks you out of her office, locking the door behind you.
+[[&quot;Sorry, what&#39;s the mission about?&quot;-&gt;&quot;What&#39;s he up to now?&quot;]]</tw-passagedata><tw-passagedata pid="68" name="&quot;...and we made love &#39;til the sun came out&quot;" tags="" position="1800,2875" size="100,100">She slaps you across the face, and kicks you out of her office, locking the door behind you.
 
-[[Continue-&gt;Harassment]]</tw-passagedata><tw-passagedata pid="72" name="Harassment" tags="" position="2100,2875" size="100,100">Well, you&#39;re not sure what you expected. Or, maybe there was a good reason for your actions? Regardless, the $device shows the word &#39;&#39;Harassment&#39;&#39;.</tw-passagedata><tw-passagedata pid="73" name="Doomed" tags="" position="1025,2275" size="100,100">You exit the Professor&#39;s office, the $device in hand. You flip it open (noticing the screen displaying &#39;&#39;Doomed&#39;&#39;) Is this truly a doomed timeline? Can it not be salvaged? There is one way to find out.
+[[Continue-&gt;Harassment]]</tw-passagedata><tw-passagedata pid="69" name="Harassment" tags="" position="2100,2875" size="100,100">Well, you&#39;re not sure what you expected. Or, maybe there was a good reason for your actions? Regardless, the $device shows the word &#39;&#39;Harassment&#39;&#39;.</tw-passagedata><tw-passagedata pid="70" name="Doomed" tags="" position="1025,2275" size="100,100">You exit the Professor&#39;s office, the $device in hand. You flip it open (noticing the screen displaying &#39;&#39;Doomed&#39;&#39;) Is this truly a doomed timeline? Can it not be salvaged? There is one way to find out.
 
-[[Head to the General&#39;s office]]</tw-passagedata><tw-passagedata pid="74" name="&quot;Yes Ma&#39;am&quot;" tags="" position="1425,3225" size="100,100">&quot;Good luck Agent. Agent Barnes should be arriving at my office momentarily, then you two will Dive to the hideout. I have a meeting with the higher-ups, so I can&#39;t accompany you.&quot;
+[[Head to the General&#39;s office]]</tw-passagedata><tw-passagedata pid="71" name="&quot;Yes Ma&#39;am&quot;" tags="" position="1425,3225" size="100,100">&quot;Good luck Agent. Agent Barnes should be arriving at my office momentarily, then you two will Dive to the hideout. I have a meeting with the higher-ups, so I can&#39;t accompany you.&quot;
 
-[[Wait-&gt;WaitDebrief]]</tw-passagedata><tw-passagedata pid="75" name="WaitDebrief" tags="" position="1425,3350" size="100,100">You wait for a minute or two making small talk witht the General before Barnes arrives. You turn around as the door opens, and Barnes greets you with a big grin.
+[[Wait-&gt;WaitDebrief]]</tw-passagedata><tw-passagedata pid="72" name="WaitDebrief" tags="" position="1425,3350" size="100,100">You wait for a minute or two making small talk witht the General before Barnes arrives. You turn around as the door opens, and Barnes greets you with a big grin.
 
 &quot;General. You ready, Agent?&quot;
 
 [[&quot;Let&#39;s go&quot;-&gt;Chit-Chat]]
-[[(to the General) &quot;I&#39;ll see you tonight?&quot; (flirtacious)-&gt;tonight?]]</tw-passagedata><tw-passagedata pid="76" name="Chit-Chat" tags="" position="1425,3475" size="100,100">You head out with Barnes.
+[[(to the General) &quot;I&#39;ll see you tonight?&quot; (flirtacious)-&gt;tonight?]]</tw-passagedata><tw-passagedata pid="73" name="Chit-Chat" tags="" position="1425,3475" size="100,100">You head out with Barnes.
 
 Barnes is a fairly pleasant fellow. A bit green behind his ears, but a good guy all around. He stands roughly equal to your own height, and has short, brown hair.
 
@@ -285,100 +278,186 @@ You have a bit of time to talk to Barnes. What do you talk about?
 [[&quot;What do you think of the Doctor?&quot;]]
 [[&quot;How is BASE set up?&quot;]]
 [[&quot;What&#39;s upper management in BASE look like, besides the General?&quot;]]
-[[&quot;You scared?&quot;]]</tw-passagedata><tw-passagedata pid="77" name="tonight?" tags="" position="1550,3350" size="100,100">&quot;Get out of here.&quot;
+[[&quot;You scared?&quot;]]</tw-passagedata><tw-passagedata pid="74" name="tonight?" tags="" position="1550,3350" size="100,100">&quot;Get out of here.&quot;
 
-[[&quot;Let&#39;s go&quot;-&gt;Chit-Chat]]</tw-passagedata><tw-passagedata pid="78" name="&quot;How&#39;s the family?&quot;" tags="" position="900,3625" size="100,100">&quot;You know how it is. The lady has the kids for the week, but I&#39;ll be seeing them this weekend.&quot; He sighs despondently. &quot;But they&#39;re doing good. Jeremy started elementary school last week.&quot;
+[[&quot;Let&#39;s go&quot;-&gt;Chit-Chat]]</tw-passagedata><tw-passagedata pid="75" name="&quot;How&#39;s the family?&quot;" tags="" position="900,3625" size="100,100">&quot;You know how it is. The lady has the kids for the week, but I&#39;ll be seeing them this weekend.&quot; He sighs despondently. &quot;But they&#39;re doing good. Jeremy started elementary school last week.&quot;
 
 [[&quot;You&#39;re divorced?&quot;]]
-[[&quot;That&#39;s good to hear.&quot;]]</tw-passagedata><tw-passagedata pid="79" name="&quot;What do you think of the General?&quot;" tags="" position="1050,3625" size="100,100">&quot;She&#39;s quite a woman, ain&#39;t she? I&#39;d be lying if I said I didn&#39;t want to date her.&quot;
+[[&quot;That&#39;s good to hear.&quot;]]</tw-passagedata><tw-passagedata pid="76" name="&quot;What do you think of the General?&quot;" tags="" position="1050,3625" size="100,100">&quot;She&#39;s quite a woman, ain&#39;t she? I&#39;d be lying if I said I didn&#39;t want to date her.&quot;
 
 [[&quot;She is.&quot;-&gt;DIVE]]
-[[&quot;What&#39;s her name? I only ever hear people calling her &#39;the General.&#39;&quot;-&gt;&quot;What&#39;s her name?&quot;]]</tw-passagedata><tw-passagedata pid="80" name="&quot;What do you think of the Professor?&quot;" tags="" position="1200,3625" size="100,100">&quot;He&#39;s rather smart, ain&#39;t he? He is the head of the development division, the ones responsible for all of our bleeding-edge tech.&quot;
+[[&quot;What&#39;s her name? I only ever hear people calling her &#39;the General.&#39;&quot;-&gt;&quot;What&#39;s her name?&quot;]]</tw-passagedata><tw-passagedata pid="77" name="&quot;What do you think of the Professor?&quot;" tags="" position="1200,3625" size="100,100">&quot;He&#39;s rather smart, ain&#39;t he? He is the head of the development division, the ones responsible for all of our bleeding-edge tech.&quot;
 
 [[&quot;He made me this device...&quot;]]
-[[&quot;He sure is.&quot;-&gt;DIVE]]</tw-passagedata><tw-passagedata pid="81" name="&quot;What do you think of me?&quot;" tags="" position="1350,3625" size="100,100">&quot;You? Well, I think you&#39;re a fine Agent. BASE is lucky to have you.&quot;
+[[&quot;He sure is.&quot;-&gt;DIVE]]</tw-passagedata><tw-passagedata pid="78" name="&quot;What do you think of me?&quot;" tags="" position="1350,3625" size="100,100">&quot;You? Well, I think you&#39;re a fine Agent. BASE is lucky to have you.&quot;
 
-[[&quot;Thanks&quot;-&gt;DIVE]]</tw-passagedata><tw-passagedata pid="82" name="&quot;What do you think of the Doctor?&quot;" tags="" position="1500,3625" size="100,100">&quot;He&#39;s downright evil, that&#39;s for sure. I wonder why...? Anyway, we&#39;ll take him down today, for sure.&quot;
+[[&quot;Thanks&quot;-&gt;DIVE]]</tw-passagedata><tw-passagedata pid="79" name="&quot;What do you think of the Doctor?&quot;" tags="" position="1500,3625" size="100,100">&quot;He&#39;s downright evil, that&#39;s for sure. I wonder why...? Anyway, we&#39;ll take him down today, for sure.&quot;
 
-[[&quot;Let&#39;s do it.&quot;-&gt;DIVE]]</tw-passagedata><tw-passagedata pid="83" name="&quot;How is BASE set up?&quot;" tags="" position="1650,3625" size="100,100">&quot;BASE? Surely you should already know? You&#39;ve been working here several years longer than I.&quot;
+[[&quot;Let&#39;s do it.&quot;-&gt;DIVE]]</tw-passagedata><tw-passagedata pid="80" name="&quot;How is BASE set up?&quot;" tags="" position="1650,3625" size="100,100">&quot;BASE? Surely you should already know? You&#39;ve been working here several years longer than I.&quot;
 
-[[&quot;Can&#39;t seem to remember...&quot;-&gt;CRBASE]]</tw-passagedata><tw-passagedata pid="84" name="&quot;What&#39;s upper management in BASE look like, besides the General?&quot;" tags="" position="1800,3625" size="100,100">&quot;BASE? Surely you should already know? You&#39;ve been working here several years longer than I.&quot;
+[[&quot;Can&#39;t seem to remember...&quot;-&gt;CRBASE]]</tw-passagedata><tw-passagedata pid="81" name="&quot;What&#39;s upper management in BASE look like, besides the General?&quot;" tags="" position="1800,3625" size="100,100">&quot;BASE? Surely you should already know? You&#39;ve been working here several years longer than I.&quot;
 
-[[&quot;Can&#39;t seem to remember...&quot;-&gt;CRPeople]]</tw-passagedata><tw-passagedata pid="85" name="&quot;You scared?&quot;" tags="" position="1950,3625" size="100,100">&quot;A little, to be honest. But you&#39;re going to be doing all the hard work, so why should I be?&quot; He gives you a friendly slap on the back.
+[[&quot;Can&#39;t seem to remember...&quot;-&gt;CRPeople]]</tw-passagedata><tw-passagedata pid="82" name="&quot;You scared?&quot;" tags="" position="1950,3625" size="100,100">&quot;A little, to be honest. But you&#39;re going to be doing all the hard work, so why should I be?&quot; He gives you a friendly slap on the back.
 
-[[&quot;Thanks...&quot;-&gt;DIVE]]</tw-passagedata><tw-passagedata pid="86" name="&quot;You&#39;re divorced?&quot;" tags="" position="750,3625" size="100,100">&quot;Yeah, I thought I told you? The lady and I have been seperated for about a year now. It was for the best.]]
+[[&quot;Thanks...&quot;-&gt;DIVE]]</tw-passagedata><tw-passagedata pid="83" name="&quot;You&#39;re divorced?&quot;" tags="" position="750,3625" size="100,100">&quot;Yeah, I thought I told you? The lady and I have been seperated for about a year now. It was for the best.]]
 
-[[&quot;That&#39;s too bad.&quot;-&gt;&quot;That&#39;s good to hear.&quot;]]</tw-passagedata><tw-passagedata pid="87" name="&quot;That&#39;s good to hear.&quot;" tags="" position="750,3775" size="100,100">&quot;Yep... What about you? Got your eye on anyone special?&quot;
+[[&quot;That&#39;s too bad.&quot;-&gt;&quot;That&#39;s good to hear.&quot;]]</tw-passagedata><tw-passagedata pid="84" name="&quot;That&#39;s good to hear.&quot;" tags="" position="750,3775" size="100,100">&quot;Yep... What about you? Got your eye on anyone special?&quot;
 
 [[&quot;There&#39;s this woman...&quot;]]
 [[&quot;There&#39;s this guy...&quot;-&gt;&quot;There&#39;s this woman...&quot;]]
 [[&quot;There&#39;s the General...&quot;]]
-[[&quot;No one...&quot;]]</tw-passagedata><tw-passagedata pid="88" name="&quot;There&#39;s this woman...&quot;" tags="" position="575,3650" size="100,100">&quot;Yeah? Well, good luck with that.&quot;
+[[&quot;No one...&quot;]]</tw-passagedata><tw-passagedata pid="85" name="&quot;There&#39;s this woman...&quot;" tags="" position="575,3650" size="100,100">&quot;Yeah? Well, good luck with that.&quot;
 
-[[Thanks.-&gt;DIVE]]</tw-passagedata><tw-passagedata pid="89" name="&quot;There&#39;s the General...&quot;" tags="" position="575,3775" size="100,100">&quot;Yeah, you and me both. Keep dreaming buddy.&quot;
+[[Thanks.-&gt;DIVE]]</tw-passagedata><tw-passagedata pid="86" name="&quot;There&#39;s the General...&quot;" tags="" position="575,3775" size="100,100">&quot;Yeah, you and me both. Keep dreaming buddy.&quot;
 
-[[&quot;Thanks&quot;-&gt;DIVE]] </tw-passagedata><tw-passagedata pid="90" name="&quot;No one...&quot;" tags="" position="575,3900" size="100,100">&quot;Well, I&#39;m sure you&#39;ll find a special someone soon.&quot;
+[[&quot;Thanks&quot;-&gt;DIVE]] </tw-passagedata><tw-passagedata pid="87" name="&quot;No one...&quot;" tags="" position="575,3900" size="100,100">&quot;Well, I&#39;m sure you&#39;ll find a special someone soon.&quot;
 
-[[&quot;Thanks&quot;-&gt;DIVE]]</tw-passagedata><tw-passagedata pid="91" name="DIVE" tags="" position="1425,4200" size="100,100">&quot;Ah, here we are.&quot;
+[[&quot;Thanks&quot;-&gt;DIVE]]</tw-passagedata><tw-passagedata pid="88" name="DIVE" tags="" position="1425,4200" size="100,100">&quot;Ah, here we are.&quot;
 In front of the two of you is a large blast door, with a keycard-reader on the right side. He scans his ID, and the doos open up.
 
 Inside, the true size of the hangar becomes apparent. Many different kinds of vehicles, from fighter jets to flying cars to four-wheelers. Many junior Agents are milling around, repairing and upgrading various vehicles and other equipment. In your hand, the $device displays &#39;&#39;DIVE&#39;&#39;.
 
 &quot;Here we go.&quot; Barnes starts walking towards the left wall, where a row of human-sized capsules are lined up. &quot;We&#39;ll be in range in moments.&quot;
 
-[[Follow him]]</tw-passagedata><tw-passagedata pid="92" name="&quot;What&#39;s her name?&quot;" tags="" position="1050,3900" size="100,100">&quot;It&#39;s one of here closely guarded secrets, for some reason. Maybe she has a wierd name, or one unbefitting of her lofty position?&quot;
+[[Follow him]]</tw-passagedata><tw-passagedata pid="89" name="&quot;What&#39;s her name?&quot;" tags="" position="1050,3775" size="100,100">&quot;It&#39;s one of here closely guarded secrets, for some reason. Maybe she has a wierd name, or one unbefitting of her lofty position?&quot;
 
-[[&quot;Hmm.&quot;-&gt;DIVE]]</tw-passagedata><tw-passagedata pid="93" name="&quot;He made me this device...&quot;" tags="" position="1200,3775" size="100,100">&quot;Interesting, sounds like it could be useful for the mission.&quot;
+[[&quot;Hmm.&quot;-&gt;DIVE]]</tw-passagedata><tw-passagedata pid="90" name="&quot;He made me this device...&quot;" tags="" position="1200,3775" size="100,100">&quot;Interesting, sounds like it could be useful for the mission.&quot;
 
-[[&quot;Here&#39;s hoping.&quot;-&gt;DIVE]]</tw-passagedata><tw-passagedata pid="94" name="CRBASE" tags="" position="1650,3775" size="100,100">&quot;Well, there&#39;s a map on the wall right there.&quot; he points.
+[[&quot;Here&#39;s hoping.&quot;-&gt;DIVE]]</tw-passagedata><tw-passagedata pid="91" name="CRBASE" tags="" position="1650,3775" size="100,100">&quot;Well, there&#39;s a map on the wall right there.&quot; he points.
 After looking it over, you&#39;re fairly confident you could go to any particular room you wish. (set: $map to true)
 
-[[&quot;Thanks.&quot;-&gt;DIVE]]</tw-passagedata><tw-passagedata pid="95" name="CRPeople" tags="" position="1800,3775" size="100,100">&quot;Well, if you don&#39;t know them then I surely don&#39;t.&quot;
+[[&quot;Thanks.&quot;-&gt;DIVE]]</tw-passagedata><tw-passagedata pid="92" name="CRPeople" tags="" position="1800,3775" size="100,100">&quot;Well, if you don&#39;t know them then I surely don&#39;t.&quot;
 
-[[&quot;Oh well.&quot;-&gt;DIVE]]</tw-passagedata><tw-passagedata pid="96" name="Title" tags="no-header" position="900,200" size="100,100">
+[[&quot;Oh well.&quot;-&gt;DIVE]]</tw-passagedata><tw-passagedata pid="93" name="Title" tags="no-header" position="900,200" size="100,100">
 =&gt;&lt;=
 (text-style:&quot;bold&quot;,&quot;smear&quot;,&quot;expand&quot;,)[MINDJUMP]
 
 [[NEW GAME-&gt;Start]]
-(link: &quot;LOAD GAME&quot;)[(load-game:&quot;Slot A&quot;)]</tw-passagedata><tw-passagedata pid="97" name="MazeMap" tags="" position="1175,1450" size="100,100">Back once again, but this time you know your way around. There&#39;s no possible way you could be late, if you go straight there.
+(link: &quot;LOAD GAME&quot;)[(load-game:&quot;Slot A&quot;)]</tw-passagedata><tw-passagedata pid="94" name="MazeMap" tags="" position="1175,1450" size="100,100">Back once again, but this time you know your way around. There&#39;s no possible way you could be late, if you go straight there.
 
 [[Go talk to the Professor-&gt;Go back to the Professor]]
-[[Go talk to the General-&gt;FoundIt]]</tw-passagedata><tw-passagedata pid="98" name="Follow him" tags="" position="1425,4350" size="100,100">He gets into the closest pod, and you step into the one next to his. The pod doors close, but it is made of transparent glass. Barnes signs to you, to push the red button on your left in 3... 2... 1...
+[[Go talk to the General-&gt;FoundIt]]</tw-passagedata><tw-passagedata pid="95" name="Follow him" tags="" position="1425,4350" size="100,100">He gets into the closest pod, and you step into the one next to his. The pod doors close, but it is made of transparent glass. Barnes signs to you, to push the red button on your left in 3... 2... 1...
 
-[[DIVE-&gt;divetime]]</tw-passagedata><tw-passagedata pid="99" name="divetime" tags="" position="1425,4500" size="100,100">You push the button, and you feel your body be sucked downward by a great force.
+[[DIVE-&gt;divetime]]</tw-passagedata><tw-passagedata pid="96" name="divetime" tags="" position="1425,4500" size="100,100">You push the button, and you feel your body be sucked downward by a great force.
 
 Before you know it, you&#39;re standing on the sidewalk of an abandoned corner of NYC.
 
-[[Get bearings]]</tw-passagedata><tw-passagedata pid="100" name="Get bearings" tags="" position="1425,4650" size="100,100">Up the street, it looks like the hideout, as the General described it to you. The building you&#39;re standing right next to appears to be an abandoned convenience store. In between the two buildings is a small alley.
+[[Get bearings]]</tw-passagedata><tw-passagedata pid="97" name="Get bearings" tags="" position="1425,4650" size="100,100">Up the street, it looks like the hideout, as the General described it to you. The building you&#39;re standing right next to appears to be an abandoned convenience store. In between the two buildings is a small alley.
 
 Barnes appears to be absent. Where could he have gone?
 
-[[Proceed with the Mission]]
-[[Call someone-&gt;Call]]</tw-passagedata><tw-passagedata pid="101" name="Proceed with the Mission" tags="" position="1100,4800" size="100,100">What&#39;s the plan?
-
+[[Proceed with the Mission-&gt;Choices]]
+[[Call someone-&gt;Call]]</tw-passagedata><tw-passagedata pid="98" name="Choices" tags="" position="1100,4800" size="100,100">How should you proceed with the mission? As you ponder this, you notice the $device in your hand carries the word &#39;&#39;Choices&#39;&#39;
 [[Go into the alley]]
-[[Go up to the front door]]</tw-passagedata><tw-passagedata pid="102" name="Call" tags="" position="1500,4800" size="100,100">Looking at the $device (which bears the word &#39;&#39;Call&#39;&#39;), it looks like it&#39;s flip-phone appearance is apt, as it can make and recieve phone calls as well.
+[[Go up to the front door]]</tw-passagedata><tw-passagedata pid="99" name="Call" tags="" position="1575,4800" size="100,100">Looking at the $device (which bears the word &#39;&#39;Call&#39;&#39;), it looks like it&#39;s flip-phone appearance is apt, as it can make and recieve phone calls as well.
 
 Who should you call?
 [[Call Barnes]]
 [[Call the General]]
-[[Call BASE Mission Control]]</tw-passagedata><tw-passagedata pid="103" name="Call Barnes" tags="" position="1425,5000" size="100,100">You hit dial. It rings for a little bit, then stops. Why hasn&#39;t he picked up?
+[[Call BASE Mission Control]]</tw-passagedata><tw-passagedata pid="100" name="Call Barnes" tags="" position="1500,4950" size="100,100">You hit dial. It rings for a little bit, then stops. Why hasn&#39;t he picked up?
 
 [[Call someone else]]
-[[Proceed with the Mission]]</tw-passagedata><tw-passagedata pid="104" name="Call the General" tags="" position="1575,5000" size="100,100">You hit dial. It rings for a little bit, then stops. Maybe she&#39;s still in her meeting?
+[[Proceed with the Mission-&gt;Choices]]</tw-passagedata><tw-passagedata pid="101" name="Call the General" tags="" position="1650,4950" size="100,100">You hit dial. It rings for a little bit, then stops. Maybe she&#39;s still in her meeting?
 
 [[Call someone else]]
-[[Proceed with the Mission]]</tw-passagedata><tw-passagedata pid="105" name="Call BASE Mission Control" tags="" position="1725,5000" size="100,100">You hit dial. It rings for a little bit, then someone picks up.
+[[Proceed with the Mission-&gt;Choices]]</tw-passagedata><tw-passagedata pid="102" name="Call BASE Mission Control" tags="" position="1800,4950" size="100,100">You hit dial. It rings for a little bit, then someone picks up.
 &quot;This is BASE Mission Control, we&#39;re reading you Agent. What seems to be the issue?&quot;
 
-[[Report]]</tw-passagedata><tw-passagedata pid="106" name="Call someone else" tags="" position="1625,4800" size="100,100">Who should you call?
+[[Report]]</tw-passagedata><tw-passagedata pid="103" name="Call someone else" tags="" position="1700,4800" size="100,100">Who should you call?
 [[Call Barnes]]
 [[Call the General]]
-[[Call BASE Mission Control]]</tw-passagedata><tw-passagedata pid="107" name="Report" tags="" position="1725,5150" size="100,100">&quot;Agent Barnes didn&#39;t DIVE with you? Let me see...&quot; The operator is quite for a moment. &quot;We&#39;re reading him within a half mile from your position, directly ahead. Looks like he already went in. Anything else to report?&quot;
+[[Call BASE Mission Control]]</tw-passagedata><tw-passagedata pid="104" name="Report" tags="" position="1800,5100" size="100,100">&quot;Agent Barnes didn&#39;t DIVE with you? Let me see...&quot; The operator is quite for a moment. &quot;We&#39;re reading him within a half mile from your position, directly ahead. Looks like he already went in. Anything else to report?&quot;
 
-[[&quot;No.&quot;-&gt;noreport]]</tw-passagedata><tw-passagedata pid="108" name="noreport" tags="" position="1725,5300" size="100,100">&quot;Go catch up with him, Agent.&quot;
+[[&quot;No.&quot;-&gt;noreport]]</tw-passagedata><tw-passagedata pid="105" name="noreport" tags="" position="1800,5250" size="100,100">&quot;Go catch up with him, Agent.&quot;
 
-Strange... I guess you should [[Proceed with the Mission]]. </tw-passagedata><tw-passagedata pid="109" name="Go into the alley" tags="" position="425,4800" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="110" name="Go up to the front door" tags="" position="1100,4925" size="100,100">Double-click this passage to edit it.</tw-passagedata></tw-storydata>
+Strange... I guess you should [[proceed with the mission-&gt;Choices]]. </tw-passagedata><tw-passagedata pid="106" name="Go into the alley" tags="" position="425,4800" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="107" name="Go up to the front door" tags="" position="1100,4950" size="100,100">You confidently walk up to the front door of the hideout. It&#39;s a double door, that was once made of glass framed by metal, but by this point the its been smashed. Recently, it looks like, The empty space has been crudely boarded up with wooden planks, so one cannot simply step through without first opening the doors. There are tiny gaps between the boards, but it is too dark inside to make anything out. The windows on either side have been painted over as well.
+
+[[Enter]]
+[[Go into the alley instead-&gt;Go into the alley]]</tw-passagedata><tw-passagedata pid="108" name="&quot;It worked.&quot;" tags="" position="1150,975" size="100,100">&quot;Ah! So it worked, did it? Wonderful, the first successful Vertical JUMP!&quot;
+
+[[&quot;You hadn&#39;t tested it before?&quot;]]
+[[&quot;What now?&quot;]]</tw-passagedata><tw-passagedata pid="109" name="Enter" tags="" position="1100,5100" size="100,100">You open the door, and head inside. The door swings shut behind you, and you stand in the dark.
+
+[[Fumble around and look for a light switch]]
+[[Proceed forward, blindly]]
+(if:$guards is true)[[Pre-emptively shoot the men]]</tw-passagedata><tw-passagedata pid="110" name="Fumble around and look for a light switch" tags="" position="1025,5250" size="100,100">You hug the wall, and move around the room until your hand touches what feels like a switch of some sort.
+
+[[Flip it]]</tw-passagedata><tw-passagedata pid="111" name="Proceed forward, blindly" tags="" position="1175,5250" size="100,100">You keep walking forward, towards the middle of the room, arms outstretched so you don&#39;t run directly into anything.
+
+[[CONTINUE-&gt;GetHit]]</tw-passagedata><tw-passagedata pid="112" name="Flip it" tags="" position="1025,5400" size="100,100">You flip the switch, and the room lights up, to reveal two men, dressed in black.
+They have guns.
+Pointed at you.
+(set:$guards to true)
+[[Run up to them]]
+[[Run outside]]
+[[Throw up your hands]]
+[[Take out your gun]]</tw-passagedata><tw-passagedata pid="113" name="Run up to them" tags="" position="800,5550" size="100,100">Letting out a primal roar, you charge towards the men. They glance at each other, nod and shoot you in unison, and couple times each.
+
+[[Bleed out-&gt;Shot]]</tw-passagedata><tw-passagedata pid="114" name="Run outside" tags="" position="950,5550" size="100,100">You turn, and run towards the door. Behind you, you hear a several gunshots in a row, and a painful wetness spreads across your chest.
+
+[[Bleed out-&gt;Shot]]</tw-passagedata><tw-passagedata pid="115" name="Throw up your hands" tags="" position="1100,5550" size="100,100">You raise your hands, in surrender. One of the men cautiosly walk towards you.
+
+[[Surrender]]
+[[Surprise attack!]]</tw-passagedata><tw-passagedata pid="116" name="Take out your gun" tags="" position="1250,5550" size="100,100">Quickly, you draw your gun from your inside jacket pocket. The men shoot at you, as they move to cover.
+
+[[Do the same]]</tw-passagedata><tw-passagedata pid="117" name="GetHit" tags="" position="1325,5250" size="100,100">Your hand brushes some sort of cloth, and a moment later you feel a hit to the back of your skull.
+
+[[Pass out]]</tw-passagedata><tw-passagedata pid="118" name="Pass out" tags="no-header" position="1400,5400" size="100,100">You stand on the edge of a cliff. Below you, the gaping mouth of the Professor yawns up at you, the unusual color of the shooting stars reflected in his smooth black eyes. You step forward, and fall for what feels like years, into his mouth.
+
+[[CONTINUE-&gt;Caged]]</tw-passagedata><tw-passagedata pid="119" name="Caged" tags="" position="1400,5550" size="100,100">You jolt awake, a terrible ache in your head.
+
+Looking around, you appear to be in a holding cell of some sort. The walls are a red brick, and the sole door is metal, probably steel. You were lying on a small wooden pallet.
+
+It seems you were knocked unconcious. Feeling around, it seems they took your gun from your inner jacket pocket.
+
+Your hand slides into your pockets, and you&#39;re surprised to find the $device to still be present. Flipping it open, the word &#39;&#39;Caged&#39;&#39; is shown.
+
+[[Attempt to open the door]]
+[[Look at the walls]]</tw-passagedata><tw-passagedata pid="120" name="Attempt to open the door" tags="" position="1550,5550" size="100,100">You rattle the bars, but to no effect. The construction is solid.
+
+[[Look at the walls]]</tw-passagedata><tw-passagedata pid="121" name="Look at the walls" tags="" position="1475,5700" size="100,100">They appear to be solidly built. You give it a good kick, to no avail.
+
+[[Attempt to open the door]]</tw-passagedata><tw-passagedata pid="122" name="Shot" tags="" position="875,5700" size="100,100">You collapse to the floor, feeling pain all across your chest. With your last bit of energy, you pull out the $device (which says &#39;&#39;Shot&#39;&#39;)...</tw-passagedata><tw-passagedata pid="123" name="Surrender" tags="" position="1250,5400" size="100,100">The man wacks up to you, moves behind you, and cracks you over the head with the butt of his gun.
+
+[[Pass out]]</tw-passagedata><tw-passagedata pid="124" name="Surprise attack!" tags="" position="1100,5700" size="100,100">As the man draws near, you bring your hands down and give him a pseudo-karate chop to the neck, causing him to lose his balance and drop the gun.
+
+As the man falls, the other man raises his gun and prepares to shoot.
+
+In the split second before he does...
+[[Drop to the ground]]
+[[Run towards him]] </tw-passagedata><tw-passagedata pid="125" name="Do the same" tags="" position="1250,5700" size="100,100">You behind a nearby shelf, as you fire at the men. One of yours hits home, and the man falls to the ground. The remaining man calls out, and fires off a couple more rounds towards you. Luckily, the shelf is surprisingly sturdy.
+
+[[Wait for the man to approach]]
+[[Get closer]], for a better shot at his covered position</tw-passagedata><tw-passagedata pid="126" name="Drop to the ground" tags="" position="1175,5850" size="100,100">You drop to the ground, as the shot menat for your head embbeds itself in the wall behind you.
+
+[[Grab the fallen gun]]
+[[Crawl towards the remaining man]]
+[[Crawl towards the door]]</tw-passagedata><tw-passagedata pid="127" name="Run towards him" tags="" position="1025,5850" size="100,100">You charge the man, and he lets off a shot to your chest.
+
+[[Collapse-&gt;Shot]]</tw-passagedata><tw-passagedata pid="128" name="Grab the fallen gun" tags="" position="1025,6000" size="100,100">You grab the fallen gun.
+(set:$armed to true)
+[[Shoot at the remaining man]]</tw-passagedata><tw-passagedata pid="129" name="Crawl towards the remaining man" tags="" position="1175,6000" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="130" name="Crawl towards the door" tags="" position="1325,6000" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="131" name="Shoot at the remaining man" tags="" position="1025,6150" size="100,100">From your position, you shoot at him.
+
+Your target hits home, and the man collapses. Looking to the other man, he appears to have hit his head on the way down and been knocked unconcious, fortunately.
+
+[[Look around-&gt;Unscathed]]</tw-passagedata><tw-passagedata pid="132" name="Wait for the man to approach" tags="" position="1325,5850" size="100,100">You hold your position, and wait. After a minute or two of more of being shot at to no avail, the man yells out &quot;Come out here&quot; and he runs to get a better angle.
+
+[[Shoot him]]</tw-passagedata><tw-passagedata pid="133" name="Get closer" tags="" position="1475,5850" size="100,100">You come out of cover to get a better shot.
+
+The man talks the opportunity to get a better shot at you.
+
+[[Be shot-&gt;Shot]]</tw-passagedata><tw-passagedata pid="134" name="Shoot him" tags="" position="1475,6000" size="100,100">With a shot to the head, he falls to the ground.
+
+[[Look around-&gt;Unscathed]]</tw-passagedata><tw-passagedata pid="135" name="Unscathed" tags="" position="1300,6225" size="100,100">You look around. It looks like this place used to be a bookstore, but most of the shelves are either rotted away or fallen over. The two men lay where you struck them down. In the back of sthe store, is an elevator.
+
+There&#39;s no way the Doctor, or whoever else is here, didn&#39;t hear the this firefight. You glance at the $device, and notice it says &#39;&#39;Unscathed&#39;&#39;
+
+[[Search the guards]]</tw-passagedata><tw-passagedata pid="136" name="Pre-emptively shoot the men" tags="" position="950,5100" size="100,100">In your mind&#39;s eye, you visualize where the men were standing. You pull out your gun, and quickly fire off two rounds.
+You hear their bodies collapse, letting you know your shots hit home.
+
+[[Flip on the lights]]</tw-passagedata><tw-passagedata pid="137" name="Flip on the lights" tags="" position="650,6000" size="100,100">You flip on the lights.
+
+[[Look around-&gt;Unscathed]]</tw-passagedata><tw-passagedata pid="138" name="Search the guards" tags="" position="1300,6375" size="100,100">Double-click this passage to edit it.</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">"use strict";var _slicedToArray=function(){return function(e,t){if(Array.isArray(e))return e;if(Symbol.iterator in Object(e))return function(e,t){var n=[],r=!0,i=!1,a=void 0;try{for(var o,s=e[Symbol.iterator]();!(r=(o=s.next()).done)&&(n.push(o.value),!t||n.length!==t);r=!0);}catch(e){i=!0,a=e}finally{try{!r&&s.return&&s.return()}finally{if(i)throw a}}return n}(e,t);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};function _defineProperty(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}!function(){
 /**
  * @license almond 0.3.3 Copyright jQuery Foundation and other contributors.
