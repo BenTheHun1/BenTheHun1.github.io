@@ -119,7 +119,7 @@ A (print:$enemy&#39;s 1st) appears!
 
 (link-reveal-goto: &quot;|/ 2|&quot;, &quot;Fight&quot;)[(set:$num to (floor:$num / 2))] (link-reveal-goto: &quot;|+ 5|&quot;, &quot;Fight&quot;)[(set:$num to it + 5)] (link-reveal-goto: &quot;|x 3|&quot;, &quot;Fight&quot;)[(set:$num to it * 3)] (if:$stone is true)[(link-reveal-goto: &quot;|- 12|&quot;, &quot;Fight&quot;)[(set:$num to it - 12)]]
 
-[(link-reveal-goto: &quot;Attack with Knife&quot;, &quot;Action&quot;)[(set:$dmg to (100))(set:$enemy&#39;s 2nd to it - $dmg)(set:$atk to &quot;You draw the Knife, and stab your foe with it. You feel your body become weaker.&quot;)(set:$hp&#39;s 2nd to it - 1)]]
+[(link-reveal-goto: &quot;Attack with Knife&quot;, &quot;Action&quot;)[(set:$dmg to (100))(set:$enemy&#39;s 2nd to it - $dmg)(set:$atk to &quot;You draw the Knife, and stab your foe with it. You feel your body become weaker.&quot;)(set:$hp&#39;s 2nd to it - 1)(set:$hp&#39;s 1st to it - 1)]]
 [(link-reveal-goto: &quot;Struggle&quot;, &quot;Action&quot;)[(set:$dmg to (random:0,5))(set:$enemy&#39;s 2nd to it - $dmg)(set:$atk to &quot;You struggle vainly.&quot;)]]
 (if:$num &gt; 70 and $i contains &quot;Laser Sword&quot; and $tech is &gt;= 5)[(link-reveal-goto: &quot;Laser Sword - Heavy Slash&quot;, &quot;Action&quot;)[(set:$dmg to (random:7,15))(set:$enemy&#39;s 2nd to it - $dmg)(set:$atk to &quot;You slash at your foe with your laser sword.&quot;)]]
 (if:$num &lt;= 40 and $i contains &quot;Laser Sword&quot; and $tech is &gt;= 5)[(link-reveal-goto: &quot;Laser Sword - Light Slash&quot;, &quot;Action&quot;)[(set:$dmg to (random:4,10))(set:$enemy&#39;s 2nd to it - $dmg)(set:$atk to &quot;You slash at your foe carefully with your laser sword.&quot;)]]
@@ -136,12 +136,12 @@ $atk They take $dmg damage.
 (if:$enemy&#39;s 2nd &lt;= 0)[ [[Continue-&gt;Win]] ](else:)[ [[Continue-&gt;Enemy Action]] ]
 
 (set:$ActionChose to (random: 1, $enemy&#39;s 3rd&#39;s length))
-(set:$incDmg to (random: $enemy&#39;s (4)&#39;s ($ActionChose), $enemy&#39;s (5)&#39;s ($ActionChose)))(set:$hp&#39;s 1st to it - $incDmg)</tw-passagedata><tw-passagedata pid="24" name="Win" tags="" position="1025,350" size="100,100">You have won! You gain (print:$enemy&#39;s 6th) EXP. (set:$exp to $enemy&#39;s 6th + 1)
+(set:$incDmg to (random: $enemy&#39;s (4)&#39;s ($ActionChose), $enemy&#39;s (5)&#39;s ($ActionChose)))</tw-passagedata><tw-passagedata pid="24" name="Win" tags="" position="1025,350" size="100,100">You have won! You gain (print:$enemy&#39;s 6th) EXP. (set:$exp to $enemy&#39;s 6th + 1)
 
-(link-goto: &quot;Continue&quot;, $CombatEnd)</tw-passagedata><tw-passagedata pid="25" name="Loss" tags="" position="1150,350" size="100,100">(if:$spar is true)[(go-to:&quot;SparLost&quot;)]
+(link-goto: &quot;Continue&quot;, $CombatReturn)</tw-passagedata><tw-passagedata pid="25" name="Loss" tags="" position="1150,350" size="100,100">(if:$spar is true)[(go-to:&quot;SparLost&quot;)]
 (if:$FinalBattle is true)[Jack yells, &quot;Retreat to the City! We need to regroup!&quot; You run back inside.](else:)[You have lost. Fleeing to the City...]
 (set:$hp&#39;s 1st to $hp&#39;s 2nd) (set:$FinalBattle to false)
-[[==&gt;-&gt;Entrance]]</tw-passagedata><tw-passagedata pid="26" name="Enemy Action" tags="no-time" position="1150,225" size="100,100">
+[[==&gt;-&gt;Entrance]]</tw-passagedata><tw-passagedata pid="26" name="Enemy Action" tags="no-time" position="1150,225" size="100,100">(set:$hp&#39;s 1st to it - $incDmg)
 =&gt;&lt;=
 (print:$enemy&#39;s 2nd) HP
 
@@ -198,7 +198,8 @@ This place appears to be a sort of marketplace. Little stalls line the streets, 
 At the end of the street, are a set of stairs leading underground, almost like a subway back home.
 
 [[Talk to one of the peddlers]]
-[[Go underground]]</tw-passagedata><tw-passagedata pid="35" name="Talk to the guard" tags="" position="900,1975" size="100,100">&quot;Yes, what business do you have?&quot; (if:$jack is true)[He looks suspiciously at Jack, who sneers in return.]
+[[Go underground]]
+[[Turn around-&gt;Go to the West]]</tw-passagedata><tw-passagedata pid="35" name="Talk to the guard" tags="" position="900,1975" size="100,100">&quot;Yes, what business do you have?&quot; (if:$jack is true)[He looks suspiciously at Jack, who sneers in return.]
 
 (if:$ArtQuest is 1)[ [[&quot;Did you see the thief?&quot;]]]
 (if: $WineQuest is 4) [ [[&quot;I&#39;d like to go in&quot;]]] (else-if: $WineQuest is 3)[ [[&quot;I have your wine.&quot;]]] (else-if:$WineQuest is 1) [ [[&quot;Where&#39;s the Sage?&quot;]]] (else:)[ [[&quot;I&#39;d like to meet the Lord&quot;]]]
@@ -238,7 +239,7 @@ The gates are closed, and two guards stand in front of them.
 [[==&gt;-&gt;Loss]]</tw-passagedata><tw-passagedata pid="46" name="&quot;Sure&quot;" tags="" position="475,2550" size="100,100">&quot;Great, see ya in a bit.&quot;
 (set:$WineQuest to 1)
 [[Walk away-&gt;OutsidePalace]]</tw-passagedata><tw-passagedata pid="47" name="&quot;Where&#39;s the Sage?&quot;" tags="" position="550,2050" size="100,100">&quot;He&#39;s an old hermit that lives at the top of the Clocktower, in the Plaza.&quot;
-
+(if:$WineQuest is 0)[(set:$WineQuest to 1)]
 [[&quot;Thanks.&quot;-&gt;OutsidePalace]]</tw-passagedata><tw-passagedata pid="48" name="&quot;No thanks.&quot;" tags="" position="775,2550" size="100,100">&quot;Well, yer loss. You ain&#39;t getting in without me help.&quot;
 
 [[&quot;Fine, I&#39;ll do it.&quot;-&gt;&quot;Sure&quot;]]</tw-passagedata><tw-passagedata pid="49" name="WhatPalace" tags="" position="1125,2125" size="100,100">&quot;This here&#39;s the home and residence of the Lord. Ye new around here?&quot;
@@ -269,7 +270,8 @@ As you reach the bottom of the stairs, you see the passage continues forward, an
 At the end of the street, are a set of stairs leading underground, almost like a subway back home.
 
 [[Talk to one of the peddlers]]
-[[Go underground]]</tw-passagedata><tw-passagedata pid="55" name="Enter the Clocktower" tags="" position="1400,850" size="100,100">You walk up to the Clocktower, and enter through a small wooden door you hadn&#39;t noticed before.
+[[Go underground]]
+[[Turn around-&gt;Go to the West]]</tw-passagedata><tw-passagedata pid="55" name="Enter the Clocktower" tags="" position="1400,850" size="100,100">You walk up to the Clocktower, and enter through a small wooden door you hadn&#39;t noticed before.
 
 Inside is a wooden spiral staircase, bordered by the cobbled stone of the walls.
 
@@ -521,8 +523,8 @@ I&#39;ll ask about this reality:
 [[Move on]]</tw-passagedata><tw-passagedata pid="74" name="Move on" tags="clock" position="1550,600" size="100,100">
 &quot;As you can see, there are many realities that affect Middleworld. If you want to survive, you need to understand Flow as a second nature, to not be caught defenseless.&quot;
 
-(if:$SageVisited is true)[ [[&quot;Thanks.&quot;]]] (else
-[[&quot;Is there any way to return home?&quot;]]
+(if:$SageVisited is true)[ [[&quot;Thanks.&quot;]]] (else:)[
+[[&quot;Is there any way to return home?&quot;]]]
 (if: $WineQuest is 1)[ [[&quot;Do you have any wine?&quot;]]]</tw-passagedata><tw-passagedata pid="75" name="&quot;Is there any way to return home?&quot;" tags="clock" position="1700,725" size="100,100">&quot;I&#39;m afraid not, you&#39;ll have to adapt as we all have to this new way of life.&quot;
 
 [[&quot;Thanks for the info&quot;]]
@@ -555,7 +557,7 @@ You see the Lord, a man who looks old enough to be experienced by not so old as 
 
 He is seated on an ornate throne, and as you enter the room he lifts his gaze towards you.
 
-[[&quot;Greetings, Lord&quot;]]</tw-passagedata><tw-passagedata pid="85" name="&quot;Greetings, Lord&quot;" tags="" position="1375,2275" size="100,100">(if:$ArtQuest is &gt;= 1 and $ArtQuest &lt; 5)[(go-to:&quot;ArtQuestCheckIn&quot;)](else-if: $ArtQuest = 5 or $ArtQuest = 6)[(go-to:&quot;JackCheckIn&quot;)](else-if:$ArtQuest = 7)[(go-to:&quot;AbomCheckIn&quot;)]
+[[&quot;Greetings, Lord&quot;]]</tw-passagedata><tw-passagedata pid="85" name="&quot;Greetings, Lord&quot;" tags="" position="1375,2275" size="100,100">(if:$ArtQuest is &gt;= 1 and $ArtQuest &lt; 5)[(go-to:&quot;ArtQuestCheckIn&quot;)](else-if: $ArtQuest is 5 or $ArtQuest is 6)[(go-to:&quot;JackCheckIn&quot;)](else-if:$ArtQuest is 7)[(go-to:&quot;AbomCheckIn&quot;)]
 &quot;Well met Traveler. What brings you to my home?&quot;
 
 [[Show the Knife-&gt;LordKnife]]</tw-passagedata><tw-passagedata pid="86" name="LordKnife" tags="" position="1500,2275" size="100,100">As soon as you draw the Knife, the Lord recoils. &quot;Put it away!&quot; he pleads.
@@ -567,7 +569,7 @@ After doing so, he sighs solemnly. &quot;Traveler, how have you come by this wea
 
 [[&quot;No.&quot;]]</tw-passagedata><tw-passagedata pid="88" name="&quot;No.&quot;" tags="" position="1500,2400" size="100,100">&quot;Well, it is a giant, deformed creature, 5 stories tall. It&#39;s flesh is raw and blood-red, and it is slowly approaching the City. Our walls would not hold against an attack, and I fear the end is nigh. However, if I am correct, what you carry is one of several Artifacts, capable of doing harm to the Abomination, at the cost of doing harm to oneself.&quot;
 
-[[&quot;What kind of harm&quot;]]</tw-passagedata><tw-passagedata pid="89" name="&quot;What kind of harm&quot;" tags="" position="1625,2400" size="100,100">&quot;Every cut and slash of that Knife will eat away at your life force until you are a husk of a person. However, it shouldn&#39;t be necessary to go that far for this fiend. I must ask you to do this task. If another tried, I fear he would be consumed almost immediately by it&#39;s vampiric powers.&quot;
+[[&quot;What kind of harm?&quot;]]</tw-passagedata><tw-passagedata pid="89" name="&quot;What kind of harm?&quot;" tags="" position="1625,2400" size="100,100">&quot;Every cut and slash of that Knife will eat away at your life force until you are a husk of a person. However, it shouldn&#39;t be necessary to go that far for this fiend. I must ask you to do this task. If another tried, I fear he would be consumed almost immediately by it&#39;s vampiric powers.&quot;
 
 [[&quot;I can do it.&quot;-&gt;QuestBegin]]
 [[&quot;I&#39;m afraid I can&#39;t.&quot;-&gt;QuestBegin]]</tw-passagedata><tw-passagedata pid="90" name="QuestBegin" tags="" position="1500,2525" size="100,100">&quot;Steel your heart, I know you can do this task. However, to do this alone would be folly. Other artifacts exist, and those able to wield them. You must find them, and bring them to your side, before the Abomination arrives.&quot;
@@ -619,7 +621,7 @@ Alternatively, you can [[go back to the Plaza-&gt;Entrance]].</tw-passagedata><t
 (if: $watch is false)[A metal watch - 25 Gold [[Buy-&gt;BuyWatch]]]
 A health potion - 15 Gold [[Buy-&gt;BuyPotion]]]
 A stimpack - 15 Gold [[Buy-&gt;BuyStim]]]
-(if:$stone is not true)A (-12) Tuning Stone - 50 Gold [[BuyStone]]
+(if:$stone is not true)[A (-12) Tuning Stone - 50 Gold [[Buy-&gt;BuyStone]]]
 
 [[&quot;Can I sell stuff to you?&quot;]]
 [[Buy nothing-&gt;PeddlerDecline]]</tw-passagedata><tw-passagedata pid="98" name="BuyWatch" tags="no-header" position="1500,1950" size="100,100">&quot;Ah, a good choice. It&#39;s an essential piece for any traveler.&quot;
@@ -670,7 +672,7 @@ He walks away, into the Neath.
 
 [[Continue-&gt;Neath]]</tw-passagedata><tw-passagedata pid="109" name="Neath" tags="space" position="2025,2200" size="100,100">You stand at the entrance of the Neath. You drop the end of the ball of the string, so you can make your way back.
 
-(if: $BoyQuest is &gt;= 1)[The woman you promised to help waits on the steps. She looks hopefully up at you.]
+(if: $BoyQuest is 1)[The woman you promised to help waits on the steps. She looks hopefully up at you.]
 (if: $jack is true)[Jack looks into the passages, thinking of his Brothers.]
 
 
@@ -685,16 +687,16 @@ He walks away, into the Neath.
 
 [[Look at his wares]]</tw-passagedata><tw-passagedata pid="112" name="HealP" tags="no-header" position="250,575" size="100,100">(set:$hp&#39;s 1st to $hp&#39;s 2nd) (set:$potions to it - 1)
 (go-to: &quot;Menu&quot;)</tw-passagedata><tw-passagedata pid="113" name="HealS" tags="no-header" position="250,475" size="100,100">(set:$hp&#39;s 1st to $hp&#39;s 2nd) (set:$stim to it - 1)
-(go-to: &quot;Menu&quot;)</tw-passagedata><tw-passagedata pid="114" name="Venture Deeper" tags="no-header space" position="2025,2350" size="100,100">(set:$venture to (random: 1,6))
+(go-to: &quot;Menu&quot;)</tw-passagedata><tw-passagedata pid="114" name="Venture Deeper" tags="no-header space" position="2025,2350" size="100,100">(set:$venture to (random: 1,7))
 (if:$venture is 1)[(go-to:&quot;Fight Bat&quot;)]
 (if:$venture is 2)[(go-to:&quot;Guild Encounter&quot;)]
 (if:$venture is 3)[(go-to:&quot;Bandit&quot;)]
 (if:$venture is 4)[(go-to:&quot;Widow&quot;)]
 (if:$venture is 5)[(go-to:&quot;Mimic&quot;)]
-(if:$venture is 6 and $ArtQuest is 5)[(go-to:&quot;Jack&quot;)]
-(if:$venture is 6 and $ArtQuest is not 5)[(go-to:&quot;Rats&quot;)]</tw-passagedata><tw-passagedata pid="115" name="Fight Bat" tags="space" position="2150,2350" size="100,100">As you wander through the Neath, the tunnels open up into a large area, with raw, unchiseled walls.
+(if:$venture is 6)[(go-to:&quot;Jack&quot;)]
+(if:$venture is 7)[(go-to:&quot;Rats&quot;)]</tw-passagedata><tw-passagedata pid="115" name="Fight Bat" tags="space" position="2150,2350" size="100,100">As you wander through the Neath, the tunnels open up into a large area, with raw, unchiseled walls.
 
-AS you enter, you hear a shrieking sound up above, and a group of bats fly down in front of you.
+As you enter, you hear a shrieking sound up above, and a group of bats fly down in front of you.
 
 The bats are black, covered in a light fuzz, with blood-red eyes. White fangs gleam from their mouths, and you see a drop of blood fall from one of their mouths.
 
@@ -704,7 +706,7 @@ The bats are black, covered in a light fuzz, with blood-red eyes. White fangs gl
 Looking around, you see the bones of a less fortunate adventurer, who left behind a small pouch of 50 gold. You pocket it. (set:$gold to it + 50)
 
 [[Venture Deeper]]
-[[Follow the string back to the entrance-&gt;Neath]]</tw-passagedata><tw-passagedata pid="117" name="Guild Encounter" tags="no-header space" position="2275,2350" size="100,100">(if:$i contains &quot;Pendant&quot; or $ArtQuest &gt;= 4)[(go-to:&quot;Guild&quot;)](else-if $As you wander through the Neath, you catch a glimpse of a hooded figure duck around a corner.
+[[Follow the string back to the entrance-&gt;Neath]]</tw-passagedata><tw-passagedata pid="117" name="Guild Encounter" tags="no-header space" position="2275,2350" size="100,100">(if:$i contains &quot;Pendant&quot; or $ArtQuest &gt;= 4)[(go-to:&quot;Guild&quot;)]As you wander through the Neath, you catch a glimpse of a hooded figure duck around a corner.
 
 You start to run after them, but you lose sight of them. Looking down, you see that the figure dropped a small medallion.
 
@@ -736,7 +738,7 @@ You lose all of your Gold ($gold pieces) (set:$gold to 0)
 [[Venture Deeper]]
 [[Follow the string back to the entrance-&gt;Neath]]</tw-passagedata><tw-passagedata pid="122" name="Put in a Gold piece" tags="no-header space" position="2275,2600" size="100,100">You take out a gold piece, and put it in the slot. You hear a *clink* from the other side of the door, but nothing appears to happen. (set:$gold to it - 1)
 
-[[Put in the ߷ pendant]]
+(if:$i contains &quot;Pendant&quot;)[[Put in the ߷ pendant]]
 
 
 [[Venture Deeper]]
@@ -760,7 +762,7 @@ After a moment, your entrance is noticed, as well as your lack of a cloak. One o
 
 (set:$thief to (a: &quot;Thief&quot;, 50, (a: &quot;shoots you with the Gun, grimacing in pain while doing so&quot;), (a: 3), (a: 7), 25)) (set:$enemy to $thief) (set:$CombatReturn to &quot;WonArtBattle&quot;)</tw-passagedata><tw-passagedata pid="126" name="WonArtBattle" tags="space no-header" position="2275,3100" size="100,100">The cyborg man collapses to the ground, grimacing. &quot;Enough! You&#39;re after this, right?&quot; He holds up the Gun. He tosses it at your feet, and he rises, with effort, to his feet.
 
-You pick up the Gun, presumably it is the stolen Artifact. (set:$i to it + (a:&quot;Gun&quot;))The thief limps to the back of the room, and sits down on a bench. Judging by the dirty looks of the other couple dozen hooded figures in the room, it would be wise to abscond. (set:$ArtQuest to 4) (set:$i to it - (a:&quot;Pendant&quot;)
+You pick up the Gun, presumably it is the stolen Artifact. (set:$i to it + (a:&quot;Gun&quot;))The thief limps to the back of the room, and sits down on a bench. Judging by the dirty looks of the other couple dozen hooded figures in the room, it would be wise to abscond. (set:$ArtQuest to 4) (set:$i to it - (a:&quot;Pendant&quot;))
 
 [[Follow the string back to the entrance-&gt;Neath]]</tw-passagedata><tw-passagedata pid="127" name="&quot;I have.&quot;" tags="" position="1750,2400" size="100,100">&quot;Well done Traveler! Now, we need to find someone who can use it without immediately crippling themselves...&quot;
 
@@ -771,7 +773,7 @@ You pick up the Gun, presumably it is the stolen Artifact. (set:$i to it + (a:&q
 [[Back to the Plaza-&gt;Entrance]]</tw-passagedata><tw-passagedata pid="131" name="JackCheckIn" tags="" position="1875,2275" size="100,100">&quot;Have you found them yet?&quot;
 
 [[&quot;No, not yet.&quot;]]
-(if:$jack is true)[[&quot;May I introduce Jack?&quot;]]</tw-passagedata><tw-passagedata pid="132" name="Widow" tags="space" position="2525,2350" size="100,100">(if:$BoyQuest = 1)[(go-to:&quot;FoundBoy&quot;)](else-if: $BoyQuest = 2)[(go-to:&quot;Venture Deeper&quot;)]As you wander through the Neath, you come across a woman, slumped against the wall, crying.
+(if:$jack is true)[[&quot;May I introduce Jack?&quot;]]</tw-passagedata><tw-passagedata pid="132" name="Widow" tags="space" position="2525,2350" size="100,100">(if:$BoyQuest is 1)[(go-to:&quot;FoundBoy&quot;)](else-if: $BoyQuest is 2)[(go-to:&quot;Venture Deeper&quot;)]As you wander through the Neath, you come across a woman, slumped against the wall, crying.
 
 [[&quot;Are you okay?&quot;]]
 
@@ -821,7 +823,8 @@ Made of oak, with a shiny gold trim, it is just itching to be opened.
 You move aside the wood, and find a cache of 100 gold pieces. (set:$gold to it + 100)
 
 [[Venture Deeper]]
-[[Follow the string back to the entrance-&gt;Neath]]</tw-passagedata><tw-passagedata pid="143" name="Jack" tags="space" position="2775,2350" size="100,100">As you wander through the Neath, you come upon a black-cloaked figure, seated on a stone bench carved into the passage&#39;s walls. His hood is down, and you see the cyborg&#39;s augments plainly. It is the thief who stole the Gun.
+[[Follow the string back to the entrance-&gt;Neath]]</tw-passagedata><tw-passagedata pid="143" name="Jack" tags="space" position="2775,2350" size="100,100">(if: $ArtQuest &lt; 5 or $ArtQuest &gt;= 6)[(go-to:&quot;Venture Deeper&quot;)]
+As you wander through the Neath, you come upon a black-cloaked figure, seated on a stone bench carved into the passage&#39;s walls. His hood is down, and you see the cyborg&#39;s augments plainly. It is the thief who stole the Gun.
 
 [[Approach-&gt;JackEncounter]]
 
@@ -829,7 +832,9 @@ Ignore, and...
 [[Venture Deeper]]
 [[Follow the string back to the entrance-&gt;Neath]]</tw-passagedata><tw-passagedata pid="144" name="JackEncounter" tags="space" position="2775,2475" size="100,100">You walk up to the cyborg. He looks up at you, and seeing you, quickly stands up. &quot;You!&quot; He draws a mean-looking dagger.
 
-(set:$cyborg to (a: &quot;Cyborg&quot;, 50, (a: &quot;stabs you with his dagger&quot;), (a: 6), (a: 9), 25)) (set:$enemy to $cyborg) (set:$CombatReturn to &quot;WonJackBattle&quot;)</tw-passagedata><tw-passagedata pid="145" name="Rats" tags="space" position="2900,2350" size="100,100">As you wander through the Neath, you find yourself surrounded by giant rats! Their fur is a dark brown, and their teeth gleam in the low light of the lamps. Red eyes bulge out of their skulls.
+(set:$cyborg to (a: &quot;Cyborg&quot;, 50, (a: &quot;stabs you with his dagger&quot;), (a: 6), (a: 9), 25)) (set:$enemy to $cyborg) (set:$CombatReturn to &quot;WonJackBattle&quot;)
+
+[[Fight!-&gt;FightSimStart]]</tw-passagedata><tw-passagedata pid="145" name="Rats" tags="space" position="2900,2350" size="100,100">As you wander through the Neath, you find yourself surrounded by giant rats! Their fur is a dark brown, and their teeth gleam in the low light of the lamps. Red eyes bulge out of their skulls.
 
 (set:$rat to (a: &quot;Rat Swarm&quot;, 40, (a: &quot;rush at you and bite you with their sharp teeth&quot;), (a: 7), (a: 8), 10)) (set:$enemy to $rat) (set:$CombatReturn to &quot;WonRats&quot;)
 
