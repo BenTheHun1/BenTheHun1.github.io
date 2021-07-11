@@ -16,7 +16,12 @@
 tw-story{
   background-color: white;
   color: black;
-}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="clock" color="red"></tw-tag>,<tw-tag name="forest" color="gray"></tw-tag>,<tw-tag name="no-header" color="orange"></tw-tag>,<tw-tag name="no-time" color="blue"></tw-tag>,<tw-tag name="space" color="purple"></tw-tag><tw-passagedata pid="1" name="START" tags="space no-header" position="776,225" size="100,100">You float through the sea of nothingness, one star in an infinite cosmos. The true nature of the universe becomes clear, as if looking up from a kaleidoscope at the real world. As it falls to the ground, you witness the beauty of the true colors and shapes the universe is made of.
+}
+
+tw-sidebar {
+    display: none;
+}
+</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="clock" color="red"></tw-tag>,<tw-tag name="forest" color="gray"></tw-tag>,<tw-tag name="no-header" color="orange"></tw-tag>,<tw-tag name="no-time" color="blue"></tw-tag>,<tw-tag name="space" color="purple"></tw-tag><tw-passagedata pid="1" name="START" tags="space no-header" position="776,225" size="100,100">You float through the sea of nothingness, one star in an infinite cosmos. The true nature of the universe becomes clear, as if looking up from a kaleidoscope at the real world. As it falls to the ground, you witness the beauty of the true colors and shapes the universe is made of.
 The stars in the sky come together to form shapes, constellations, the patterns of which show you your destined path through the world.
 =&gt;&lt;=
 [[==&gt;-&gt;2]]
@@ -157,13 +162,13 @@ $exp EXP
 (if:$exp is &gt;= 20)[Spend 20 EXP to raise max HP by 3? [[Confirm]]]
 
 
-Medical: (if:$magic is &gt;= 2 and $potions &gt; 0)[(link-goto: (text: $potions) + &quot; Health Potions&quot;, &quot;HealP&quot;)](else:)[$potions Health Potions], and (if:$tech is &gt;= 4 and $stim &gt; 0)[(link-goto: (text: $stim) + &quot; Stimpacks&quot;, &quot;HealS&quot;)](else:)[$stim Stimpacks]
+Medical: (if:$magic is &gt;= 2 and $potions &gt; 0 and $hp&#39;s 1st &lt; $hp&#39;s 2nd)[(link-goto: (text: $potions) + &quot; Health Potions&quot;, &quot;HealP&quot;)](else:)[$potions Health Potions], and (if:$tech is &gt;= 4 and $stim &gt; 0 and $hp&#39;s 1st &lt; $hp&#39;s 2nd)[(link-goto: (text: $stim) + &quot; Stimpacks&quot;, &quot;HealS&quot;)](else:)[$stim Stimpacks]
 $gold Gold
 Inventory: (for: each _i, $i)[_i, ]
 Grimoire: (for: each _s, $spells)[_s, ]
 (link-reveal-goto: &quot;Close&quot;, $cur)[(set:$min to it - 1)]</tw-passagedata><tw-passagedata pid="28" name="Go to the East" tags="" position="1525,1475" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="29" name="Go to the South" tags="" position="1600,1250" size="100,100">You walk down the path, and it brings you to the giant stone wall that surrounds the city on all sides. A handful of guards stand watch, in front of a Gate, much like the Golden Gate you came into the City through in appearance, except it is made of some unknown metal with the color of obsidian.
 
-(if:$ArtQuest is true)[[Prepare for the battle]]
+(if:$ArtQuest is 7)[[Prepare for the battle]]
 [[Leave]]
 [[Back to the Plaza-&gt;Entrance]]</tw-passagedata><tw-passagedata pid="30" name="Go to the West" tags="" position="900,1675" size="100,100">You walk along the road. You pass by many people, and creatures that look quite unlike yourself. Bordering the road are various nondescript buildings and structures, none that would be of interest to you.
 
@@ -504,7 +509,7 @@ I&#39;ll ask about this reality:
 [[11 o&#39;clock-&gt;R11]]
 
 [[&quot;What does it mean for a reality to be connected?&quot;]]
-[[Move on]]</tw-passagedata><tw-passagedata pid="73" name="&quot;What does it mean for a reality to be connected?&quot;" tags="clock" position="1700,600" size="100,100">When a reality lines up with our Golden Gate, it not only lets Travelers into Middleworld (not the other way, unfortunately), but also cosmic energies that we call Flow. Depending on the Flow, and by extension the time of day, different things are possible. For example, our laser guns only work at 2:00, and Zeus (who I&#39;ve heard is somewhere in the City) can only use his lightning powers at 9:00. For this very reason, I reccommend you acquire a watch as soon as possible.&quot;
+[[Move on]]</tw-passagedata><tw-passagedata pid="73" name="&quot;What does it mean for a reality to be connected?&quot;" tags="clock" position="1700,600" size="100,100">When a reality lines up with our Golden Gate, it not only lets Travelers into Middleworld (not the other way, unfortunately), but also cosmic energies that we call Flow. Depending on the Flow, and by extension the time of day, different things are possible. For example, our laser guns only work at 2:00, and Zeus (who I&#39;ve heard is somewhere in the City) can only use his lightning powers at 9:00. For this very reason, I recommend you acquire a watch as soon as possible.&quot;
 
 I&#39;ll ask about this reality:
 [[1 o&#39;clock-&gt;R1]]
@@ -618,10 +623,10 @@ You stand at a fork in the road.
 
 Alternatively, you can [[go back to the Plaza-&gt;Entrance]].</tw-passagedata><tw-passagedata pid="97" name="Look at his wares" tags="" position="1625,1825" size="100,100">The peddler has the following items for sale:
 
-(if: $watch is false)[A metal watch - 25 Gold [[Buy-&gt;BuyWatch]]]
-A health potion - 15 Gold [[Buy-&gt;BuyPotion]]]
-A stimpack - 15 Gold [[Buy-&gt;BuyStim]]]
-(if:$stone is not true)[A (-12) Tuning Stone - 50 Gold [[Buy-&gt;BuyStone]]]
+(if: $watch is not true)[A metal watch - 25 Gold [[Buy-&gt;BuyWatch]] ]
+A health potion - 15 Gold [[Buy-&gt;BuyPotion]]
+A stimpack - 15 Gold [[Buy-&gt;BuyStim]]
+(if:$stone is not true)[A (-12) Tuning Stone - 50 Gold [[Buy-&gt;BuyStone]] ]
 
 [[&quot;Can I sell stuff to you?&quot;]]
 [[Buy nothing-&gt;PeddlerDecline]]</tw-passagedata><tw-passagedata pid="98" name="BuyWatch" tags="no-header" position="1500,1950" size="100,100">&quot;Ah, a good choice. It&#39;s an essential piece for any traveler.&quot;
@@ -674,7 +679,6 @@ He walks away, into the Neath.
 
 (if: $BoyQuest is 1)[The woman you promised to help waits on the steps. She looks hopefully up at you.]
 (if: $jack is true)[Jack looks into the passages, thinking of his Brothers.]
-
 
 [[Venture Deeper]]
 [[Leave-&gt;Market]]</tw-passagedata><tw-passagedata pid="110" name="BuyPotion" tags="no-header" position="1500,2075" size="100,100">&quot;Ah, a good choice. It&#39;s an essential piece for any traveler.&quot;
@@ -872,7 +876,7 @@ You head back to the Entrance, with the cyborg in tow.
 
 (set:$i to it - (a:&quot;Rat Tails&quot;))(set:$gold to it + 25)</tw-passagedata><tw-passagedata pid="152" name="&quot;May I introduce Jack?&quot;" tags="" position="1875,2400" size="100,100">&quot;This is the fellow who can use the Gun?&quot; the Lord looks at Jack in disbelief
 
-&quot;Yeah? What&#39;s so special about that?&quot; Jack snears.
+&quot;Yeah? What&#39;s so special about that?&quot; Jack sneers.
 
 &quot;You&#39;re very special, boy, if you can use the Gun. Traveler, hand it over to him.&quot;
 
