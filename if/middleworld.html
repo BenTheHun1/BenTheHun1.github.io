@@ -558,7 +558,7 @@ You walk on the cobbled path, bordered with a variety of exotic flowers, towards
 
 [[Enter the Palace]]</tw-passagedata><tw-passagedata pid="84" name="Palace" tags="" position="1250,2275" size="100,100">You walk through a large hall to the throne room.
 
-You see the Lord, a man who looks old enough to be experienced by not so old as to be weak and elderly. A fairly long but well kept silver beard adorns his face.
+You see the Lord, a man who looks old enough to be experienced but not so old as to be weak and elderly. A fairly long but well kept silver beard adorns his face.
 
 He is seated on an ornate throne, and as you enter the room he lifts his gaze towards you.
 
@@ -628,7 +628,7 @@ A health potion - 15 Gold [[Buy-&gt;BuyPotion]]
 A stimpack - 15 Gold [[Buy-&gt;BuyStim]]
 (if:$stone is not true)[A (-12) Tuning Stone - 50 Gold [[Buy-&gt;BuyStone]] ]
 
-[[&quot;Can I sell stuff to you?&quot;]]
+(if:$RatQuest is not 1)[[&quot;Can I sell stuff to you?&quot;]]
 [[Buy nothing-&gt;PeddlerDecline]]</tw-passagedata><tw-passagedata pid="98" name="BuyWatch" tags="no-header" position="1500,1950" size="100,100">&quot;Ah, a good choice. It&#39;s an essential piece for any traveler.&quot;
 
 (if:$gold is &gt;= 25)[You buy the watch.(set:$watch to true)(set:$gold to it - 25)](else:)[&quot;Looks like you don&#39;t have enough. Too bad, be sure to come back later!&quot;]
@@ -874,7 +874,9 @@ You head back to the Entrance, with the cyborg in tow.
 [[&quot;Okay, I&#39;ll keep that in mind.&quot;-&gt;Look at his wares]]
 (if:$i contains &quot;Rat Tails&quot;)[[&quot;Actually, I have some now.&quot;-&gt;&quot;I have some tails for you.&quot;]]</tw-passagedata><tw-passagedata pid="151" name="&quot;I have some tails for you.&quot;" tags="no-header" position="1875,1825" size="100,100">&quot;Oh, wonderful. Here, take some gold. Be sure to bring me any more you collect.&quot;
 
-(set:$i to it - (a:&quot;Rat Tails&quot;))(set:$gold to it + 25)</tw-passagedata><tw-passagedata pid="152" name="&quot;May I introduce Jack?&quot;" tags="" position="1875,2400" size="100,100">&quot;This is the fellow who can use the Gun?&quot; the Lord looks at Jack in disbelief
+(set:$i to it - (a:&quot;Rat Tails&quot;))(set:$gold to it + 25)
+
+[[Look at his wares]]</tw-passagedata><tw-passagedata pid="152" name="&quot;May I introduce Jack?&quot;" tags="" position="1875,2400" size="100,100">&quot;This is the fellow who can use the Gun?&quot; the Lord looks at Jack in disbelief
 
 &quot;Yeah? What&#39;s so special about that?&quot; Jack sneers.
 
