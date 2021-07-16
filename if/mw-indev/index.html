@@ -98,7 +98,7 @@ var LZString={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234
 		<div id="init-lacking">Your browser lacks required capabilities. Please upgrade it or switch to another to continue.</div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<!-- UUID://4E684A2E-B480-4A9C-B8CC-17744AE14BEB// --><tw-storydata name="Middleworld" startnode="11" creator="Tweego" creator-version="2.1.1+81d1d71" ifid="4E684A2E-B480-4A9C-B8CC-17744AE14BEB" zoom="2" format="SugarCube" format-version="2.35.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">body.dark {
+	<!-- UUID://4E684A2E-B480-4A9C-B8CC-17744AE14BEB// --><tw-storydata name="Middleworld" startnode="13" creator="Tweego" creator-version="2.1.1+81d1d71" ifid="4E684A2E-B480-4A9C-B8CC-17744AE14BEB" zoom="2" format="SugarCube" format-version="2.35.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">body.dark {
 	background-color: rgb(39, 39, 39);
 }
 
@@ -140,6 +140,10 @@ Config.passages
 	&lt;&lt;set $i = []&gt;&gt;
 	&lt;&lt;set $useable_arts = []&gt;&gt;
 
+	&lt;&lt;set $pl = {
+		hp: [20, 20]
+	}&gt;&gt;
+
 	&lt;&lt;set $tuners = [
 		[true, &quot;x&quot;, 2, &quot;s&quot;],
 		[true, &quot;+&quot;, 22, &quot;s&quot;],
@@ -148,8 +152,8 @@ Config.passages
 &lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="3" name="Enemies" tags="" position="350,100" size="100,100">&lt;&lt;silently&gt;&gt;
 	&lt;&lt;set $dude = {
 		name: &quot;Little Dude&quot;,
-		hp: 20,
-		attacks: [&quot;stabs you with the little shiv&quot;],
+		hp: [20, 20],
+		attacks: [&quot;runs up and stabs you with a little shiv&quot;],
 		dmg_min: [3],
 		dmg_max: [10]
 	}&gt;&gt;
@@ -169,7 +173,7 @@ Config.passages
 &lt;&lt;/silently&gt;&gt;&lt;&lt;if tags().includes(&quot;no-display&quot;) is false&gt;&gt;!$time.hr:&lt;&lt;if $time.min.toString().length is 1&gt;&gt;0&lt;&lt;/if&gt;&gt;$time.min&lt;&lt;/if&gt;&gt;&lt;&lt;silently&gt;&gt;
 &lt;&lt;if tags().includes(&quot;no-update&quot;) is false&gt;&gt;
 	&lt;&lt;set $curpass to passage()&gt;&gt;
-&lt;&lt;/if&gt;&gt;&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="7" name="Menu" tags="no-time no-update dark" position="50,300" size="100,100">20 / 20 HP
+&lt;&lt;/if&gt;&gt;&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="7" name="Menu" tags="no-time no-update dark" position="50,300" size="100,100">$pl.hp[0] / $pl.hp[1] HP
 &lt;&lt;nobr&gt;&gt; Arts:
 &lt;&lt;for _is = 0; _is &lt; $i.length; _is++&gt;&gt;
 	&lt;&lt;capture _is&gt;&gt;
@@ -257,12 +261,15 @@ Tune: &lt;&lt;for _id = 0; _id &lt; $tuners.length; _id++&gt;&gt;
 	&lt;&lt;/capture&gt;&gt;
 &lt;&lt;/for&gt;&gt;
 &lt;&lt;replace &quot;#cactions&quot;&gt;&gt;&lt;&lt;for _is = 0; _is &lt; $useable_arts.length; _is++&gt;&gt;&lt;&lt;capture _is&gt;&gt;&lt;&lt;link $useable_arts[_is].name &quot;Combat2&quot;&gt;&gt;&lt;&lt;set $dmg_out = random($useable_arts[_is].dmg[0], $useable_arts[_is].dmg[1])&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;if _is != $useable_arts.length - 1&gt;&gt;, &lt;&lt;/if&gt;&gt;&lt;&lt;/capture&gt;&gt;&lt;&lt;/for&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/button&gt;&gt;*/
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="10" name="Combat2" tags="" position="1225,100" size="100,100">You deal $dmg_out damage.</tw-passagedata><tw-passagedata pid="11" name="Begin" tags="dark" position="675,175" size="100,100">UwU
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="10" name="Combat2" tags="" position="1225,100" size="100,100">You deal $dmg_out damage. &lt;&lt;set $enemy.hp[0] -= $dmg_out&gt;&gt; 
+&lt;&lt;if $enemy.hp[0] &lt;= 0&gt;&gt;[[Continue|CombatWin]]&lt;&lt;else&gt;&gt;&lt;&lt;set $sel_atk = random(0, $enemy.attacks.length - 1)&gt;&gt;&lt;&lt;set $sel_atk_dmg = random($enemy.dmg_min[$sel_atk], $enemy.dmg_max[$sel_atk])&gt;&gt;
+The &lt;&lt;= $enemy.name&gt;&gt; &lt;&lt;= $enemy.attacks[$sel_atk]&gt;&gt;, dealing &lt;&lt;=$sel_atk_dmg&gt;&gt; damage. &lt;&lt;set $pl.hp[0] -= $sel_atk_dmg&gt;&gt;
+&lt;&lt;if $pl.hp[0] &lt;= 0&gt;&gt;[[Continue|CombatFail]]&lt;&lt;else&gt;&gt;[[Continue|Combat]]&lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="11" name="CombatFail" tags="" position="100,225" size="100,100">You have lost...</tw-passagedata><tw-passagedata pid="12" name="CombatWin" tags="" position="225,225" size="100,100">You have won!</tw-passagedata><tw-passagedata pid="13" name="Begin" tags="dark" position="675,175" size="100,100">UwU
 What&#39;s this? //Got a Sword.// &lt;&lt;if visited() &lt; 2&gt;&gt;&lt;&lt;set $i.push($sword)&gt;&gt;&lt;&lt;/if&gt;&gt;
-[[Morning][$i.push($spellbook)]]</tw-passagedata><tw-passagedata pid="12" name="Morning" tags="light" position="225,225" size="100,100">OwO
+[[Morning][$i.push($spellbook)]]</tw-passagedata><tw-passagedata pid="14" name="Morning" tags="light" position="475,225" size="100,100">OwO
 What&#39;s this? //Got a Spell Book.//
 A little dude runs towards you, brandishing a shiny shiv.
-[[Approach|Approach]]</tw-passagedata><tw-passagedata pid="13" name="Approach" tags="light" position="350,225" size="100,100">Wowie
+[[Approach|Approach]]</tw-passagedata><tw-passagedata pid="15" name="Approach" tags="light" position="600,225" size="100,100">Wowie
 He&#39;s not happy
 [[Fight|PreCombat][$enemy to $dude]]</tw-passagedata></tw-storydata>
 	<script id="script-sugarcube" type="text/javascript">
