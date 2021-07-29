@@ -98,7 +98,7 @@ var LZString={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234
 		<div id="init-lacking">Your browser lacks required capabilities. Please upgrade it or switch to another to continue.</div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<!-- UUID://4E684A2E-B480-4A9C-B8CC-17744AE14BEB// --><tw-storydata name="Middleworld" startnode="15" creator="Tweego" creator-version="2.1.1+81d1d71" ifid="4E684A2E-B480-4A9C-B8CC-17744AE14BEB" zoom="2" format="SugarCube" format-version="2.35.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">body.dark {
+	<!-- UUID://4E684A2E-B480-4A9C-B8CC-17744AE14BEB// --><tw-storydata name="Middleworld" startnode="16" creator="Tweego" creator-version="2.1.1+81d1d71" ifid="4E684A2E-B480-4A9C-B8CC-17744AE14BEB" zoom="2" format="SugarCube" format-version="2.35.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">body.dark {
 	background-color: rgb(39, 39, 39);
 }
 
@@ -119,7 +119,7 @@ table, th, td {
 progress {
 	width: 75%;
 	height: 30px
-}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Arts" tags="" position="100,100" size="100,100">&lt;&lt;silently&gt;&gt;
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Arts" tags="" position="575,300" size="100,100">&lt;&lt;silently&gt;&gt;
 	&lt;&lt;set $sword = {
 		name: &quot;Iron Sword&quot;,
 		desc: &quot;A long iron blade.&quot;,
@@ -144,7 +144,7 @@ Config.passages
 	}&gt;&gt;
 	&lt;&lt;set $i = []&gt;&gt;
 	&lt;&lt;set $useable_arts = []&gt;&gt;
-
+	&lt;&lt;set $targets = [[]]&gt;&gt;
 	&lt;&lt;set $pl = {
 		hp: [20, 20]
 	}&gt;&gt;
@@ -154,7 +154,7 @@ Config.passages
 		[true, &quot;+&quot;, 22, &quot;s&quot;],
 		[true, &quot;+&quot;, 3, &quot;s&quot;]
 	]&gt;&gt;
-&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="3" name="Enemies" tags="" position="350,100" size="100,100">&lt;&lt;silently&gt;&gt;
+&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="3" name="Enemies" tags="" position="450,300" size="100,100">&lt;&lt;silently&gt;&gt;
 	&lt;&lt;set $dude = {
 		name: &quot;Little Dude&quot;,
 		hp: [20, 20],
@@ -205,9 +205,9 @@ Requirements: &lt;&lt;nobr&gt;&gt; &lt;&lt;for _is = 0; _is &lt; $selected.req.l
 &lt;&lt;/for&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;
 &lt;&lt;if $selected.hasOwnProperty(&quot;divert&quot;)&gt;&gt;&lt;&lt;link $selected.divert[0] $selected.divert[1]&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="8" name="PreCombat" tags="no-time dark" position="975,100" size="100,100">&lt;&lt;set $sec = random(1, 59)&gt;&gt;
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="8" name="PreCombat" tags="no-time dark" position="175,550" size="100,100">&lt;&lt;set $sec = random(1, 59)&gt;&gt;
 $enemy.name gets ready to attack.
-[[Strike First!|Combat]]</tw-passagedata><tw-passagedata pid="9" name="Combat" tags="no-time dark" position="1100,100" size="100,100">&lt;&lt;set $Ctime = $time&gt;&gt;&lt;div style=&quot;text-align:center&quot;&gt;
+[[Strike First!|Combat]]</tw-passagedata><tw-passagedata pid="9" name="Combat" tags="no-time dark" position="300,550" size="100,100">&lt;&lt;set $Ctime = $time&gt;&gt;&lt;div style=&quot;text-align:center&quot;&gt;
 $pl.hp[0] / $pl.hp[1] HP
 !!Time-ometer
 &lt;&lt;nobr&gt;&gt;
@@ -272,10 +272,10 @@ Tune: &lt;&lt;for _id = 0; _id &lt; $tuners.length; _id++&gt;&gt;
 	&lt;&lt;/capture&gt;&gt;
 &lt;&lt;/for&gt;&gt;
 &lt;&lt;replace &quot;#cactions&quot;&gt;&gt;&lt;&lt;for _is = 0; _is &lt; $useable_arts.length; _is++&gt;&gt;&lt;&lt;capture _is&gt;&gt;&lt;&lt;if $useable_arts[_is].hasOwnProperty(&quot;divert&quot;)&gt;&gt;&lt;&lt;link $useable_arts[_is].name $useable_arts[_is].divert[1]&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;link $useable_arts[_is].name &quot;Combat2&quot;&gt;&gt;&lt;&lt;set $dmg_out = random($useable_arts[_is].dmg[0], $useable_arts[_is].dmg[1])&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if _is != $useable_arts.length - 1&gt;&gt;, &lt;&lt;/if&gt;&gt;&lt;&lt;/capture&gt;&gt;&lt;&lt;/for&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/button&gt;&gt;*/
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="10" name="Combat2" tags="" position="1225,100" size="100,100">You deal $dmg_out damage. &lt;&lt;set $enemy.hp[0] -= $dmg_out&gt;&gt; 
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="10" name="Combat2" tags="" position="425,550" size="100,100">You deal $dmg_out damage. &lt;&lt;set $enemy.hp[0] -= $dmg_out&gt;&gt; 
 &lt;&lt;if $enemy.hp[0] &lt;= 0&gt;&gt;[[Continue|CombatWin]]&lt;&lt;else&gt;&gt;&lt;&lt;set $sel_atk = random(0, $enemy.attacks.length - 1)&gt;&gt;&lt;&lt;set $sel_atk_dmg = random($enemy.dmg_min[$sel_atk], $enemy.dmg_max[$sel_atk])&gt;&gt;
 The &lt;&lt;= $enemy.name&gt;&gt; &lt;&lt;= $enemy.attacks[$sel_atk]&gt;&gt;, dealing &lt;&lt;=$sel_atk_dmg&gt;&gt; damage. &lt;&lt;set $pl.hp[0] -= $sel_atk_dmg&gt;&gt;
-&lt;&lt;if $pl.hp[0] &lt;= 0&gt;&gt;[[Continue|CombatFail]]&lt;&lt;else&gt;&gt;[[Continue|Combat][$sec to random(1, 59)]]&lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="11" name="CombatFail" tags="" position="100,225" size="100,100">You have lost...</tw-passagedata><tw-passagedata pid="12" name="CombatWin" tags="" position="225,225" size="100,100">You have won!</tw-passagedata><tw-passagedata pid="13" name="Spellbook" tags="no-time no-update dark" position="350,225" size="100,100">You crack open the spellbook, and see a list of all your learned spells:
+&lt;&lt;if $pl.hp[0] &lt;= 0&gt;&gt;[[Continue|CombatFail]]&lt;&lt;else&gt;&gt;[[Continue|Combat][$sec to random(1, 59)]]&lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="11" name="CombatFail" tags="" position="550,625" size="100,100">You have lost...</tw-passagedata><tw-passagedata pid="12" name="CombatWin" tags="" position="550,475" size="100,100">You have won!</tw-passagedata><tw-passagedata pid="13" name="Spellbook" tags="no-time no-update dark" position="50,425" size="100,100">You crack open the spellbook, and see a list of all your learned spells:
 &lt;&lt;nobr&gt;&gt;&lt;&lt;for _is = 0; _is &lt; $spells.length; _is++&gt;&gt;
 	&lt;&lt;capture _is&gt;&gt;
 	&lt;&lt;link $spells[_is].name &quot;Spellbook&quot;&gt;&gt;
@@ -287,19 +287,54 @@ The &lt;&lt;= $enemy.name&gt;&gt; &lt;&lt;= $enemy.attacks[$sel_atk]&gt;&gt;, de
 &lt;&lt;if $showSpellSel == true&gt;&gt;
 Selected Spell: &#39;&#39;&lt;&lt;= $selectedSpell.name&gt;&gt;&#39;&#39;
 &lt;&lt;= $selectedSpell.desc&gt;&gt;
-&lt;&lt;if $selectedSpell.type == &quot;damage&quot;&gt;&gt;&lt;&lt;if $curpass == &quot;Combat&quot;&gt;&gt;&lt;&lt;link &quot;Cast Spell!&quot; &quot;Combat2&quot;&gt;&gt;&lt;&lt;set $dmg_out = random($selectedSpell.dmg[0], $selectedSpell.dmg[1])&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;else&gt;&gt;This is a damage-type spell, and can only be cast during combat.&lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt;
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="14" name="Spells" tags="" position="475,225" size="100,100">&lt;&lt;silently&gt;&gt;
+&lt;&lt;nobr&gt;&gt;
+&lt;&lt;if $selectedSpell.type == &quot;damage&quot;&gt;&gt;
+	&lt;&lt;if $curpass == &quot;Combat&quot;&gt;&gt;
+		&lt;&lt;link &quot;Cast Spell!&quot; &quot;Combat2&quot;&gt;&gt;
+			&lt;&lt;set $dmg_out = random($selectedSpell.dmg[0], $selectedSpell.dmg[1])&gt;&gt;
+		&lt;&lt;/link&gt;&gt;
+	&lt;&lt;else&gt;&gt;
+		This is a damage-type spell, and can only be cast during combat.
+	&lt;&lt;/if&gt;&gt;
+&lt;&lt;elseif $selectedSpell.type == &quot;field&quot;&gt;&gt;
+	&lt;&lt;for _is = 0; _is &lt; $targets.length; _is++&gt;&gt;
+		&lt;&lt;capture _is&gt;&gt;
+		&lt;&lt;if $targets[_is][0] == &quot;flameable&quot;&gt;&gt;
+			&lt;&lt;set $active_target = $targets[_is]&gt;&gt;
+			&lt;&lt;link &quot;Cast Spell!&quot; $selectedSpell.goto&gt;&gt;&lt;&lt;/link&gt;&gt;
+		&lt;&lt;/if&gt;&gt;
+		&lt;&lt;/capture&gt;&gt;
+	&lt;&lt;/for&gt;&gt;
+&lt;&lt;else&gt;&gt;
+	There are no relevent targets here.
+&lt;&lt;/if&gt;&gt;
+&lt;&lt;/nobr&gt;&gt;
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="14" name="Spells" tags="" position="50,550" size="100,100">&lt;&lt;silently&gt;&gt;
 	&lt;&lt;set $fire = {
 		name: &quot;Fireball&quot;,
 		desc: &quot;Hurl a ball of fire at your enemy.&quot;,
 		type: &quot;damage&quot;,
 		dmg: [12, 13]
 	}&gt;&gt;
-	&lt;&lt;set $default_spells = [$fire]&gt;&gt;
-&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="15" name="Begin" tags="dark" position="675,175" size="100,100">What&#39;s this? //Got a Sword.// &lt;&lt;if visited() &lt; 2&gt;&gt;&lt;&lt;set $i.push($sword)&gt;&gt;&lt;&lt;/if&gt;&gt;
-[[Continue|Morning][$i.push($spellbook)]]</tw-passagedata><tw-passagedata pid="16" name="Morning" tags="light" position="725,225" size="100,100">And what&#39;s this? //Got a Spell Book.//
+	&lt;&lt;set $burn = {
+		name: &quot;Burn&quot;,
+		desc: &quot;Set the target on fire.&quot;,
+		type: &quot;field&quot;,
+		affects: &quot;flameable&quot;,
+		goto: &quot;Burn&quot;
+	}&gt;&gt;
+	&lt;&lt;set $default_spells = [$fire, $burn]&gt;&gt;
+&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="15" name="Burn" tags="dark" position="50,675" size="100,100">You cast the &lt;&lt;= $selectedSpell.name&gt;&gt; spell on the &lt;&lt;= $active_target[1]&gt;&gt;.
+&lt;&lt;link &quot;Continue&quot; $active_target[2]&gt;&gt;&lt;&lt;set $targets = [[]]&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="16" name="Begin" tags="dark" position="825,50" size="100,100">What&#39;s this? //Got a Sword.// &lt;&lt;if visited() &lt; 2&gt;&gt;&lt;&lt;set $i.push($sword)&gt;&gt;&lt;&lt;/if&gt;&gt;
+[[Continue|Morning][$i.push($spellbook)]]</tw-passagedata><tw-passagedata pid="17" name="Morning" tags="light" position="825,175" size="100,100">And what&#39;s this? //Got a Spell Book.//
 All of a sudden, a little dude runs towards you, brandishing a shiny shiv.
-[[Approach|Approach]]</tw-passagedata><tw-passagedata pid="17" name="Approach" tags="light" position="850,225" size="100,100">He&#39;s not happy. Prepare to fight!
+[[Approach|Approach]]
+[[Ignore|Town]]</tw-passagedata><tw-passagedata pid="18" name="Town" tags="light" position="950,100" size="100,100">&lt;&lt;silently&gt;&gt;&lt;&lt;set $targets = [[&quot;flameable&quot;, &quot;fallen tree&quot;, &quot;ClearedTown&quot;]]&gt;&gt;
+&lt;&lt;if $isTownOpen == true&gt;&gt;&lt;&lt;goto &quot;ClearedTown&quot;&gt;&gt;&lt;&lt;set $time.min -= $time.increment&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;&lt;/silently&gt;&gt;You stand at the town gates.
+However, a felled tree blocks the path. It is too heavy to lift, so how else can you clear it away...?</tw-passagedata><tw-passagedata pid="19" name="ClearedTown" tags="light" position="950,250" size="100,100">&lt;&lt;set $isTownOpen = true&gt;&gt;You stand at the town gates.
+The path into town is clear. You can [[head in|TownSquare]].</tw-passagedata><tw-passagedata pid="20" name="TownSquare" tags="light" position="1075,175" size="100,100">Center &#39;o town.
+[[Leave|Town]]</tw-passagedata><tw-passagedata pid="21" name="Approach" tags="light" position="825,300" size="100,100">He&#39;s not happy. Prepare to fight!
 [[Fight|PreCombat][$enemy to $dude]]</tw-passagedata></tw-storydata>
 	<script id="script-sugarcube" type="text/javascript">
 	/*! SugarCube JS */
