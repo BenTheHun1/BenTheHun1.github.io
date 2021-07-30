@@ -98,7 +98,7 @@ var LZString={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234
 		<div id="init-lacking">Your browser lacks required capabilities. Please upgrade it or switch to another to continue.</div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<!-- UUID://4E684A2E-B480-4A9C-B8CC-17744AE14BEB// --><tw-storydata name="Middleworld" startnode="16" creator="Tweego" creator-version="2.1.1+81d1d71" ifid="4E684A2E-B480-4A9C-B8CC-17744AE14BEB" zoom="2" format="SugarCube" format-version="2.35.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">body.dark {
+	<!-- UUID://4E684A2E-B480-4A9C-B8CC-17744AE14BEB// --><tw-storydata name="Middleworld" startnode="17" creator="Tweego" creator-version="2.1.1+81d1d71" ifid="4E684A2E-B480-4A9C-B8CC-17744AE14BEB" zoom="2" format="SugarCube" format-version="2.35.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">body.dark {
 	background-color: rgb(39, 39, 39);
 }
 
@@ -132,13 +132,13 @@ progress {
 		desc: &quot;A magical book containing all of your known spells.&quot;,
 		times: [4, 8, 10],
 		req: [[2, 6, &quot;any&quot;], [2, 4, &quot;any&quot;]],
-		divert: [&quot;Open up&quot;, &quot;Spellbook&quot;]
+		divert: [&quot;Open up&quot;, &quot;Spellbook&quot;, &quot;CSpellbook&quot;]
 	}&gt;&gt;
 &lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="2" name="Variables" tags="" position="450,175" size="100,100">&lt;&lt;silently&gt;&gt;
 Config.passages
 	&lt;&lt;set $time = {
 		hr: 9,
-		min: 57,
+		min: 57, /*start 1 increment before desired time*/
 		day: 1,
 		increment: 3
 	}&gt;&gt;
@@ -146,7 +146,8 @@ Config.passages
 	&lt;&lt;set $useable_arts = []&gt;&gt;
 	&lt;&lt;set $targets = [[]]&gt;&gt;
 	&lt;&lt;set $pl = {
-		hp: [20, 20]
+		hp: [20, 20],
+		mp: [20, 20]
 	}&gt;&gt;
 	&lt;&lt;set $spells = []&gt;&gt;
 	&lt;&lt;set $tuners = [
@@ -180,9 +181,7 @@ Config.passages
 &lt;&lt;/silently&gt;&gt;&lt;&lt;if tags().includes(&quot;no-display&quot;) is false&gt;&gt;!$time.hr:&lt;&lt;if $time.min.toString().length is 1&gt;&gt;0&lt;&lt;/if&gt;&gt;$time.min&lt;&lt;/if&gt;&gt;&lt;&lt;silently&gt;&gt;
 &lt;&lt;if tags().includes(&quot;no-update&quot;) is false&gt;&gt;
 	&lt;&lt;set $curpass to passage()&gt;&gt;
-&lt;&lt;/if&gt;&gt;&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="7" name="Menu" tags="no-time no-update dark" position="50,300" size="100,100">&lt;div style=&quot;text-align:center&quot;&gt;
-$pl.hp[0] / $pl.hp[1] HP
-&lt;/div&gt;
+&lt;&lt;/if&gt;&gt;&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="7" name="Menu" tags="no-time no-update dark" position="50,300" size="100,100">&lt;div style=&quot;text-align:center; color:#FF4646&quot;&gt;$pl.hp[0] / $pl.hp[1] HP &lt;/div&gt;&lt;div style=&quot;text-align:center; color:#4B52FF&quot;&gt; $pl.mp[0] / $pl.mp[1] MP&lt;/div&gt;
 &lt;&lt;nobr&gt;&gt; Arts:
 &lt;&lt;for _is = 0; _is &lt; $i.length; _is++&gt;&gt;
 	&lt;&lt;capture _is&gt;&gt;
@@ -235,19 +234,19 @@ Tune: &lt;&lt;for _id = 0; _id &lt; $tuners.length; _id++&gt;&gt;
 		&lt;&lt;if $tuners[_id][3] == &quot;s&quot;&gt;&gt;
 			&lt;&lt;if $tuners[_id][1] == &quot;+&quot;&gt;&gt;
 				&lt;&lt;button _tunername&gt;&gt;&lt;&lt;set $sec += $tuners[_id][2]&gt;&gt;&lt;&lt;replace &quot;#c-time&quot;&gt;&gt;&lt;&lt;for $sec &gt;= 60&gt;&gt;&lt;&lt;set $sec -= 60&gt;&gt;&lt;&lt;set $Ctime.min += 1&gt;&gt;&lt;&lt;/for&gt;&gt;&lt;&lt;if $Ctime.min &gt;= 60&gt;&gt;&lt;&lt;set $Ctime.min -= 60&gt;&gt;&lt;&lt;set $Ctime.hr += 1&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if $Ctime.hr &gt; 12&gt;&gt;&lt;&lt;set $Ctime.hr = 1&gt;&gt;&lt;&lt;/if&gt;&gt;$Ctime.hr:&lt;&lt;if $Ctime.min.toString().length is 1&gt;&gt;0&lt;&lt;/if&gt;&gt;$Ctime.min:&lt;&lt;if $sec.toString().length is 1&gt;&gt;0&lt;&lt;/if&gt;&gt;$sec&lt;&lt;/replace&gt;&gt;&lt;&lt;set $useable_arts = []&gt;&gt;&lt;&lt;set $Ctime_combined = $Ctime.hr.toString() + $Ctime.min.toString() + $sec.toString()&gt;&gt;&lt;&lt;for _is = 0; _is &lt; $i.length; _is++&gt;&gt;&lt;&lt;capture _is&gt;&gt;&lt;&lt;if $i[_is].times.includes($time.hr)&gt;&gt;&lt;&lt;for _ix = 0; _ix &lt; $i[_is].req.length; _ix++&gt;&gt;&lt;&lt;if $i[_is].req[_ix][2] == &quot;any&quot;&gt;&gt;&lt;&lt;if $Ctime_combined.count($i[_is].req[_ix][1].toString()) &gt;= $i[_is].req[_ix][0] and $useable_arts.includes($i[_is]) == false&gt;&gt;
-				&lt;&lt;= $useable_arts.push($i[_is])&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/for&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/capture&gt;&gt;&lt;&lt;/for&gt;&gt;&lt;&lt;replace &quot;#cactions&quot;&gt;&gt;&lt;&lt;for _is = 0; _is &lt; $useable_arts.length; _is++&gt;&gt;&lt;&lt;capture _is&gt;&gt;&lt;&lt;if $useable_arts[_is].hasOwnProperty(&quot;divert&quot;)&gt;&gt;&lt;&lt;link $useable_arts[_is].name $useable_arts[_is].divert[1]&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;link $useable_arts[_is].name &quot;Combat2&quot;&gt;&gt;&lt;&lt;set $dmg_out = random($useable_arts[_is].dmg[0], $useable_arts[_is].dmg[1])&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if _is != $useable_arts.length - 1&gt;&gt;, &lt;&lt;/if&gt;&gt;&lt;&lt;/capture&gt;&gt;&lt;&lt;/for&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/button&gt;&gt;
+				&lt;&lt;= $useable_arts.push($i[_is])&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/for&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/capture&gt;&gt;&lt;&lt;/for&gt;&gt;&lt;&lt;replace &quot;#cactions&quot;&gt;&gt;&lt;&lt;for _is = 0; _is &lt; $useable_arts.length; _is++&gt;&gt;&lt;&lt;capture _is&gt;&gt;&lt;&lt;if $useable_arts[_is].hasOwnProperty(&quot;divert&quot;)&gt;&gt;&lt;&lt;link $useable_arts[_is].name $useable_arts[_is].divert[2]&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;link $useable_arts[_is].name &quot;Combat2&quot;&gt;&gt;&lt;&lt;set $dmg_out = random($useable_arts[_is].dmg[0], $useable_arts[_is].dmg[1])&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if _is != $useable_arts.length - 1&gt;&gt;, &lt;&lt;/if&gt;&gt;&lt;&lt;/capture&gt;&gt;&lt;&lt;/for&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/button&gt;&gt;
 			&lt;&lt;/if&gt;&gt;
 			&lt;&lt;if $tuners[_id][1] == &quot;x&quot;&gt;&gt;
 				&lt;&lt;button _tunername&gt;&gt;&lt;&lt;set $sec *= $tuners[_id][2]&gt;&gt;&lt;&lt;replace &quot;#c-time&quot;&gt;&gt;&lt;&lt;for $sec &gt;= 60&gt;&gt;&lt;&lt;set $sec -= 60&gt;&gt;&lt;&lt;set $Ctime.min += 1&gt;&gt;&lt;&lt;/for&gt;&gt;&lt;&lt;if $Ctime.min &gt;= 60&gt;&gt;&lt;&lt;set $Ctime.min -= 60&gt;&gt;&lt;&lt;set $Ctime.hr += 1&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if $Ctime.hr &gt; 12&gt;&gt;&lt;&lt;set $Ctime.hr = 1&gt;&gt;&lt;&lt;/if&gt;&gt;$Ctime.hr:&lt;&lt;if $Ctime.min.toString().length is 1&gt;&gt;0&lt;&lt;/if&gt;&gt;$Ctime.min:&lt;&lt;if $sec.toString().length is 1&gt;&gt;0&lt;&lt;/if&gt;&gt;$sec&lt;&lt;/replace&gt;&gt;&lt;&lt;set $useable_arts = []&gt;&gt;&lt;&lt;set $Ctime_combined = $Ctime.hr.toString() + $Ctime.min.toString() + $sec.toString()&gt;&gt;&lt;&lt;for _is = 0; _is &lt; $i.length; _is++&gt;&gt;&lt;&lt;capture _is&gt;&gt;&lt;&lt;if $i[_is].times.includes($time.hr)&gt;&gt;&lt;&lt;for _ix = 0; _ix &lt; $i[_is].req.length; _ix++&gt;&gt;&lt;&lt;if $i[_is].req[_ix][2] == &quot;any&quot;&gt;&gt;&lt;&lt;if $Ctime_combined.count($i[_is].req[_ix][1].toString()) &gt;= $i[_is].req[_ix][0] and $useable_arts.includes($i[_is]) == false&gt;&gt;
-				&lt;&lt;= $useable_arts.push($i[_is])&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/for&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/capture&gt;&gt;&lt;&lt;/for&gt;&gt;&lt;&lt;replace &quot;#cactions&quot;&gt;&gt;&lt;&lt;for _is = 0; _is &lt; $useable_arts.length; _is++&gt;&gt;&lt;&lt;capture _is&gt;&gt;&lt;&lt;if $useable_arts[_is].hasOwnProperty(&quot;divert&quot;)&gt;&gt;&lt;&lt;link $useable_arts[_is].name $useable_arts[_is].divert[1]&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;link $useable_arts[_is].name &quot;Combat2&quot;&gt;&gt;&lt;&lt;set $dmg_out = random($useable_arts[_is].dmg[0], $useable_arts[_is].dmg[1])&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if _is != $useable_arts.length - 1&gt;&gt;, &lt;&lt;/if&gt;&gt;&lt;&lt;/capture&gt;&gt;&lt;&lt;/for&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/button&gt;&gt;
+				&lt;&lt;= $useable_arts.push($i[_is])&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/for&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/capture&gt;&gt;&lt;&lt;/for&gt;&gt;&lt;&lt;replace &quot;#cactions&quot;&gt;&gt;&lt;&lt;for _is = 0; _is &lt; $useable_arts.length; _is++&gt;&gt;&lt;&lt;capture _is&gt;&gt;&lt;&lt;if $useable_arts[_is].hasOwnProperty(&quot;divert&quot;)&gt;&gt;&lt;&lt;link $useable_arts[_is].name $useable_arts[_is].divert[2]&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;link $useable_arts[_is].name &quot;Combat2&quot;&gt;&gt;&lt;&lt;set $dmg_out = random($useable_arts[_is].dmg[0], $useable_arts[_is].dmg[1])&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if _is != $useable_arts.length - 1&gt;&gt;, &lt;&lt;/if&gt;&gt;&lt;&lt;/capture&gt;&gt;&lt;&lt;/for&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/button&gt;&gt;
 			&lt;&lt;/if&gt;&gt;
 			&lt;&lt;if $tuners[_id][1] == &quot;-&quot;&gt;&gt;
 				&lt;&lt;button _tunername&gt;&gt;&lt;&lt;set $sec -= $tuners[_id][2]&gt;&gt;&lt;&lt;replace &quot;#c-time&quot;&gt;&gt;&lt;&lt;for $sec &gt;= 60&gt;&gt;&lt;&lt;set $sec -= 60&gt;&gt;&lt;&lt;set $Ctime.min += 1&gt;&gt;&lt;&lt;/for&gt;&gt;&lt;&lt;if $Ctime.min &gt;= 60&gt;&gt;&lt;&lt;set $Ctime.min -= 60&gt;&gt;&lt;&lt;set $Ctime.hr += 1&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if $Ctime.hr &gt; 12&gt;&gt;&lt;&lt;set $Ctime.hr = 1&gt;&gt;&lt;&lt;/if&gt;&gt;$Ctime.hr:&lt;&lt;if $Ctime.min.toString().length is 1&gt;&gt;0&lt;&lt;/if&gt;&gt;$Ctime.min:&lt;&lt;if $sec.toString().length is 1&gt;&gt;0&lt;&lt;/if&gt;&gt;$sec&lt;&lt;/replace&gt;&gt;&lt;&lt;set $useable_arts = []&gt;&gt;&lt;&lt;set $Ctime_combined = $Ctime.hr.toString() + $Ctime.min.toString() + $sec.toString()&gt;&gt;&lt;&lt;for _is = 0; _is &lt; $i.length; _is++&gt;&gt;&lt;&lt;capture _is&gt;&gt;&lt;&lt;if $i[_is].times.includes($time.hr)&gt;&gt;&lt;&lt;for _ix = 0; _ix &lt; $i[_is].req.length; _ix++&gt;&gt;&lt;&lt;if $i[_is].req[_ix][2] == &quot;any&quot;&gt;&gt;&lt;&lt;if $Ctime_combined.count($i[_is].req[_ix][1].toString()) &gt;= $i[_is].req[_ix][0] and $useable_arts.includes($i[_is]) == false&gt;&gt;
-				&lt;&lt;= $useable_arts.push($i[_is])&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/for&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/capture&gt;&gt;&lt;&lt;/for&gt;&gt;&lt;&lt;replace &quot;#cactions&quot;&gt;&gt;&lt;&lt;for _is = 0; _is &lt; $useable_arts.length; _is++&gt;&gt;&lt;&lt;capture _is&gt;&gt;&lt;&lt;if $useable_arts[_is].hasOwnProperty(&quot;divert&quot;)&gt;&gt;&lt;&lt;link $useable_arts[_is].name $useable_arts[_is].divert[1]&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;link $useable_arts[_is].name &quot;Combat2&quot;&gt;&gt;&lt;&lt;set $dmg_out = random($useable_arts[_is].dmg[0], $useable_arts[_is].dmg[1])&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if _is != $useable_arts.length - 1&gt;&gt;, &lt;&lt;/if&gt;&gt;&lt;&lt;/capture&gt;&gt;&lt;&lt;/for&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/button&gt;&gt;
+				&lt;&lt;= $useable_arts.push($i[_is])&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/for&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/capture&gt;&gt;&lt;&lt;/for&gt;&gt;&lt;&lt;replace &quot;#cactions&quot;&gt;&gt;&lt;&lt;for _is = 0; _is &lt; $useable_arts.length; _is++&gt;&gt;&lt;&lt;capture _is&gt;&gt;&lt;&lt;if $useable_arts[_is].hasOwnProperty(&quot;divert&quot;)&gt;&gt;&lt;&lt;link $useable_arts[_is].name $useable_arts[_is].divert[2]&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;link $useable_arts[_is].name &quot;Combat2&quot;&gt;&gt;&lt;&lt;set $dmg_out = random($useable_arts[_is].dmg[0], $useable_arts[_is].dmg[1])&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if _is != $useable_arts.length - 1&gt;&gt;, &lt;&lt;/if&gt;&gt;&lt;&lt;/capture&gt;&gt;&lt;&lt;/for&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/button&gt;&gt;
 			&lt;&lt;/if&gt;&gt;
 			&lt;&lt;if $tuners[_id][1] == &quot;/&quot;&gt;&gt;
 				&lt;&lt;button _tunername&gt;&gt;&lt;&lt;set $sec /= $tuners[_id][2]&gt;&gt;&lt;&lt;replace &quot;#c-time&quot;&gt;&gt;&lt;&lt;for $sec &gt;= 60&gt;&gt;&lt;&lt;set $sec -= 60&gt;&gt;&lt;&lt;set $Ctime.min += 1&gt;&gt;&lt;&lt;/for&gt;&gt;&lt;&lt;if $Ctime.min &gt;= 60&gt;&gt;&lt;&lt;set $Ctime.min -= 60&gt;&gt;&lt;&lt;set $Ctime.hr += 1&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if $Ctime.hr &gt; 12&gt;&gt;&lt;&lt;set $Ctime.hr = 1&gt;&gt;&lt;&lt;/if&gt;&gt;$Ctime.hr:&lt;&lt;if $Ctime.min.toString().length is 1&gt;&gt;0&lt;&lt;/if&gt;&gt;$Ctime.min:&lt;&lt;if $sec.toString().length is 1&gt;&gt;0&lt;&lt;/if&gt;&gt;$sec&lt;&lt;/replace&gt;&gt;&lt;&lt;set $useable_arts = []&gt;&gt;&lt;&lt;set $Ctime_combined = $Ctime.hr.toString() + $Ctime.min.toString() + $sec.toString()&gt;&gt;&lt;&lt;for _is = 0; _is &lt; $i.length; _is++&gt;&gt;&lt;&lt;capture _is&gt;&gt;&lt;&lt;if $i[_is].times.includes($time.hr)&gt;&gt;&lt;&lt;for _ix = 0; _ix &lt; $i[_is].req.length; _ix++&gt;&gt;&lt;&lt;if $i[_is].req[_ix][2] == &quot;any&quot;&gt;&gt;&lt;&lt;if $Ctime_combined.count($i[_is].req[_ix][1].toString()) &gt;= $i[_is].req[_ix][0] and $useable_arts.includes($i[_is]) == false&gt;&gt;
-				&lt;&lt;= $useable_arts.push($i[_is])&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/for&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/capture&gt;&gt;&lt;&lt;/for&gt;&gt;&lt;&lt;replace &quot;#cactions&quot;&gt;&gt;&lt;&lt;for _is = 0; _is &lt; $useable_arts.length; _is++&gt;&gt;&lt;&lt;capture _is&gt;&gt;&lt;&lt;if $useable_arts[_is].hasOwnProperty(&quot;divert&quot;)&gt;&gt;&lt;&lt;link $useable_arts[_is].name $useable_arts[_is].divert[1]&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;link $useable_arts[_is].name &quot;Combat2&quot;&gt;&gt;&lt;&lt;set $dmg_out = random($useable_arts[_is].dmg[0], $useable_arts[_is].dmg[1])&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if _is != $useable_arts.length - 1&gt;&gt;, &lt;&lt;/if&gt;&gt;&lt;&lt;/capture&gt;&gt;&lt;&lt;/for&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/button&gt;&gt;
+				&lt;&lt;= $useable_arts.push($i[_is])&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/for&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/capture&gt;&gt;&lt;&lt;/for&gt;&gt;&lt;&lt;replace &quot;#cactions&quot;&gt;&gt;&lt;&lt;for _is = 0; _is &lt; $useable_arts.length; _is++&gt;&gt;&lt;&lt;capture _is&gt;&gt;&lt;&lt;if $useable_arts[_is].hasOwnProperty(&quot;divert&quot;)&gt;&gt;&lt;&lt;link $useable_arts[_is].name $useable_arts[_is].divert[2]&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;link $useable_arts[_is].name &quot;Combat2&quot;&gt;&gt;&lt;&lt;set $dmg_out = random($useable_arts[_is].dmg[0], $useable_arts[_is].dmg[1])&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if _is != $useable_arts.length - 1&gt;&gt;, &lt;&lt;/if&gt;&gt;&lt;&lt;/capture&gt;&gt;&lt;&lt;/for&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/button&gt;&gt;
 			&lt;&lt;/if&gt;&gt;
 		&lt;&lt;/if&gt;&gt;
 	&lt;&lt;/if&gt;&gt;
@@ -271,7 +270,7 @@ Tune: &lt;&lt;for _id = 0; _id &lt; $tuners.length; _id++&gt;&gt;
 	&lt;&lt;/if&gt;&gt;
 	&lt;&lt;/capture&gt;&gt;
 &lt;&lt;/for&gt;&gt;
-&lt;&lt;replace &quot;#cactions&quot;&gt;&gt;&lt;&lt;for _is = 0; _is &lt; $useable_arts.length; _is++&gt;&gt;&lt;&lt;capture _is&gt;&gt;&lt;&lt;if $useable_arts[_is].hasOwnProperty(&quot;divert&quot;)&gt;&gt;&lt;&lt;link $useable_arts[_is].name $useable_arts[_is].divert[1]&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;link $useable_arts[_is].name &quot;Combat2&quot;&gt;&gt;&lt;&lt;set $dmg_out = random($useable_arts[_is].dmg[0], $useable_arts[_is].dmg[1])&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if _is != $useable_arts.length - 1&gt;&gt;, &lt;&lt;/if&gt;&gt;&lt;&lt;/capture&gt;&gt;&lt;&lt;/for&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/button&gt;&gt;*/
+&lt;&lt;replace &quot;#cactions&quot;&gt;&gt;&lt;&lt;for _is = 0; _is &lt; $useable_arts.length; _is++&gt;&gt;&lt;&lt;capture _is&gt;&gt;&lt;&lt;if $useable_arts[_is].hasOwnProperty(&quot;divert&quot;)&gt;&gt;&lt;&lt;link $useable_arts[_is].name $useable_arts[_is].divert[2]&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;link $useable_arts[_is].name &quot;Combat2&quot;&gt;&gt;&lt;&lt;set $dmg_out = random($useable_arts[_is].dmg[0], $useable_arts[_is].dmg[1])&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if _is != $useable_arts.length - 1&gt;&gt;, &lt;&lt;/if&gt;&gt;&lt;&lt;/capture&gt;&gt;&lt;&lt;/for&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/button&gt;&gt;*/
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="10" name="Combat2" tags="" position="425,550" size="100,100">You deal $dmg_out damage. &lt;&lt;set $enemy.hp[0] -= $dmg_out&gt;&gt; 
 &lt;&lt;if $enemy.hp[0] &lt;= 0&gt;&gt;[[Continue|CombatWin]]&lt;&lt;else&gt;&gt;&lt;&lt;set $sel_atk = random(0, $enemy.attacks.length - 1)&gt;&gt;&lt;&lt;set $sel_atk_dmg = random($enemy.dmg_min[$sel_atk], $enemy.dmg_max[$sel_atk])&gt;&gt;
 The &lt;&lt;= $enemy.name&gt;&gt; &lt;&lt;= $enemy.attacks[$sel_atk]&gt;&gt;, dealing &lt;&lt;=$sel_atk_dmg&gt;&gt; damage. &lt;&lt;set $pl.hp[0] -= $sel_atk_dmg&gt;&gt;
@@ -289,52 +288,74 @@ Selected Spell: &#39;&#39;&lt;&lt;= $selectedSpell.name&gt;&gt;&#39;&#39;
 &lt;&lt;= $selectedSpell.desc&gt;&gt;
 &lt;&lt;nobr&gt;&gt;
 &lt;&lt;if $selectedSpell.type == &quot;damage&quot;&gt;&gt;
-	&lt;&lt;if $curpass == &quot;Combat&quot;&gt;&gt;
+	This is a damage-type spell, and can only be cast during combat.
+&lt;&lt;elseif $selectedSpell.type == &quot;field&quot;&gt;&gt;
+	&lt;&lt;for _is = 0; _is &lt; $targets.length; _is++&gt;&gt;
+		&lt;&lt;capture _is&gt;&gt;
+		&lt;&lt;if $targets[_is][0] == $selectedSpell.affects&gt;&gt;
+			&lt;&lt;set $active_target = $targets[_is]&gt;&gt;
+			&lt;&lt;link &quot;Cast Spell!&quot; &quot;Cast&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
+			&lt;&lt;set $foundtargetforspell = true&gt;&gt;
+		&lt;&lt;/if&gt;&gt;
+		&lt;&lt;/capture&gt;&gt;
+	&lt;&lt;/for&gt;&gt;
+&lt;&lt;if $foundtargetforspell != true&gt;&gt;There are no relevent targets here.&lt;&lt;/if&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+&lt;&lt;/nobr&gt;&gt;
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="14" name="CSpellbook" tags="no-time no-update dark" position="50,425" size="100,100">You crack open the spellbook, and see a list of all your learned spells:
+&lt;&lt;nobr&gt;&gt;&lt;&lt;for _is = 0; _is &lt; $spells.length; _is++&gt;&gt;
+	&lt;&lt;capture _is&gt;&gt;
+	&lt;&lt;link $spells[_is].name &quot;CSpellbook&quot;&gt;&gt;
+		&lt;&lt;set $selectedSpell = $spells[_is]&gt;&gt;
+		&lt;&lt;set $showSpellSel = true&gt;&gt;
+	&lt;&lt;/link&gt;&gt;&lt;&lt;if _is != $spells.length - 1&gt;&gt;, &lt;&lt;/if&gt;&gt;
+	&lt;&lt;/capture&gt;&gt;
+&lt;&lt;/for&gt;&gt;&lt;&lt;/nobr&gt;&gt;
+&lt;&lt;if $showSpellSel == true&gt;&gt;
+Selected Spell: &#39;&#39;&lt;&lt;= $selectedSpell.name&gt;&gt;&#39;&#39;
+&lt;&lt;= $selectedSpell.desc&gt;&gt;
+&lt;&lt;nobr&gt;&gt;
+&lt;&lt;if $selectedSpell.type == &quot;damage&quot;&gt;&gt;
+	&lt;&lt;if $pl.mp[0] &gt;= $selectedSpell.cost&gt;&gt;
 		&lt;&lt;link &quot;Cast Spell!&quot; &quot;Combat2&quot;&gt;&gt;
 			&lt;&lt;set $dmg_out = random($selectedSpell.dmg[0], $selectedSpell.dmg[1])&gt;&gt;
 		&lt;&lt;/link&gt;&gt;
 	&lt;&lt;else&gt;&gt;
-		This is a damage-type spell, and can only be cast during combat.
+		You don&#39;t have enough MP.
 	&lt;&lt;/if&gt;&gt;
 &lt;&lt;elseif $selectedSpell.type == &quot;field&quot;&gt;&gt;
-	&lt;&lt;for _is = 0; _is &lt; $targets.length; _is++&gt;&gt;
-		&lt;&lt;capture _is&gt;&gt;
-		&lt;&lt;if $targets[_is][0] == &quot;flameable&quot;&gt;&gt;
-			&lt;&lt;set $active_target = $targets[_is]&gt;&gt;
-			&lt;&lt;link &quot;Cast Spell!&quot; $selectedSpell.goto&gt;&gt;&lt;&lt;/link&gt;&gt;
-		&lt;&lt;/if&gt;&gt;
-		&lt;&lt;/capture&gt;&gt;
-	&lt;&lt;/for&gt;&gt;
-&lt;&lt;else&gt;&gt;
-	There are no relevent targets here.
+	This is a field-type spell, and can not be cast during combat.
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="14" name="Spells" tags="" position="50,550" size="100,100">&lt;&lt;silently&gt;&gt;
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="15" name="Spells" tags="" position="50,550" size="100,100">&lt;&lt;silently&gt;&gt;
 	&lt;&lt;set $fire = {
 		name: &quot;Fireball&quot;,
 		desc: &quot;Hurl a ball of fire at your enemy.&quot;,
 		type: &quot;damage&quot;,
+		cost: 3,
 		dmg: [12, 13]
 	}&gt;&gt;
 	&lt;&lt;set $burn = {
 		name: &quot;Burn&quot;,
 		desc: &quot;Set the target on fire.&quot;,
 		type: &quot;field&quot;,
-		affects: &quot;flameable&quot;,
-		goto: &quot;Burn&quot;
+		cost: 6,
+		affects: &quot;flameable&quot;
 	}&gt;&gt;
 	&lt;&lt;set $default_spells = [$fire, $burn]&gt;&gt;
-&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="15" name="Burn" tags="dark" position="50,675" size="100,100">You cast the &lt;&lt;= $selectedSpell.name&gt;&gt; spell on the &lt;&lt;= $active_target[1]&gt;&gt;.
-&lt;&lt;link &quot;Continue&quot; $active_target[2]&gt;&gt;&lt;&lt;set $targets = [[]]&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="16" name="Begin" tags="dark" position="825,50" size="100,100">What&#39;s this? //Got a Sword.// &lt;&lt;if visited() &lt; 2&gt;&gt;&lt;&lt;set $i.push($sword)&gt;&gt;&lt;&lt;/if&gt;&gt;
-[[Continue|Morning][$i.push($spellbook)]]</tw-passagedata><tw-passagedata pid="17" name="Morning" tags="light" position="825,175" size="100,100">And what&#39;s this? //Got a Spell Book.//
+&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="16" name="Cast" tags="no-update dark" position="50,675" size="100,100">&lt;&lt;if $selected.times.includes($time.hr) &amp;&amp; $pl.mp[0] &gt;= $selectedSpell.cost&gt;&gt;You cast the &lt;&lt;= $selectedSpell.name&gt;&gt; spell on the &lt;&lt;= $active_target[1]&gt;&gt;.
+&lt;&lt;link &quot;Continue&quot; $active_target[2]&gt;&gt;&lt;&lt;set $targets = [[]]&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;elseif $pl.mp[0] &lt; $selectedSpell.cost&gt;&gt;You don&#39;t have enough MP.
+&lt;&lt;link &quot;Continue&quot; $curpass&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;else&gt;&gt;You try to cast the spell, but the time isn&#39;t right.
+&lt;&lt;link &quot;Continue&quot; $curpass&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="17" name="Begin" tags="dark" position="825,50" size="100,100">What&#39;s this? //Got a Sword.// &lt;&lt;if visited() &lt; 2&gt;&gt;&lt;&lt;set $i.push($sword)&gt;&gt;&lt;&lt;/if&gt;&gt;
+[[Continue|Morning][$i.push($spellbook)]]</tw-passagedata><tw-passagedata pid="18" name="Morning" tags="light" position="825,175" size="100,100">And what&#39;s this? //Got a Spell Book.//
 All of a sudden, a little dude runs towards you, brandishing a shiny shiv.
 [[Approach|Approach]]
-[[Ignore|Town]]</tw-passagedata><tw-passagedata pid="18" name="Town" tags="light" position="950,100" size="100,100">&lt;&lt;silently&gt;&gt;&lt;&lt;set $targets = [[&quot;flameable&quot;, &quot;fallen tree&quot;, &quot;ClearedTown&quot;]]&gt;&gt;
+[[Ignore|Town]]</tw-passagedata><tw-passagedata pid="19" name="Town" tags="light" position="950,100" size="100,100">&lt;&lt;silently&gt;&gt;&lt;&lt;set $targets = [[&quot;flameable&quot;, &quot;fallen tree&quot;, &quot;ClearedTown&quot;]]&gt;&gt;
 &lt;&lt;if $isTownOpen == true&gt;&gt;&lt;&lt;goto &quot;ClearedTown&quot;&gt;&gt;&lt;&lt;set $time.min -= $time.increment&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;/silently&gt;&gt;You stand at the town gates.
-However, a felled tree blocks the path. It is too heavy to lift, so how else can you clear it away...?</tw-passagedata><tw-passagedata pid="19" name="ClearedTown" tags="light" position="950,250" size="100,100">&lt;&lt;set $isTownOpen = true&gt;&gt;You stand at the town gates.
-The path into town is clear. You can [[head in|TownSquare]].</tw-passagedata><tw-passagedata pid="20" name="TownSquare" tags="light" position="1075,175" size="100,100">Center &#39;o town.
-[[Leave|Town]]</tw-passagedata><tw-passagedata pid="21" name="Approach" tags="light" position="825,300" size="100,100">He&#39;s not happy. Prepare to fight!
+However, a felled tree blocks the path. It is too heavy to lift, so how else can you clear it away...?</tw-passagedata><tw-passagedata pid="20" name="ClearedTown" tags="light" position="950,250" size="100,100">&lt;&lt;set $isTownOpen = true&gt;&gt;You stand at the town gates.
+The path into town is clear. You can [[head in|TownSquare]].</tw-passagedata><tw-passagedata pid="21" name="TownSquare" tags="light" position="1075,175" size="100,100">Center &#39;o town.
+[[Leave|Town]]</tw-passagedata><tw-passagedata pid="22" name="Approach" tags="light" position="825,300" size="100,100">He&#39;s not happy. Prepare to fight!
 [[Fight|PreCombat][$enemy to $dude]]</tw-passagedata></tw-storydata>
 	<script id="script-sugarcube" type="text/javascript">
 	/*! SugarCube JS */
