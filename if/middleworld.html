@@ -21,10 +21,10 @@ tw-story{
 tw-sidebar {
     display: none;
 }
-</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="clock" color="red"></tw-tag>,<tw-tag name="forest" color="gray"></tw-tag>,<tw-tag name="no-header" color="orange"></tw-tag>,<tw-tag name="no-time" color="blue"></tw-tag>,<tw-tag name="space" color="purple"></tw-tag><tw-passagedata pid="1" name="START" tags="space no-header" position="776,225" size="100,100">You float through the sea of nothingness, one star in an infinite cosmos. The true nature of the universe becomes clear, as if looking up from a kaleidoscope at the real world. As it falls to the ground, you witness the beauty of the true colors and shapes the universe is made of.
+</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="clock" color="red"></tw-tag>,<tw-tag name="forest" color="gray"></tw-tag>,<tw-tag name="no-header" color="orange"></tw-tag>,<tw-tag name="no-time" color="blue"></tw-tag>,<tw-tag name="space" color="purple"></tw-tag><tw-passagedata pid="1" name="START" tags="space no-header" position="775,225" size="100,100">You float through the sea of nothingness, one star in an infinite cosmos. The true nature of the universe becomes clear, as if looking up from a kaleidoscope at the real world. As it falls to the ground, you witness the beauty of the true colors and shapes the universe is made of.
 The stars in the sky come together to form shapes, constellations, the patterns of which show you your destined path through the world.
 =&gt;&lt;=
-[[==&gt;-&gt;2]]
+[[==&gt;-&gt;Enemy Init]]
 (set:$hour to 10)(set:$min to 0)(set:$hp to (a:30, 30))(set:$gold to 0)(set: $i to (a:))(set: $spells to (a:))</tw-passagedata><tw-passagedata pid="2" name="2" tags="space no-header" position="775,350" size="100,100">As your feet trace the patterns of the constellations below you, the Knife sits heavy, like lead, in its sheath at your side, the accursed thing.
 
 As your destination comes into view, you wonder what it will be like, living there. Will you make friends? Will you go on adventures? Will you have fun? Will you cast off your heavy burden, the weight of thousands of lives, contained by a simple slip of leather on a cord around your waist?
@@ -228,8 +228,7 @@ At the end of the street, are a set of stairs leading underground, almost like a
 The gates are closed, and two guards stand in front of them.
 
 [[Talk to the guard]]
-[[Turn back around-&gt;Go to the West]]</tw-passagedata><tw-passagedata pid="41" name="&quot;Yes&quot;" tags="" position="925,2400" size="100,100">&quot;Well, see how you like this&quot;
-(set:$guard to (a: &quot;Guard&quot;, 100, (a: &quot;a spear stab&quot;, &quot;a fire ball&quot;), (a: 5, 10), (a: 7, 20), 5))(set:$enemy to $guard)
+[[Turn back around-&gt;Go to the West]]</tw-passagedata><tw-passagedata pid="41" name="&quot;Yes&quot;" tags="" position="925,2400" size="100,100">&quot;Well, see how you like this&quot; (set:$enemy to $guard)
 
 [[FIGHT-&gt;FightSimStart]]</tw-passagedata><tw-passagedata pid="42" name="Explain that it is cursed" tags="" position="775,2400" size="100,100">&quot;Sure.&quot;
 
@@ -238,8 +237,18 @@ The gates are closed, and two guards stand in front of them.
 
 [[&quot;Sure&quot;]]
 [[&quot;Where&#39;s the Sage?&quot;]]
-[[&quot;No thanks.&quot;]]</tw-passagedata><tw-passagedata pid="44" name="Enemy Init" tags="" position="1025,100" size="100,100">(set:$old_man to (a: &quot;Sketchy Man&quot;, 20, (a: &quot;throw a dagger at you&quot;, &quot;give you the ol&#39; one-two&quot;), (a: 7, 3), (a: 10, 5), 5))
-(set:$bat to (a: &quot;Bat Swarm&quot;, 20, (a: &quot;rush at you and beat you with their wings&quot;, &quot;bite you with their sharp fangs&quot;), (a: 3, 7), (a: 5, 8), 15)) </tw-passagedata><tw-passagedata pid="45" name="Can&#39;t Fight" tags="" position="1275,350" size="100,100">You struggle vainly, but not knowing the method of combat in this place you are quickly outmatched. You flee to the Plaza...
+[[&quot;No thanks.&quot;]]</tw-passagedata><tw-passagedata pid="44" name="Enemy Init" tags="" position="625,225" size="100,100">(set:$old_man to (a: &quot;Sketchy Man&quot;, 20, (a: &quot;throw a dagger at you&quot;, &quot;give you the ol&#39; one-two&quot;), (a: 7, 3), (a: 10, 5), 5))
+(set:$guard to (a: &quot;Guard&quot;, 100, (a: &quot;a spear stab&quot;, &quot;a fire ball&quot;), (a: 5, 10), (a: 7, 20), 5))
+(set:$bat to (a: &quot;Bat Swarm&quot;, 20, (a: &quot;rush at you and beat you with their wings&quot;, &quot;bite you with their sharp fangs&quot;), (a: 3, 7), (a: 5, 8), 15)) 
+(set:$abom to (a: &quot;The Abomination&quot;, 1000, (a: &quot;smashes you with it&#39;s fists&quot;, &quot;stomps on you&quot;), (a: 20, 30), (a: 30, 40), 35))
+(set:$bandit to (a: &quot;Cloaked Bandit&quot;, 30, (a: &quot;rush at you and stab you with a shank&quot;, &quot;shoot their revolver&quot;), (a: 5, 10), (a: 7, 12), 10)) 
+(set:$rat to (a: &quot;Rat Swarm&quot;, 40, (a: &quot;rush at you and bite you with their sharp teeth&quot;), (a: 7), (a: 8), 10)) 
+(set:$mimic to (a: &quot;Mimic&quot;, 50, (a: &quot;jumps towards you and bites&quot;), (a: 7), (a: 10), 15)) 
+(set:$cyborg to (a: &quot;Cyborg&quot;, 50, (a: &quot;stabs you with his dagger&quot;), (a: 6), (a: 9), 25))
+(set:$thief to (a: &quot;Thief&quot;, 50, (a: &quot;shoots you with the Gun, grimacing in pain while doing so&quot;), (a: 3), (a: 7), 25)) 
+(set:$kidnapper to (a: &quot;Kidnapper&quot;, 40, (a: &quot;stabs you with their dagger&quot;, &quot;swings the burlap sack at you&quot;), (a: 5, 3), (a: 7, 5), 25)) 
+
+(go-to:&quot;2&quot;)</tw-passagedata><tw-passagedata pid="45" name="Can&#39;t Fight" tags="" position="1275,350" size="100,100">You struggle vainly, but not knowing the method of combat in this place you are quickly outmatched. You flee to the Plaza...
 
 [[==&gt;-&gt;Loss]]</tw-passagedata><tw-passagedata pid="46" name="&quot;Sure&quot;" tags="" position="475,2550" size="100,100">&quot;Great, see ya in a bit.&quot;
 (set:$WineQuest to 1)
@@ -658,14 +667,14 @@ He pulls out three stones, inscribed with strange symbols, and hands them to you
 
 &quot;Why don&#39;t we try a little spar? It should make more sense in practice than just me explaining.&quot;
 
-(set:$old_man to (a: &quot;Sketchy Man&quot;, 20, (a: &quot;throw a dagger at you&quot;, &quot;give you the ol&#39; one-two&quot;), (a: 7, 3), (a: 10, 5), 5)) (set:$enemy to $old_man) (set:$canFight to true) (set:$CombatReturn to &quot;WonSpar&quot;) (set:$spar to true)
+(set:$enemy to $old_man) (set:$canFight to true) (set:$CombatReturn to &quot;WonSpar&quot;) (set:$spar to true)
 [[FIGHT-&gt;FightSimStart]]</tw-passagedata><tw-passagedata pid="106" name="WonSpar" tags="" position="2300,2075" size="100,100">(set:$hp&#39;s 1st to $hp&#39;s 2nd)&quot;Nice job. Want another go?&quot;
 
 (set:$enemy to $old_man) (set:$CombatReturn to &quot;WonSpar&quot;) (set:$spar to true)
 [[FIGHT-&gt;FightSimStart]]
 [[&quot;No thanks.&quot;-&gt;CombatTutorialEnd]]</tw-passagedata><tw-passagedata pid="107" name="SparLost" tags="" position="2425,2075" size="100,100">(set:$hp&#39;s 1st to $hp&#39;s 2nd)&quot;Ah, too bad. It was a close one. Want another go?&quot;
 
-(set:$old_man to (a: &quot;Sketchy Man&quot;, 20, (a: &quot;throw a dagger at you&quot;, &quot;give you the ol&#39; one-two&quot;), (a: 2, 5), 5)) (set:$enemy to $old_man) (set:$CombatReturn to &quot;WonSpar&quot;) (set:$spar to true)
+(set:$enemy to $old_man) (set:$CombatReturn to &quot;WonSpar&quot;) (set:$spar to true)
 [[FIGHT-&gt;FightSimStart]]
 [[&quot;No thanks.&quot;-&gt;CombatTutorialEnd]]</tw-passagedata><tw-passagedata pid="108" name="CombatTutorialEnd" tags="" position="2350,2200" size="100,100">(set:$spar to false)&quot;Well, hopefully y	ou have a better idea of how to fight. You&#39;ll want to have a diverse set of weapons and abilities, in order to survive at all hours of the day.&quot;
 
@@ -704,7 +713,7 @@ As you enter, you hear a shrieking sound up above, and a group of bats fly down 
 
 The bats are black, covered in a light fuzz, with blood-red eyes. White fangs gleam from their mouths, and you see a drop of blood fall from one of their mouths.
 
-(set:$bat to (a: &quot;Bat Swarm&quot;, 20, (a: &quot;rush at you and beat you with their wings&quot;, &quot;bite you with their sharp fangs&quot;), (a: 3, 7), (a: 5, 8), 15)) (set:$enemy to $bat) (set:$CombatReturn to &quot;WonBats&quot;)
+(set:$enemy to $bat) (set:$CombatReturn to &quot;WonBats&quot;)
 [[Fight!-&gt;FightSimStart]]</tw-passagedata><tw-passagedata pid="116" name="WonBats" tags="no-header space" position="2150,2475" size="100,100">With a wild blow, you knock another bat out of the air. The last few bats fly away, apparently not thinking you&#39;re worth the effort.
 
 Looking around, you see the bones of a less fortunate adventurer, who left behind a small pouch of 50 gold. You pocket it. (set:$gold to it + 50)
@@ -723,7 +732,7 @@ You pocket it. (set:$i to it + (a:&quot;Pendant&quot;))
 
 The man&#39;s cloak is black, like the thief&#39;s, but without a hood. His gaunt features show grimly in the dim light of the wall lamps, and a stench wafts in your direction from his body.
 
-(set:$bandit to (a: &quot;Cloaked Bandit&quot;, 30, (a: &quot;rush at you and stab you with a shank&quot;, &quot;shoot their revolver&quot;), (a: 5, 10), (a: 7, 12), 10)) (set:$enemy to $bandit) (set:$CombatReturn to &quot;WonBandit&quot;)
+(set:$enemy to $bandit) (set:$CombatReturn to &quot;WonBandit&quot;)
 [[Surrender]]
 [[Fight!-&gt;FightSimStart]]</tw-passagedata><tw-passagedata pid="119" name="Surrender" tags="space" position="2400,2475" size="100,100">You hold up your hands, and obey the bandit&#39;s commands to empty your pockets.
 
@@ -764,7 +773,7 @@ After a moment, your entrance is noticed, as well as your lack of a cloak. One o
 
 [[Fight!-&gt;FightSimStart]]
 
-(set:$thief to (a: &quot;Thief&quot;, 50, (a: &quot;shoots you with the Gun, grimacing in pain while doing so&quot;), (a: 3), (a: 7), 25)) (set:$enemy to $thief) (set:$CombatReturn to &quot;WonArtBattle&quot;)</tw-passagedata><tw-passagedata pid="126" name="WonArtBattle" tags="space no-header" position="2275,3100" size="100,100">The cyborg man collapses to the ground, grimacing. &quot;Enough! You&#39;re after this, right?&quot; He holds up the Gun. He tosses it at your feet, and he rises, with effort, to his feet.
+(set:$enemy to $thief) (set:$CombatReturn to &quot;WonArtBattle&quot;)</tw-passagedata><tw-passagedata pid="126" name="WonArtBattle" tags="space no-header" position="2275,3100" size="100,100">The cyborg man collapses to the ground, grimacing. &quot;Enough! You&#39;re after this, right?&quot; He holds up the Gun. He tosses it at your feet, and he rises, with effort, to his feet.
 
 You pick up the Gun, presumably it is the stolen Artifact. (set:$i to it + (a:&quot;Gun&quot;))The thief limps to the back of the room, and sits down on a bench. Judging by the dirty looks of the other couple dozen hooded figures in the room, it would be wise to abscond. (set:$ArtQuest to 4) (set:$i to it - (a:&quot;Pendant&quot;))
 
@@ -803,7 +812,7 @@ Ignore, and...
 [[Venture Deeper]]
 [[Follow the string back to the entrance-&gt;Neath]]</tw-passagedata><tw-passagedata pid="137" name="FoundBoy2" tags="space" position="2525,2975" size="100,100">You run up behind the figure. Hearing your footsteps, the figure turns, and seeing you, turns and draws a mean-looking dagger.
 
-(set:$kidnapper to (a: &quot;Kidnapper&quot;, 40, (a: &quot;stabs you with their dagger&quot;, &quot;swings the burlap sack at you&quot;), (a: 5, 3), (a: 7, 5), 25)) (set:$enemy to $kidnapper) (set:$CombatReturn to &quot;WonBoyBattle&quot;)
+(set:$enemy to $kidnapper) (set:$CombatReturn to &quot;WonBoyBattle&quot;)
 [[Fight!-&gt;FightSimStart]]</tw-passagedata><tw-passagedata pid="138" name="WonBoyBattle" tags="space" position="2525,3100" size="100,100">With a yell, the figure drops the sack and flees deeper into the Neath.
 
 You open up the sack, and see a small boy, dressed in a plaid shirt and suspenders. He&#39;s got some bruises, and looks pretty shaken up, but he seems to be okay. 
@@ -821,7 +830,7 @@ Made of oak, with a shiny gold trim, it is just itching to be opened.
 
 [[Open it up]]</tw-passagedata><tw-passagedata pid="141" name="Open it up" tags="space" position="2650,2475" size="100,100">You approach the chest, and as you rest your hand on the lid, suddenly it opens up to reveal sharp fangs along it&#39;s inside edge, with a black mist inside.
 
-(set:$mimic to (a: &quot;Mimic&quot;, 50, (a: &quot;jumps towards you and bites&quot;), (a: 7), (a: 10), 15)) (set:$enemy to $mimic) (set:$CombatReturn to &quot;WonMimic&quot;)
+(set:$enemy to $mimic) (set:$CombatReturn to &quot;WonMimic&quot;)
 [[Fight!-&gt;FightSimStart]]</tw-passagedata><tw-passagedata pid="142" name="WonMimic" tags="space no-header" position="2650,2600" size="100,100">With a final blow, the wood in the chest cracks and breaks apart. The black mist disperses, and whatever consciousness it possessed seems gone.
 
 You move aside the wood, and find a cache of 100 gold pieces. (set:$gold to it + 100)
@@ -836,11 +845,11 @@ Ignore, and...
 [[Venture Deeper]]
 [[Follow the string back to the entrance-&gt;Neath]]</tw-passagedata><tw-passagedata pid="144" name="JackEncounter" tags="space" position="2775,2475" size="100,100">You walk up to the cyborg. He looks up at you, and seeing you, quickly stands up. &quot;You!&quot; He draws a mean-looking dagger.
 
-(set:$cyborg to (a: &quot;Cyborg&quot;, 50, (a: &quot;stabs you with his dagger&quot;), (a: 6), (a: 9), 25)) (set:$enemy to $cyborg) (set:$CombatReturn to &quot;WonJackBattle&quot;)
+(set:$enemy to $cyborg) (set:$CombatReturn to &quot;WonJackBattle&quot;)
 
 [[Fight!-&gt;FightSimStart]]</tw-passagedata><tw-passagedata pid="145" name="Rats" tags="space" position="2900,2350" size="100,100">As you wander through the Neath, you find yourself surrounded by giant rats! Their fur is a dark brown, and their teeth gleam in the low light of the lamps. Red eyes bulge out of their skulls.
 
-(set:$rat to (a: &quot;Rat Swarm&quot;, 40, (a: &quot;rush at you and bite you with their sharp teeth&quot;), (a: 7), (a: 8), 10)) (set:$enemy to $rat) (set:$CombatReturn to &quot;WonRats&quot;)
+(set:$enemy to $rat) (set:$CombatReturn to &quot;WonRats&quot;)
 
 [[Fight!-&gt;FightSimStart]]</tw-passagedata><tw-passagedata pid="146" name="WonRats" tags="space" position="2900,2475" size="100,100">With a final blow, you knock another Rat away. The rest of the swarm scurries away.
 
@@ -896,7 +905,7 @@ You see the Abomination, a hulking monster 5 stories tall. It&#39;s flesh is raw
 
 You stand at its feet. Jack grips the Gun, and you draw the Knife.
 
-(set:$abom to (a: &quot;The Abomination&quot;, 1000, (a: &quot;smashes you with it&#39;s fists&quot;, &quot;stomps on you&quot;), (a: 20, 30), (a: 30), 35)) (set:$enemy to $abom) (set:$CombatReturn to &quot;WonGame&quot;) (set:$FinalBattle to true)
+(set:$enemy to $abom) (set:$CombatReturn to &quot;WonGame&quot;) (set:$FinalBattle to true)
 
 [[Fight-&gt;FightSimStart]]</tw-passagedata><tw-passagedata pid="156" name="WonGame" tags="space" position="1725,1375" size="100,100">Jack shoots his Gun, grimacing with pain each time, at the Abomination. You run, jump, and climb onto the giant creature. You climb up to it&#39;s head, if you could call it that, and deal one final blow with the Knife. With a guttural roar, the Abomination collapses, and slowly disintegrates into a fine black powder.
 
