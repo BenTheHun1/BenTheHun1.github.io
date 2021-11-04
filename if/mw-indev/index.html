@@ -389,8 +389,8 @@ Selected Spell: &#39;&#39;&lt;&lt;= $selectedSpell.name&gt;&gt;&#39;&#39;
 &lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="18" name="Cast" tags="no-update dark" position="50,675" size="100,100">&lt;&lt;if $selected.times.includes($time.hr) &amp;&amp; $pl.mp[0] &gt;= $selectedSpell.cost&gt;&gt;You cast the &lt;&lt;= $selectedSpell.name&gt;&gt; spell on the &lt;&lt;= $active_target[1]&gt;&gt;.
 &lt;&lt;link &quot;Continue&quot; $active_target[2]&gt;&gt;&lt;&lt;set $targets = [[]]&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;elseif $pl.mp[0] &lt; $selectedSpell.cost&gt;&gt;You don&#39;t have enough MP.
 &lt;&lt;link &quot;Continue&quot; $curpass&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;else&gt;&gt;You try to cast the spell, but the time isn&#39;t right.
-&lt;&lt;link &quot;Continue&quot; $curpass&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="19" name="SelectScenario" tags="dark no-time" position="1100,225" size="100,100">&lt;div style=&quot;text-align:center;&quot;&gt;[[Test the Features|Begin]]
-[[From the Beginning|StartTrue]]&lt;/div&gt;</tw-passagedata><tw-passagedata pid="20" name="Begin" tags="dark" position="825,50" size="100,100">What&#39;s this? //Got a Sword.// &lt;&lt;if visited() &lt; 2&gt;&gt;&lt;&lt;set $i.push($sword)&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;&lt;link &quot;Continue&quot; $curpass&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="19" name="SelectScenario" tags="dark no-time" position="1100,225" size="100,100">&lt;div style=&quot;text-align:center;&quot;&gt;[[Play Combat Test|Begin]]
+[[Start Game|StartTrue]]&lt;/div&gt;</tw-passagedata><tw-passagedata pid="20" name="Begin" tags="dark" position="825,50" size="100,100">What&#39;s this? //Got a Sword.// &lt;&lt;if visited() &lt; 2&gt;&gt;&lt;&lt;set $i.push($sword)&gt;&gt;&lt;&lt;/if&gt;&gt;
 [[Continue|Morning][$i.push($spellbook)]]</tw-passagedata><tw-passagedata pid="21" name="Morning" tags="light" position="825,175" size="100,100">And what&#39;s this? //Got a Spell Book.//
 All of a sudden, a little dude runs towards you, brandishing a shiny shiv.
 [[Approach|Approach]]
