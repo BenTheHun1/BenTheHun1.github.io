@@ -499,12 +499,12 @@ In between the clock and the table, a small figure, the as tall as the door down
 [[Leave quietly|Plaza]], returning to the Plaza.</tw-passagedata><tw-passagedata pid="50" name="MeetSage" tags="light" position="800,950" size="100,100">You approach the $sage, moving in between themselves and the clock.
 
 [[Cough politely|SageCough]]
-[[Scream|SageScream][$malice += 1]]</tw-passagedata><tw-passagedata pid="51" name="Sage" tags="light" position="100,725" size="100,100">You give a short cough, and the $sage jumps a little, interrupting their snoring. With a slightly confused groan, their eyes open up. They look way up towards you, and they give a sudden hacking cough.
+[[Scream|SageScream][$malice += 1]]</tw-passagedata><tw-passagedata pid="51" name="Sage" tags="light" position="800,1075" size="100,100">You give a short cough, and the $sage jumps a little, interrupting their snoring. With a slightly confused groan, their eyes open up. They look way up towards you, and they give a sudden hacking cough.
 
 &quot;Oh, hello again. Need some help?&quot; they say.
 
 [[&quot;Yes&quot;|SageQuestion]]
-[[&quot;No&quot;|ByeSage]]</tw-passagedata><tw-passagedata pid="52" name="SageQuestion" tags="light" position="25,975" size="100,100">The figure nods solemnly, &quot;Ah, well, you&#39;ve come to the right place. What do you need to know?&quot;
+[[&quot;No&quot;|ByeSage]]</tw-passagedata><tw-passagedata pid="52" name="SageQuestion" tags="light" position="550,1000" size="100,100">The figure nods solemnly, &quot;Ah, well, you&#39;ve come to the right place. What do you need to know?&quot;
 
 [[&quot;What is this place?&quot;|HelpPlace]]</tw-passagedata><tw-passagedata pid="53" name="SageCough" tags="light" position="675,875" size="100,100">&lt;&lt;if $MetSage is true&gt;&gt;&lt;&lt;goto &quot;Sage&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;set $MetSage = true&gt;&gt;
@@ -513,59 +513,59 @@ You give a short cough, and the $sage jumps a little, interrupting their snoring
 &quot;Mm, you startled me there,&quot; they say. &quot;I haven&#39;t seen the likes of you before. Did you just arrive?&quot;
 
 [[&quot;Yes, I&#39;m new&quot;|NeedHelp]]
-[[&quot;No, I&#39;m not&quot;|NoNeedHelp]]</tw-passagedata><tw-passagedata pid="54" name="NoNeedHelp" tags="light" position="475,725" size="100,100">&quot;I see&quot;, they nod, &quot;Well, then is there something you need of me?&quot;
+[[&quot;No, I&#39;m not&quot;|NoNeedHelp]]</tw-passagedata><tw-passagedata pid="54" name="NoNeedHelp" tags="light" position="550,750" size="100,100">&quot;I see&quot;, they nod, &quot;Well, then is there something you need of me?&quot;
 
 [[&quot;What is this place?&quot;|HelpPlace]]
-[[&quot;No, nothing.&quot;|ByeSage]]</tw-passagedata><tw-passagedata pid="55" name="ByeSage" tags="light" position="600,725" size="100,100">&quot;Well, if you don&#39;t mind then...&quot; They drift back off to sleep.
+[[&quot;No, nothing.&quot;|ByeSage]]</tw-passagedata><tw-passagedata pid="55" name="ByeSage" tags="light" position="875,1375" size="100,100">&quot;Well, if you don&#39;t mind then...&quot; They drift back off to sleep.
 
-[[Leave quietly|Plaza]], returning to the Plaza.</tw-passagedata><tw-passagedata pid="56" name="SageScream" tags="light" position="325,1000" size="100,100">You open your mouth and let out a shrill scream, as loud as you possibly can. The $sage jumps up, grabbing a cane that was leaning against his knee, yelling in fear in confusion.
+[[Leave quietly|Plaza]], returning to the Plaza.</tw-passagedata><tw-passagedata pid="56" name="SageScream" tags="light" position="675,1000" size="100,100">You open your mouth and let out a shrill scream, as loud as you possibly can. The $sage jumps up, grabbing a cane that was leaning against his knee, yelling in fear in confusion.
 &quot;Who are you? Whadda you want?!&quot;
 
 [[Stop Screaming|StopScreaming]]
 [[Don&#39;t Stop Screaming|ContinueScreaming]]
-[[Run Away|RunAwayFromSage]]</tw-passagedata><tw-passagedata pid="57" name="ContinueScreaming" tags="light" position="850,725" size="100,100">You continue to scream, as loud as you can.
+[[Run Away|RunAwayFromSage]]</tw-passagedata><tw-passagedata pid="57" name="ContinueScreaming" tags="light" position="550,1125" size="100,100">You continue to scream, as loud as you can.
 &quot;You asked for it!&quot; The $sage runs toward you, giving a war cry.
 
-[[Fight|PreCombat][$enemy to $sage_enemy]]</tw-passagedata><tw-passagedata pid="58" name="StopScreaming" tags="light" position="675,1250" size="100,100">You stop screaming. The $sage looks at you, you can still see panic and confusion in their eyes.
+[[Fight|PreCombat][$enemy to $sage_enemy]]</tw-passagedata><tw-passagedata pid="58" name="StopScreaming" tags="light" position="675,1125" size="100,100">You stop screaming. The $sage looks at you, you can still see panic and confusion in their eyes.
 
 [[&quot;You awake now?&quot;|StopScreamingSarcastic][$apthy += 1]]
 [[Apologize|StopScreamingGood][$empathy += 1]]
-[[Run Away|RunAwayFromSage]]</tw-passagedata><tw-passagedata pid="59" name="StopScreamingSarcastic" tags="light" position="725,1175" size="100,100">&quot;By Grod, what is wrong with you? There are better, less life-shortening methods of waking one up. Whadda you want?&quot; The $sage looks very annoyed.
+[[Run Away|RunAwayFromSage]]</tw-passagedata><tw-passagedata pid="59" name="StopScreamingSarcastic" tags="light" position="750,1250" size="100,100">&quot;By Grod, what is wrong with you? There are better, less life-shortening methods of waking one up. Whadda you want?&quot; The $sage looks very annoyed.
 
 [[&quot;Who are you?&quot;|SageIdentify]]
-[[&quot;What is this place?&quot;|HelpPlace]]</tw-passagedata><tw-passagedata pid="60" name="StopScreamingGood" tags="light" position="575,1175" size="100,100">&quot;Grod, there are better, less life-shortening methods of waking one up. Is there something you need?&quot; The $sage looks annoyed.
+[[&quot;What is this place?&quot;|HelpPlace]]</tw-passagedata><tw-passagedata pid="60" name="StopScreamingGood" tags="light" position="600,1250" size="100,100">&quot;Grod, there are better, less life-shortening methods of waking one up. Is there something you need?&quot; The $sage looks annoyed.
 
 [[&quot;Who are you?&quot;|SageIdentify]]
-[[&quot;What is this place?&quot;|HelpPlace]]</tw-passagedata><tw-passagedata pid="61" name="RunAwayFromSage" tags="light" position="100,850" size="100,100">You run wildly away from the $sage, back down the steps and into the Plaza.
+[[&quot;What is this place?&quot;|HelpPlace]]</tw-passagedata><tw-passagedata pid="61" name="RunAwayFromSage" tags="light" position="750,1375" size="100,100">You run wildly away from the $sage, back down the steps and into the Plaza.
 
-[[Continue|Plaza]]</tw-passagedata><tw-passagedata pid="62" name="SageIdentify" tags="light" position="225,850" size="100,100">The $sage coughs tersely. &quot;I am the //Sage//. People come to me for guidance. Are you in need of guidance?&quot;&lt;&lt;set $sage = &quot;Sage&quot;&gt;&gt;
+[[Continue|Plaza]]</tw-passagedata><tw-passagedata pid="62" name="SageIdentify" tags="light" position="400,1350" size="100,100">The $sage coughs tersely. &quot;I am the //Sage//. People come to me for guidance. Are you in need of guidance?&quot;&lt;&lt;set $sage = &quot;Sage&quot;&gt;&gt;
 
 [[&quot;What is this place?&quot;|HelpPlace]]
-[[&quot;No thanks.&quot;|ByeSage]]</tw-passagedata><tw-passagedata pid="63" name="NeedHelp" tags="light" position="350,850" size="100,100">The $sage nods solemnly, &quot;Ah, well, you&#39;ve come to the right place. I am the //Sage//. I can answer any question you may have.&quot;&lt;&lt;set $sage = &quot;Sage&quot;&gt;&gt;
+[[&quot;No thanks.&quot;|ByeSage]]</tw-passagedata><tw-passagedata pid="63" name="NeedHelp" tags="light" position="550,875" size="100,100">The $sage nods solemnly, &quot;Ah, well, you&#39;ve come to the right place. I am the //Sage//. I can answer any question you may have.&quot;&lt;&lt;set $sage = &quot;Sage&quot;&gt;&gt;
 
-[[&quot;What is this place?&quot;|HelpPlace]]</tw-passagedata><tw-passagedata pid="64" name="HelpPlace" tags="light" position="475,850" size="100,100">&quot;That depends, do you mean this tower, this city, or this world?,&quot; they ask.
+[[&quot;What is this place?&quot;|HelpPlace]]</tw-passagedata><tw-passagedata pid="64" name="HelpPlace" tags="light" position="400,1000" size="100,100">&quot;That depends, do you mean this tower, this city, or this world?,&quot; they ask.
 
 [[&quot;What is this tower?&quot;|HelpTower]]
 [[&quot;What is this city?&quot;|HelpCity]]
-[[&quot;What is this world?&quot;|HelpWorld]]</tw-passagedata><tw-passagedata pid="65" name="HelpTower" tags="light" position="600,850" size="100,100">&quot;This Clock Tower is my place of residence. It also serves to keep the people of the City informed of the time, no matter where they are,&quot; they say.
+[[&quot;What is this world?&quot;|HelpWorld]]</tw-passagedata><tw-passagedata pid="65" name="HelpTower" tags="light" position="275,875" size="100,100">&quot;This Clock Tower is my place of residence. It also serves to keep the people of the City informed of the time, no matter where they are,&quot; they say.
 
 &lt;&lt;if $sage_qs.includes(&quot;Travelers&quot;)&gt;&gt;[[&quot;What are Travelers?&quot;|HelpTravelers]]&lt;&lt;/if&gt;&gt;
 [[&quot;What is this city?&quot;|HelpCity]]
 [[&quot;What is this world?&quot;|HelpWorld]]
 
-[[&quot;Thank you&quot;|ByeSage]]</tw-passagedata><tw-passagedata pid="66" name="HelpCity" tags="light" position="725,850" size="100,100">&quot;This City Without a Name, is where all Travelers end up when they pass through the Gate,&quot; they say, &quot;Most people just call it the City.&quot; &lt;&lt;set $city = &quot;City&quot;&gt;&gt; 
+[[&quot;Thank you&quot;|ByeSage]]</tw-passagedata><tw-passagedata pid="66" name="HelpCity" tags="light" position="275,1000" size="100,100">&quot;This City Without a Name, is where all Travelers end up when they pass through the Gate,&quot; they say, &quot;Most people just call it the City.&quot; &lt;&lt;set $city = &quot;City&quot;&gt;&gt; 
 &lt;&lt;if !$sage_qs.includes(&quot;Travelers&quot;)&gt;&gt;&lt;&lt;set $sage_qs.push(&quot;Travelers&quot;)&gt;&gt;&lt;&lt;/if&gt;&gt;
 [[&quot;What are Travelers?&quot;|HelpTravelers]]
 [[&quot;What is this tower?&quot;|HelpTower]]
 [[&quot;What is this world?&quot;|HelpWorld]]
 
-[[&quot;Thank you&quot;|ByeSage]]</tw-passagedata><tw-passagedata pid="67" name="HelpWorld" tags="light" position="850,850" size="100,100">&quot;This world is known as //Middleworld//, a place serving as a nexus between all other known realities,&quot; they say, &quot;occassionally, someone or something ends up here instead of their original reality.&quot;
+[[&quot;Thank you&quot;|ByeSage]]</tw-passagedata><tw-passagedata pid="67" name="HelpWorld" tags="light" position="275,1125" size="100,100">&quot;This world is known as //Middleworld//, a place serving as a nexus between all other known realities,&quot; they say, &quot;occassionally, someone or something ends up here instead of their original reality.&quot;
 
 &lt;&lt;if $sage_qs.includes(&quot;Travelers&quot;)&gt;&gt;[[&quot;What are Travelers?&quot;|HelpTravelers]]&lt;&lt;/if&gt;&gt;
 [[&quot;What is this tower?&quot;|HelpTower]]
 [[&quot;What is this city?&quot;|HelpCity]]
 
-[[&quot;Thank you&quot;|ByeSage]]</tw-passagedata><tw-passagedata pid="68" name="HelpTravelers" tags="light" position="975,850" size="100,100">&quot;Why, someone like yourself,&quot; they explain, &quot;a person from another reality, who has crossed over into Middleworld.&quot;
+[[&quot;Thank you&quot;|ByeSage]]</tw-passagedata><tw-passagedata pid="68" name="HelpTravelers" tags="light" position="400,875" size="100,100">&quot;Why, someone like yourself,&quot; they explain, &quot;a person from another reality, who has crossed over into Middleworld.&quot;
 
 [[&quot;What is this tower?&quot;|HelpTower]]
 [[&quot;What is this city?&quot;|HelpCity]]
