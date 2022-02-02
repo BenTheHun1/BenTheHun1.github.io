@@ -191,10 +191,12 @@ span.mp {
 	&lt;&lt;set $tuner = &quot;pocketwatch&quot;&gt;&gt;
 	&lt;&lt;set $city = &quot;the town&quot;&gt;&gt;
 	&lt;&lt;set $sage = &quot;figure&quot;&gt;&gt;
-	&lt;&lt;set $citadel = &quot;structure&quot;&gt;&gt;
+	&lt;&lt;set $citadel = &quot;tall structure&quot;&gt;&gt;
 
 	&lt;&lt;set $tutorial = true&gt;&gt;
 	&lt;&lt;set $sage_qs = []&gt;&gt;
+	&lt;&lt;set $seek_sage = false&gt;&gt;
+	&lt;&lt;set $tuner_q1 = false&gt;&gt;
 &lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="3" name="Enemies" tags="" position="575,350" size="100,100">&lt;&lt;silently&gt;&gt;
 	&lt;&lt;set $dude = {
 		name: &quot;Little Dude&quot;,
@@ -394,12 +396,13 @@ Selected Spell: &#39;&#39;&lt;&lt;= $selectedSpell.name&gt;&gt;&#39;&#39;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;
 &lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="16" name="Tuner" tags="dark no-update no-time" position="50,350" size="100,100">Reaching into your pocket, you find a $tuner. The clock face is a harsh white, and the body is made of brass, or perhaps gold. Three small dials are next to 12, 3, and 9 respectively. &lt;&lt;set $discoverwatch = true&gt;&gt;
-The $tuner has two hands, the longest of which is pointed to $time.hr, and the shorter one is pointed to $time.min.
+The $tuner has two hands, the longest of which is pointed to $time.hr, and the shorter one is pointed to $time.min. &lt;&lt;if $tuner_q1 is true&gt;&gt;Maybe someone knows something about it?&lt;&lt;/if&gt;&gt;
 
 [[Turn the dials|TunerJiggle]]
 
 
 [[Put Away|Menu]]</tw-passagedata><tw-passagedata pid="17" name="TunerJiggle" tags="dark no-update no-time" position="50,475" size="100,100">You try each of the dials in turn, but they seem to be stuck for some reason.
+&lt;&lt;set $tuner_q1 = true&gt;&gt;
 
 [[Put Away|Menu]]</tw-passagedata><tw-passagedata pid="18" name="Spells" tags="" position="175,600" size="100,100">&lt;&lt;silently&gt;&gt;
 	&lt;&lt;set $fire = {
@@ -420,13 +423,13 @@ The $tuner has two hands, the longest of which is pointed to $time.hr, and the s
 &lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="19" name="Cast" tags="no-update dark" position="175,725" size="100,100">&lt;&lt;if $selected.times.includes($time.hr) &amp;&amp; $pl.mp[0] &gt;= $selectedSpell.cost&gt;&gt;You cast the &lt;&lt;= $selectedSpell.name&gt;&gt; spell on the &lt;&lt;= $active_target[1]&gt;&gt;.
 &lt;&lt;link &quot;Continue&quot; $active_target[2]&gt;&gt;&lt;&lt;set $targets = [[]]&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;elseif $pl.mp[0] &lt; $selectedSpell.cost&gt;&gt;You don&#39;t have enough MP.
 &lt;&lt;link &quot;Continue&quot; $curpass&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;else&gt;&gt;You try to cast the spell, but the time isn&#39;t right.
-&lt;&lt;link &quot;Continue&quot; $curpass&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="20" name="SelectScenario" tags="dark no-time" position="1425,100" size="100,100">&lt;div style=&quot;text-align:center;&quot;&gt;[[Play Combat Test|Begin][$i.push($sword)]]
-[[Start Game|StartTrue]]
-[[Skip Intro|Gate]]&lt;/div&gt;</tw-passagedata><tw-passagedata pid="21" name="Begin" tags="dark" position="950,100" size="100,100">What&#39;s this? //Got a Sword.// &lt;&lt;set $tutorial = false&gt;&gt;
-[[Continue|Morning][$i.push($spellbook)]]</tw-passagedata><tw-passagedata pid="22" name="Morning" tags="light" position="950,225" size="100,100">And what&#39;s this? //Got a Spell Book and some Tuning Stones.// &lt;&lt;set $tuners[0][0] = true&gt;&gt; &lt;&lt;set $tuners[1][0] = true&gt;&gt; &lt;&lt;set $tuners[2][0] = true&gt;&gt;
+&lt;&lt;link &quot;Continue&quot; $curpass&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="20" name="SelectScenario" tags="dark no-time" position="1425,100" size="100,100">&lt;div style=&quot;text-align:center;&quot;&gt;[[Start the Game|StartTrue]]
+[[Skip the Intro (For Testing Purposes)|Gate][$name = &quot;Sam&quot;]]
+[[Test the Combat|Begin][$i.push($sword)]]&lt;/div&gt;</tw-passagedata><tw-passagedata pid="21" name="Begin" tags="dark" position="950,100" size="100,100">As you walk through the forest, you notice a sword lain on the ground. //You pick up a Sword.// &lt;&lt;set $tutorial = false&gt;&gt;
+[[Continue|Morning][$i.push($spellbook)]]</tw-passagedata><tw-passagedata pid="22" name="Morning" tags="light" position="950,225" size="100,100">And what&#39;s this? There&#39;s more. //Acquired a Spell Book and some Tuning Stones.// &lt;&lt;set $tuners[0][0] = true&gt;&gt; &lt;&lt;set $tuners[1][0] = true&gt;&gt; &lt;&lt;set $tuners[2][0] = true&gt;&gt;
 All of a sudden, a little dude runs towards you, brandishing a shiny shiv.
-[[Approach|Approach]]
-[[Run Away|Town]]</tw-passagedata><tw-passagedata pid="23" name="Town" tags="light" position="1075,150" size="100,100">&lt;&lt;silently&gt;&gt;&lt;&lt;set $targets = [[&quot;flammable&quot;, &quot;fallen tree&quot;, &quot;ClearedTown&quot;]]&gt;&gt;
+[[Confront|Approach]]
+[[Flee to Town|Town]]</tw-passagedata><tw-passagedata pid="23" name="Town" tags="light" position="1075,150" size="100,100">&lt;&lt;silently&gt;&gt;&lt;&lt;set $targets = [[&quot;flammable&quot;, &quot;fallen tree&quot;, &quot;ClearedTown&quot;]]&gt;&gt;
 &lt;&lt;if $isTownOpen == true&gt;&gt;&lt;&lt;goto &quot;ClearedTown&quot;&gt;&gt;&lt;&lt;set $time.min -= $time.increment&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;/silently&gt;&gt;You stand at the town gates.
 However, a felled tree blocks the path. It is too heavy to lift, so how else can you clear it away...?</tw-passagedata><tw-passagedata pid="24" name="ClearedTown" tags="light" position="1075,300" size="100,100">&lt;&lt;set $isTownOpen = true&gt;&gt;You stand at the town gates.
@@ -450,7 +453,7 @@ The voice says, &quot;I will ask you some questions. Speak truly.
 
 [[Do it|Q5][$diligence += 1]] or [[Shame them|Q5][$apathy += 1]] or [[Lie|Q5][$deceit += 1]]</tw-passagedata><tw-passagedata pid="35" name="Q5" tags="xdark no-display" position="1300,825" size="100,100">Barely a moment after you finish speaking, you hear, &quot;Walking down the city streets, you notice a commotion occurring in an alleyway on your left. Turning the corner, you see your friend, who appears to be relieving an older woman of her valuables. Do you intervene and stop your friend, keep walking, and pretend you didn&#39;t see anything, or offer your friend help?&quot;
 
-&lt;&lt;link &quot;Stop them&quot; &quot;Q6&quot;&gt;&gt;&lt;&lt;set $justice += 1&gt;&gt;&lt;&lt;set $courage += 1&gt;&gt;&lt;&lt;set $loyalty -= 1&gt;&gt;&lt;&lt;/link&gt;&gt; or [[Ignore them|Q6][$apathy += 1]] or &lt;&lt;link &quot;Help them&quot; &quot;Q6&quot;&gt;&gt;&lt;&lt;set $malice += 1&gt;&gt;&lt;&lt;set $loyalty += 1&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="36" name="Q6" tags="xdark no-display" position="1425,825" size="100,100">After a short pausem you hear the voice once again say, &quot;I have one last question for you: What happened?&quot;
+&lt;&lt;link &quot;Stop them&quot; &quot;Q6&quot;&gt;&gt;&lt;&lt;set $justice += 1&gt;&gt;&lt;&lt;set $courage += 1&gt;&gt;&lt;&lt;set $loyalty -= 1&gt;&gt;&lt;&lt;/link&gt;&gt; or [[Ignore them|Q6][$apathy += 1]] or &lt;&lt;link &quot;Help them&quot; &quot;Q6&quot;&gt;&gt;&lt;&lt;set $malice += 1&gt;&gt;&lt;&lt;set $loyalty += 1&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="36" name="Q6" tags="xdark no-display" position="1425,825" size="100,100">After a short pause you hear the voice once again say, &quot;I have one last question for you: What happened?&quot;
 
 [[&quot;I don&#39;t know.&quot;|QEnd]] or [[&quot;I don&#39;t care.&quot;|QEnd][$apathy += 1]] or [[&quot;I&#39;ll find out.&quot;|QEnd][$courage += 1]]</tw-passagedata><tw-passagedata pid="37" name="QEnd" tags="xdark no-display" position="1550,825" size="100,100">Silence, again.
 /*Add more questions, probably. */
@@ -462,40 +465,40 @@ The voice says, &quot;I will ask you some questions. Speak truly.
 You stand before the $gate. Like a tunnel, it seems to lead somewhere. However, everything after the first six feet or so is completely obscured by the dark mist. On either side of the arch, as well as above it, the mist extends in all directions. A chill goes down your spine.
 
 Below you is a cobbled, stone path, leading right up to the edge of the $gate. Where the path leads is obscured by mist, of the regular kind.
-
+&lt;&lt;set $temp_passage_name = &quot;Go into the &quot; + $gate&gt;&gt;
 [[Go down the path|RoadToPlaza]]
-[[Go into the arch|GateError]]</tw-passagedata><tw-passagedata pid="41" name="GateError" tags="mist" position="1425,1075" size="100,100">You walk into the $gate, up to the edge of the dark mist. You raise your hand up to it, but are stopped by some unknown force, like two magnets repelling each other.
+&lt;&lt;link $temp_passage_name &quot;GateError&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="41" name="GateError" tags="mist" position="1425,1075" size="100,100">You walk into the $gate, up to the edge of the dark mist. You raise your hand up to it, but are stopped by some unknown force, like two magnets repelling each other.
 
 [[Step away|Gate]]</tw-passagedata><tw-passagedata pid="42" name="RoadToPlaza" tags="light" position="1175,950" size="100,100">You go down the cobbled road. The mist gradually fades, and you can see that on either side of the path is nothing but dirt and gravel, but ahead of you the path becomes bordered by disheveled wooden buildings. Behind you, you can see the $gate.
-
+&lt;&lt;set $temp_passage_name = &quot;Go to the &quot; + $gate&gt;&gt;
 [[Go towards the buildings|PlazaEnter]]
-[[Go to the arch|Gate]]</tw-passagedata><tw-passagedata pid="43" name="PlazaEnter" tags="light" position="1175,1075" size="100,100">You move past the buildings, and the path widens into a large Plaza. Looking around, the shape is of two intersecting ovals, with a large clock tower at its center. On each of the four tips are paths that extend further into $city.
+&lt;&lt;link $temp_passage_name &quot;Gate&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="43" name="PlazaEnter" tags="light" position="1175,1075" size="100,100">You move past the buildings, and the path widens into a large Plaza. Looking around, the shape is of two intersecting ovals, with a large clock tower at its center. On each of the four tips are paths that extend further into $city.
 
 There are a wide variety of people here, including some bizarre ones. In one corner, you see what appears to be a large, bird-like figures, humanoid but with wings, talking to a short, boxy mechanical man.
 
 [[Approach|TowerBottom]] the tower.
 [[Go North|RoadToPlaza]], towards the $gate.
-[[Go West|RoadToCitadel]].</tw-passagedata><tw-passagedata pid="44" name="Plaza" tags="light" position="1050,1075" size="100,100">You stand in the large Plaza, shaped like two intersecting ovals, with a large clock tower in the center. On each of the four tips are paths that extend further into $city.
+[[Go West|RoadToCitadel]], towards the $citadel.</tw-passagedata><tw-passagedata pid="44" name="Plaza" tags="light" position="1050,1075" size="100,100">You stand in the large Plaza, shaped like two intersecting ovals, with a large clock tower in the center. On each of the four tips are paths that extend further into $city.
 
 There are a wide variety of people here, including some bizarre ones. In one corner, you see what appears to be a large, bird-like figures, humanoid but with wings, talking to a short, boxy mechanical man.
 
-[[Approach|TowerBottom]] the tower.
+[[Approach|TowerBottom]] the tower. &lt;&lt;if $seek_sage = true&gt;&gt;The Guard said you could meet the //Sage// here.&lt;&lt;/if&gt;&gt;
 [[Go North|RoadToPlaza]], towards the $gate.
 [[Go West|RoadToCitadel]], towards the $citadel.</tw-passagedata><tw-passagedata pid="45" name="RoadToCitadel" tags="light" position="1050,1200" size="100,100">You follow the cobbled road. To the west, you can see the $citadel. To the east, you can go back to the Plaza.
-&lt;&lt;set $temp_passage_name = &quot;Go to &quot; + $citadel&gt;&gt;
-[[Go to the Plaza|Plaza]]
-&lt;&lt;link $temp_passage_name &quot;Citadel&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="46" name="Citadel" tags="light" position="725,600" size="100,100">You approach the $citadel. It is large, similar in structure to what you imagine a castle would look like. with an outer wall, about 40 feet tall, in the center of which is portcullis (currently lowered). On the left side of the gate is a small shack, in which is seated a //guard// of almost comically large proportions. He watches you with half-closed eyes, but has not made a move to stand or speak a word.
+&lt;&lt;set $temp_passage_name = &quot;Go to the &quot; + $citadel&gt;&gt;
+&lt;&lt;link $temp_passage_name &quot;Citadel&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
+[[Go to the Plaza|Plaza]]</tw-passagedata><tw-passagedata pid="46" name="Citadel" tags="light" position="725,600" size="100,100">You approach the $citadel. It is large, similar in structure to what you imagine a castle would look like. with an outer wall, about 40 feet tall, in the center of which is a portcullis (currently lowered). On the left side of the gate is a small shack, in which is seated a &lt;b&gt;Guard&lt;/b&gt; of almost comically large proportions. He watches you with half-closed eyes, but has not made a move to stand or speak a word.
 
 [[Approach|CitadelApproach]]
 [[Flee|Plaza]], to the Plaza</tw-passagedata><tw-passagedata pid="47" name="CitadelApproach" tags="light" position="850,600" size="100,100">As you get close, the guard suddenly yells, &quot;STOP right there! Identify yourself.&quot;
-
-&lt;&lt;link $name &quot;CitadelName&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
+&lt;&lt;set $temp_passage_name = &#39;&quot;&#39; + $name + &#39;&quot;&#39;&gt;&gt;
+&lt;&lt;link $temp_passage_name &quot;CitadelName&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
 [[Run away|CitadelFlee]]</tw-passagedata><tw-passagedata pid="48" name="CitadelName" tags="light" position="975,600" size="100,100">You speak your name. &quot;Oh yeah?&quot; the guard says, &quot;And what do you want?&quot;
 
 [[&#39;&quot;To go in&quot;&#39;|CitadelAskIn]]
 [[&#39;&quot;What&#39;s this place?&quot;&#39;|CitadelAskPlace]]
 [[&#39;&quot;Just exploring&quot;&#39;|CitadelAskLeave]]
-[[&#39;&quot;Nothing&quot;&#39;|CitadelAskLeave]]</tw-passagedata><tw-passagedata pid="49" name="CitadelAskPlace" tags="light" position="1100,600" size="100,100">&quot;You a new Travela? This here&#39;s the //Citadel//, where our glorious //Lord// lives,&quot; he explains, a sense of pride in his voice. &lt;&lt;set $citadel = &quot;Citadel&quot;&gt;&gt;
+[[&#39;&quot;Nothing&quot;&#39;|CitadelAskLeave]]</tw-passagedata><tw-passagedata pid="49" name="CitadelAskPlace" tags="light" position="1100,600" size="100,100">&quot;You a new Travela? This here&#39;s the &lt;b&gt;Citadel&lt;/b&gt;, where our glorious &lt;b&gt;Lord&lt;/b&gt; lives,&quot; he explains, a sense of pride in his voice. &lt;&lt;set $citadel = &quot;Citadel&quot;&gt;&gt;
 
 [[&#39;&quot;Like, God?&quot;&#39;|CitadelAskLordGod]]
 [[&#39;&quot;Can I go in?&quot;&#39;|CitadelAskIn]]
@@ -505,7 +508,7 @@ There are a wide variety of people here, including some bizarre ones. In one cor
 [[&#39;&quot;Thanks for the info&quot;&#39;|CitadelAskLeave]]</tw-passagedata><tw-passagedata pid="51" name="CitadelAskTraveler" tags="light" position="100,725" size="100,100">&quot;Jeez, I guess you really are new. //You// are a Traveler. All of us are Travelers. People from other realities.&quot;
 
 [[&#39;&quot;Realities?&quot;&#39;|CitadelAskSage]]
-[[&#39;&quot;Thanks for the info&quot;&#39;|CitadelAskLeave]]</tw-passagedata><tw-passagedata pid="52" name="CitadelAskSage" tags="light" position="225,725" size="100,100">&quot;What do I look like? An encylopedia? Go see the //Sage//, he&#39;s in the clocktower.&quot;
+[[&#39;&quot;Thanks for the info&quot;&#39;|CitadelAskLeave]]</tw-passagedata><tw-passagedata pid="52" name="CitadelAskSage" tags="light" position="225,725" size="100,100">&quot;What do I look like? An encylopedia? Go see the //Sage//, he&#39;s in the clocktower.&quot; &lt;&lt;set $seek_sage = true&gt;&gt;
 
 [[&#39;&quot;Thanks for the info&quot;&#39;|CitadelAskLeave]]</tw-passagedata><tw-passagedata pid="53" name="CitadelAskIn" tags="light" position="350,725" size="100,100">&quot;Oh? And why should I let you in?&quot; he says.
 
@@ -613,7 +616,13 @@ In between the clock and the table, a small figure, the as tall as the door down
 
 [[Ask another question|SageQuestion]]
 [[&#39;&quot;Makes sense&quot;&#39;|SageQuestion]]
-[[Show them your watch|HelpTuner]]</tw-passagedata><tw-passagedata pid="83" name="HelpTuner" tags="light" position="350,1100" size="100,100">You show the //Sage// your $tuner.</tw-passagedata><tw-passagedata pid="84" name="HelpTravelers" tags="light" position="400,875" size="100,100">&quot;Why, someone like yourself,&quot; they explain, &quot;a person from another reality, who has crossed over into Middleworld.&quot;
+[[Show them your watch|HelpTuner]]</tw-passagedata><tw-passagedata pid="83" name="HelpTuner" tags="light" position="350,1100" size="100,100">You show the //Sage// your $tuner.
+&quot;Well, this is a curious little artifact. Where did you get it?&quot;
+
+[[&#39;&quot;I&#39;m not sure.&quot;&#39;|HelpTuner2]]</tw-passagedata><tw-passagedata pid="84" name="HelpTuner2" tags="light" position="475,1100" size="100,100">&quot;Hmm. I take it this was not in your possesion prior to arriving in Middleworld? Well, perhaps this is your &lt;b&gt;//Gift//&lt;/b&gt;&quot;
+The word echoes in your ears, like the name of a dear friend you had once forgotten, now remembered. //Gift//.
+
+[[&#39;&quot;Gift?&quot;&#39;|HelpTuner3]]</tw-passagedata><tw-passagedata pid="85" name="HelpTuner3" tags="light" position="600,1100" size="100,100">Gifts are...</tw-passagedata><tw-passagedata pid="86" name="HelpTravelers" tags="light" position="400,875" size="100,100">&quot;Why, someone like yourself,&quot; they explain, &quot;a person from another reality, who has crossed over into Middleworld.&quot;
 
 [[Ask another question|SageQuestion]]
 [[&#39;&quot;What is Middleworld&quot;&#39;|HelpWorld]]</tw-passagedata></tw-storydata>
