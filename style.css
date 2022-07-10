@@ -8,27 +8,59 @@ div.blog {
 }
 
 .active {
-	background-color: lightblue;
-	color: black;
-	padding: 8px;
+	background-color: #098859;
 }
 
-ul {
+ul.contact {
 	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	background-color: darkslategray;
-	padding: 15px;
-	padding-left: 25%;
-	padding-right: 25%;
 }
 
-li {
+li.contact {
 	display: inline;
 }
+
+li a.contact {
+	color: black;
+	display: inline;
+}
+
+li a:hover.contact {
+	background-color: lightgray;
+}
+
+ul.bar {
+	list-style-type: none;
+	margin: 0% 20% 0% 20%;
+	padding: 0;
+	overflow: hidden;
+	background-color: rgb(51, 51, 51);
+	position: -webkit-sticky; /* Safari */
+  	position: sticky;
+  	top: 0;
+}
   
-a.bar {
-	padding: 8px;
-	background-color: rgb(81, 122, 122);
+li.bar {
+	float: left;
+}
+
+img.ww {
+    height: 450px;
+	object-fit: cover;
+}
+img.ww2 {
+    height: 200px;
+	object-fit: cover;
+}
+
+li a {
+	display: block;
 	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+  
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+	background-color: rgb(17, 17, 17);
 }
