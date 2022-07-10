@@ -51,6 +51,10 @@ img.ww2 {
     height: 200px;
 	object-fit: cover;
 }
+img.ww3 {
+    height: 100px;
+	object-fit: cover;
+}
 
 li a {
 	display: block;
