@@ -37,6 +37,7 @@ ul.bar {
 	position: -webkit-sticky; /* Safari */
   	position: sticky;
   	top: 0;
+	z-index: 1;
 }
   
 li.bar {
@@ -85,7 +86,6 @@ img.port {
 span.port {
 position: relative;
 text-align: center;
-z-index:-1;
 }
 
 .bottom-right {
