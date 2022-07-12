@@ -19,8 +19,9 @@ class Header extends HTMLElement {
 	  </center>
 	  <ul class="bar">
 		  <li class="bar"><a href="/index.html">Home</a></li>
-		  <li class="bar"><a href="/games/index.html">Projects</a></li>
-		  <li class="bar"><a href="/ww/index.html">WW Database</a></li>
+		  <li class="bar"><a href="/games/index.html">Projects [Old]</a></li>
+		  <li class="bar"><a href="/portfolio/index.html">Portfolio</a></li>
+		  <li class="bar"><a href="/ww/index.html" class="active">WW Database</a></li>
 		  <li style="float:right" class="bar"><a href="/about.html">About Me</a></li>
 	  </ul>
 	  `;
