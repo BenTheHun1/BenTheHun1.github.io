@@ -46,6 +46,7 @@ li.bar {
 img.ww {
     height: 450px;
 	object-fit: cover;
+	
 }
 img.ww2 {
     height: 175px;
@@ -68,3 +69,36 @@ li a {
 li a:hover {
 	background-color: rgb(17, 17, 17);
 }
+h1 {
+	padding: 10px 20% 0px 20%;
+	text-align: center;
+}
+
+img.port {
+	height: 250px;
+	width: 315px;
+	object-fit: cover;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+span.port {
+position: relative;
+text-align: center;
+}
+
+.bottom-right {
+	position: absolute;
+	bottom: 0px;
+	left: 16px;
+	font-size: large;
+	background-color: white;
+}
+
+.top-left {
+	position: absolute;
+	bottom: 210px;
+	right: 16px;
+	font-size: large;
+	background-color: white;
+  }
