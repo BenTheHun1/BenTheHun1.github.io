@@ -85,6 +85,7 @@ img.port {
 span.port {
 position: relative;
 text-align: center;
+z-index:-1;
 }
 
 .bottom-right {
