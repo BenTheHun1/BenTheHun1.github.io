@@ -26,6 +26,37 @@ class Header extends HTMLElement {
 	  </ul>
 	  `;
 	}
-  }
+}
+
+class Header2 extends HTMLElement {
+	constructor() {
+	  super();
+	}
   
-  customElements.define('header-component', Header);
+	connectedCallback() {
+	  this.innerHTML = `
+	  <center>
+	  <p><img src="/benthehun1.svg" alt="BenTheHun1" width=500></p>
+	  <ul class="contact">
+		  <li class="contact"><a href="mailto:benhunsicker1@gmail.com" class="contact"><img src="/img/mail.ico" alt="Email" Title="Email"></a></li>
+		  <li class="contact"><a href="https://twitter.com/benthehun1" class="contact"><img src="/img/tweet.ico" alt="Twitter" Title="Twitter"></a></li>
+		  <li class="contact"><a href="https://www.reddit.com/user/benthehun1" class="contact"><img src="/img/reddit.png" alt="Reddit" Title="Reddit"></a></li>
+		  <li class="contact"><a href="https://www.youtube.com/user/BentheHun1" class="contact"><img src="/img/yt.png" alt="YouTube" Title="YouTube"></a></li>
+		  <li class="contact"><a href="https://github.com/BenTheHun1" class="contact"><img src="/img/git.ico" alt="GitHub" Title="GitHub"></a></li>
+		  <li class="contact"><a href="https://www.twitch.tv/benthehun1" class="contact"><img src="/img/twitch.png" alt="Twitch" Title="Twitch"></a></li>
+		  <li class="contact"><a href="https://www.curseforge.com/members/benthehun1" class="contact"><img src="/img/anvil.svg" alt="CurseForge" Title="CurseForge" height="28px" style="filter: invert(1);"></a></li>
+	  </ul>
+	  </center>
+	  <ul class="bar">
+		  <li class="bar"><a href="/index.html">Blog</a></li>
+		  <li class="bar"><a href="/games/index.html">Projects [Old]</a></li>
+		  <li class="bar"><a href="/portfolio/index.html" class="active">Portfolio</a></li>
+		  <li class="bar"><a href="/ww/index.html">WW Database</a></li>
+		  <li style="float:right" class="bar"><a href="/about.html">About Me</a></li>
+	  </ul>
+	  `;
+	}
+}
+  
+customElements.define('header-component', Header);
+customElements.define('head-portfolio', Header2);

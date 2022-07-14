@@ -110,4 +110,8 @@ text-align: center;
 	right: 16px;
 	font-size: large;
 	background-color: white;
-  }
+}
+
+.big {
+	font-size: x-large;
+}
