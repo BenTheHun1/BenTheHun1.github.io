@@ -6,7 +6,7 @@ class HeaderWW extends HTMLElement {
 	connectedCallback() {
 	  this.innerHTML = `
 	  <ul class="bar">
-		<li class="bar"><a href="/portfolio/index.html">Back to: Portfolio</a></li>
+		<li style="float:right" class="bar"><a href="/portfolio/index.html">Back to: Portfolio</a></li>
 		<li class="bar"><a href="" class="active">White Wolf Database</a></li>
 		</ul>
 		<p></p>
@@ -51,7 +51,7 @@ class HeaderAdv extends HTMLElement {
 	connectedCallback() {
 	  this.innerHTML = `
 	  	<ul class="bar">
-		<li class="bar"><a href="/games/index.html">Back to: Projects</a></li>
+		<li style="float:right" class="bar"><a href="/games/index.html">Back to: Projects</a></li>
 		<li class="bar"><a href="" class="active">Advent</a></li>
 		</ul>
 		<p></p>
@@ -67,7 +67,7 @@ class HeaderIF extends HTMLElement {
 	connectedCallback() {
 	  this.innerHTML = `
 	  	<ul class="bar">
-		<li class="bar"><a href="/games/index.html">Back to: Projects</a></li>
+		<li style="float:right" class="bar"><a href="/games/index.html">Back to: Projects</a></li>
 		<li class="bar"><a href="" class="active">Interactive Fiction Hub</a></li>
 		</ul>
 		<p></p>
