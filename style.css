@@ -44,6 +44,19 @@ li.bar {
 	float: left;
 }
 
+img.wwlogo {
+	width: 500px;
+	height: 300px;
+	object-fit: contain;
+	/*background-color: white;*/
+}
+img.wwlogo2 {
+	width: 400px;
+	height: 200px;
+	object-fit: contain;
+	/*background-color: white;*/
+}
+
 img.ww {
     height: 450px;
 	object-fit: cover;

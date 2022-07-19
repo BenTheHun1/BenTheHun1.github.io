@@ -7,7 +7,7 @@ class HeaderWW extends HTMLElement {
 	  this.innerHTML = `
 	  <ul class="bar">
 		<li style="float:right" class="bar"><a href="/portfolio/index.html">Back to: Portfolio</a></li>
-		<li class="bar"><a href="" class="active">White Wolf Database</a></li>
+		<li class="bar"><a href="/ww/index.html" class="active">White Wolf Database</a></li>
 		</ul>
 		<p></p>
 	  `;
