@@ -136,3 +136,26 @@ text-align: center;
 .big {
 	font-size: x-large;
 }
+
+/* Two columns */
+.row {
+	display: flex;
+}
+  
+.column {
+	flex: 50%;
+}
+
+/* Nice button */
+li a.btn {
+	display: block;
+	color: black;
+	text-align: center;
+	text-decoration: none;
+	background-color: #c7cedb;
+	border-radius: 2px;
+}
+
+li a.btn:hover {
+	background-color: #a0aab2;
+}
