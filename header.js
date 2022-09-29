@@ -36,6 +36,36 @@ class HeaderPort extends HTMLElement {
 	  <ul class="bar">
 		  <li class="bar"><a href="/index.html">Blog</a></li>
 		  <li class="bar"><a href="/portfolio/index.html" class="active">Portfolio</a></li>
+		  <li class="bar"><a href="/mw/index.html">Multiverse</a></li>
+		  <li style="float:right" class="bar"><a href="/about.html">About Me</a></li>
+	  </ul>
+	  `;
+	}
+}
+
+class HeaderVerse extends HTMLElement {
+	constructor() {
+	  super();
+	}
+  
+	connectedCallback() {
+	  this.innerHTML = `
+	  <center>
+	  <p><img src="/benthehun1.svg" alt="BenTheHun1" width=500></p>
+	  <ul class="contact">
+		  <li class="contact"><a href="mailto:benhunsicker1@gmail.com" class="contact"><img src="/img/mail.ico" alt="Email" Title="Email"></a></li>
+		  <li class="contact"><a href="https://twitter.com/benthehun1" class="contact"><img src="/img/tweet.ico" alt="Twitter" Title="Twitter"></a></li>
+		  <li class="contact"><a href="https://www.reddit.com/user/benthehun1" class="contact"><img src="/img/reddit.png" alt="Reddit" Title="Reddit"></a></li>
+		  <li class="contact"><a href="https://www.youtube.com/user/BentheHun1" class="contact"><img src="/img/yt.png" alt="YouTube" Title="YouTube"></a></li>
+		  <li class="contact"><a href="https://github.com/BenTheHun1" class="contact"><img src="/img/git.ico" alt="GitHub" Title="GitHub"></a></li>
+		  <li class="contact"><a href="https://www.twitch.tv/benthehun1" class="contact"><img src="/img/twitch.png" alt="Twitch" Title="Twitch"></a></li>
+		  <li class="contact"><a href="https://www.curseforge.com/members/benthehun1" class="contact"><img src="/img/anvil.svg" alt="CurseForge" Title="CurseForge" height="28px" style="filter: invert(1);"></a></li>
+	  </ul>
+	  </center>
+	  <ul class="bar">
+		  <li class="bar"><a href="/index.html">Blog</a></li>
+		  <li class="bar"><a href="/portfolio/index.html">Portfolio</a></li>
+		  <li class="bar"><a href="/mw/index.html" class="active">Multiverse</a></li>
 		  <li style="float:right" class="bar"><a href="/about.html">About Me</a></li>
 	  </ul>
 	  `;
@@ -76,5 +106,6 @@ class HeaderIF extends HTMLElement {
   
 customElements.define('header-component', HeaderWW);
 customElements.define('head-portfolio', HeaderPort);
+customElements.define('head-verse', HeaderVerse);
 customElements.define('head-advent', HeaderAdv);
 customElements.define('head-if', HeaderIF);

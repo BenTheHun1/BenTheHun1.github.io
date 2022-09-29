@@ -164,3 +164,82 @@ table, th, td {
 	border: 2px solid black;
 	border-collapse: collapse;
 }
+
+div.mv a {
+	display: block;
+	color: black;
+	text-align: center;
+	text-decoration: none;
+	border-style: solid;
+	padding: 10px 10px 10px 10px;
+	border-width: 2px;
+}
+
+
+div.mv{
+	display: inline-block;
+	color: black;
+	background-color: gray;
+	text-align: center;
+	vertical-align: top;
+	border-style: solid;
+	border-radius: 20px;
+	padding: 40px 40px 40px 40px;
+}
+
+div.mv>.maybe {
+	border-style: dotted;
+}
+
+div.mv>.connection {
+	font-style: italic;
+}
+
+div.mv>.main {
+	font-size: 20px;
+}
+
+.game {
+	background-color: rgb(0, 255, 0);
+}
+
+.game:hover {
+	background-color: rgb(0, 155, 0);
+	color:white;
+}
+
+.story {
+	background-color: rgb(255, 60, 60);
+}
+
+.story:hover {
+	background-color: rgb(145, 0, 0);
+	color:white;
+}
+
+.if {
+	background-color: rgb(0, 140, 255);
+}
+
+.if:hover {
+	background-color: rgb(0, 97, 177);
+	color:white;
+}
+
+.rpg {
+	background-color: rgb(255, 208, 0);
+}
+
+.rpg:hover {
+	background-color: rgb(172, 140, 0);
+	color:white;
+}
+
+.other {
+	background-color: rgb(250, 235, 215);
+}
+
+.other:hover {
+	background-color: rgb(194, 181, 165);
+	color: white;
+}
