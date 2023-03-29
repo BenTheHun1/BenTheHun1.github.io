@@ -7,6 +7,8 @@ div.blog {
   text-align: left;
 }
 
+
+
 .active {
 	background-color: #098859;
 }
@@ -109,6 +111,8 @@ position: relative;
 text-align: center;
 }
 
+
+
 .bottom-right {
 	position: absolute;
 	bottom: 0px;
@@ -132,6 +136,41 @@ text-align: center;
 	font-size: large;
 	background-color: white;
 }
+
+/*Pixel Art Showcase*/
+
+span.port2 {
+	display: flex; 
+    justify-content: center;
+	float: left;
+}
+
+.mid2 {
+	position: relative;
+	font-size: large;
+	text-align:center;
+}
+
+.mid3 {
+	position: absolute;
+	bottom: 60px;
+	right: 140px;
+	font-size: large;
+}
+
+div.pixelart {
+	padding: 10px 10% 0px 10%;
+	text-align: center;
+}
+
+img.pixel {
+	width: 400px;
+	height: 200px;
+	object-fit: contain;
+	image-rendering: pixelated;
+	image-rendering: -moz-crisp-edges;
+}
+
 
 .big {
 	font-size: x-large;
