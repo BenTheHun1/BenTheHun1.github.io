@@ -151,6 +151,13 @@ span.port2 {
 	text-align:center;
 }
 
+.mid3 {
+	position: absolute;
+	bottom: 60px;
+	right: 140px;
+	font-size: large;
+}
+
 div.pixelart {
 	padding: 10px 10% 0px 10%;
 	text-align: center;
