@@ -204,18 +204,7 @@ table, th, td {
 	border-collapse: collapse;
 }
 
-div.mv a {
-	display: block;
-	color: black;
-	text-align: center;
-	text-decoration: none;
-	border-style: solid;
-	padding: 10px 10px 10px 10px;
-	border-width: 2px;
-}
-
-
-div.mv{
+div.mv {
 	display: inline-block;
 	color: black;
 	background-color: gray;
@@ -223,19 +212,35 @@ div.mv{
 	vertical-align: top;
 	border-style: solid;
 	border-radius: 20px;
-	padding: 40px 40px 40px 40px;
+	padding: 10px;
+	height: 350px;
+	width: 350px;
+	box-sizing: content-box;
+	margin: 1px;
+	margin-top: 4px;
 }
 
-div.mv>.maybe {
+div.mv a {
+	display: block;
+	color: black;
+	text-align: center;
+	text-decoration: none;
+	border-style: solid;
+	padding: 10px;
+	border-width: 2px;
+	margin: 2px
+}
+
+div.mv > .maybe {
 	border-style: dotted;
 }
 
-div.mv>.connection {
+div.mv > .connection {
 	font-style: italic;
 }
 
-div.mv>.main {
-	font-size: 20px;
+div.mv > .main {
+	font-size: 125%;
 }
 
 .game {
