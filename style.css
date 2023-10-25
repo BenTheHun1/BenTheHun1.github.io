@@ -7,8 +7,6 @@ div.blog {
   text-align: left;
 }
 
-
-
 .active {
 	background-color: #098859;
 }
@@ -85,6 +83,7 @@ li a {
 li a:hover {
 	background-color: rgb(17, 17, 17);
 }
+
 h1 {
 	padding: 10px 20% 0px 20%;
 	text-align: center;
@@ -111,11 +110,9 @@ img.mc {
 }
 
 span.port {
-position: relative;
-text-align: center;
+	position: relative;
+	text-align: center;
 }
-
-
 
 .bottom-right {
 	position: absolute;
@@ -140,6 +137,48 @@ text-align: center;
 	font-size: large;
 	background-color: white;
 }
+
+/* New Middleworld Multiverse */
+.mw-logo {
+	text-align: center;
+	vertical-align: middle;
+	border: black 5px solid;
+	box-sizing: border-box;
+	margin: 10em 40% 20px 40%;
+
+}
+
+table.mw {
+	margin: 20%;
+}
+
+table.mw td {
+	padding: 10px;
+}
+
+.reality {
+	float: left;
+	
+	text-align: center;
+	vertical-align: middle;
+	border: black 5px solid;
+	box-sizing: border-box;
+	
+	font-size: 1.5em;
+	margin: 10em 40% 20px 40%;
+	
+	padding: 2em 0px 2em 0px;
+}
+
+.mw-logo > a {
+	text-decoration: none;
+	color: black;
+	display: block;
+	box-sizing: border-box;
+	font-size: 2em;
+	padding: 2em 0px 2em 0px;
+}
+
 
 /*Pixel Art Showcase*/
 

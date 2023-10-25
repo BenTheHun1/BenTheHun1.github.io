@@ -22,7 +22,7 @@ class HeaderPort extends HTMLElement {
 	connectedCallback() {
 	  this.innerHTML = `
 	  <center>
-	  <p><img src="/benthehun1.svg" alt="BenTheHun1" width=500></p>
+	  <p><img src="/benthehun1.svg" alt="BenTheHun1" width=40%></p>
 	  <ul class="contact">
 		  <li class="contact"><a href="mailto:benhunsicker1@gmail.com" class="contact"><img src="/img/mail.ico" alt="Email" Title="Email"></a></li>
 		  <li class="contact"><a href="https://twitter.com/benthehun1" class="contact"><img src="/img/tweet.ico" alt="Twitter" Title="Twitter"></a></li>
@@ -35,7 +35,7 @@ class HeaderPort extends HTMLElement {
 	  <ul class="bar">
 		  <li class="bar"><a href="/index.html">Blog</a></li>
 		  <li class="bar"><a href="/portfolio/index.html" class="active">Portfolio</a></li>
-		  <li class="bar"><a href="/mw/index.html">Multiverse</a></li>
+		  <li class="bar"><a href="/mw/index.html">MiddleWorld</a></li>
 		  <li style="float:right" class="bar"><a href="/about.html">About Me</a></li>
 	  </ul>
 	  `;
@@ -50,7 +50,7 @@ class HeaderGeneric extends HTMLElement {
 	connectedCallback() {
 	  this.innerHTML = `
 	  <center>
-	  <p><img src="/benthehun1.svg" alt="BenTheHun1" width=500></p>
+	  <p><img src="/benthehun1.svg" alt="BenTheHun1" width=40%></p>
 	  <ul class="contact">
 		  <li class="contact"><a href="mailto:benhunsicker1@gmail.com" class="contact"><img src="/img/mail.ico" alt="Email" Title="Email"></a></li>
 		  <li class="contact"><a href="https://twitter.com/benthehun1" class="contact"><img src="/img/tweet.ico" alt="Twitter" Title="Twitter"></a></li>
@@ -63,7 +63,7 @@ class HeaderGeneric extends HTMLElement {
 	  <ul class="bar">
 		  <li class="bar"><a href="/index.html">Blog</a></li>
 		  <li class="bar"><a href="/portfolio/index.html">Portfolio</a></li>
-		  <li class="bar"><a href="/mw/index.html">Multiverse</a></li>
+		  <li class="bar"><a href="/mw/index.html">MiddleWorld</a></li>
 		  <li style="float:right" class="bar"><a href="/about.html">About Me</a></li>
 	  </ul>
 	  `;
@@ -78,7 +78,7 @@ class HeaderVerse extends HTMLElement {
 	connectedCallback() {
 	  this.innerHTML = `
 	  <center>
-	  <p><img src="/benthehun1.svg" alt="BenTheHun1" width=500></p>
+	  <p><img src="/benthehun1.svg" alt="BenTheHun1" width=40%></p>
 	  <ul class="contact">
 		  <li class="contact"><a href="mailto:benhunsicker1@gmail.com" class="contact"><img src="/img/mail.ico" alt="Email" Title="Email"></a></li>
 		  <li class="contact"><a href="https://twitter.com/benthehun1" class="contact"><img src="/img/tweet.ico" alt="Twitter" Title="Twitter"></a></li>
@@ -91,7 +91,7 @@ class HeaderVerse extends HTMLElement {
 	  <ul class="bar">
 		  <li class="bar"><a href="/index.html">Blog</a></li>
 		  <li class="bar"><a href="/portfolio/index.html">Portfolio</a></li>
-		  <li class="bar"><a href="/mw/index.html" class="active">Multiverse</a></li>
+		  <li class="bar"><a href="/mw/index.html" class="active">MiddleWorld</a></li>
 		  <li style="float:right" class="bar"><a href="/about.html">About Me</a></li>
 	  </ul>
 	  `;

@@ -1,0 +1,153 @@
+* {
+	box-sizing: border-box;
+}
+
+#navbar {
+	margin: auto;
+	border: 2px solid red;
+	width: 50%;
+}
+
+.nav-button {
+	background-color: rgb(51, 51, 51);
+	width: 120px;
+	text-align: center;
+	display: inline-block;
+}
+
+.nav-button a {
+	width: auto;
+	display: block;
+	padding: 1em;
+	color: white;
+	text-decoration: none;
+}
+
+body {
+	background-color: lightgray;
+}
+
+.total-container {
+	transform: scale(.9);
+	margin-top: 0
+}
+
+.container {
+	clear: both;
+	display: flex;
+	flex-direction: row;
+	margin-top: 50px;
+}
+
+.reality a, #mw a {
+	width: auto;
+	display: block;
+	padding: 60px 0;
+	color: black;
+	text-decoration: none;
+}
+
+#mw, .reality, .blank{ 
+	margin: auto;
+	width: 150px;
+	font-size: 15px;
+	text-align: center;
+	background-color: lightblue;
+	border: 5px black solid;
+	position: relative;
+	border-radius: 100px;
+}
+
+#mw {
+	width: 300px;
+	margin: 10px;
+}
+
+#mw a {
+	padding: 75px;
+	font-size: 30px;
+}
+
+.top {
+	position: relative;
+	bottom: 75px;
+}
+
+.bottom {
+	position: relative;
+	top: 75px;
+}
+
+.blank {
+	background-color: white;
+	border: none;
+}
+
+#map {
+	text-align: center;
+	margin: 50px;
+}
+
+.body {
+	margin: 0px 400px;
+}
+
+h1.title {
+	text-align: center;
+	font-size: 3em;
+	font-family: Verdana, Tahoma, sans-serif;
+}
+
+h2.tag {
+	text-align: center;
+	font-size: 1.5em;
+	font-family: Verdana, Tahoma, sans-serif;
+	font-weight: 600;
+}
+
+p.describe {
+	font-family: 'Times New Roman', Times, serif;
+	font-size: 1.5em;
+}
+
+
+table.timeline, th, td{
+	border: 3px solid black;
+	border-collapse: collapse;
+	padding: 10px;
+}
+
+
+/* Nav Bar */
+ul.bar {
+	list-style-type: none;
+	margin: 0% 20% 0% 20%;
+	padding: 0;
+	overflow: hidden;
+	background-color: rgb(51, 51, 51);
+	position: -webkit-sticky; /* Safari */
+  	position: sticky;
+  	top: 0;
+	z-index: 1;
+}
+  
+li.bar {
+	float: left;
+}
+
+li a {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+  
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+	background-color: rgb(17, 17, 17);
+}
+
+.active {
+	background-color: #098859;
+}
