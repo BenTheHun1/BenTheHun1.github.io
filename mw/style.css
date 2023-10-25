@@ -151,3 +151,13 @@ li a:hover {
 .active {
 	background-color: #098859;
 }
+
+div.char {
+	display: inline-block; 
+	text-align: center; 
+	margin: 25px;
+}
+
+div.char img {
+    image-rendering: pixelated;
+}
