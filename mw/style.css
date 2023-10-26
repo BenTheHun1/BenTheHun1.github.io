@@ -89,7 +89,7 @@ body {
 }
 
 .body {
-	margin: 0px 400px;
+	margin: 0px 20%;
 }
 
 h1.title {
@@ -117,11 +117,10 @@ table.timeline, th, td{
 	padding: 10px;
 }
 
-
 /* Nav Bar */
 ul.bar {
 	list-style-type: none;
-	margin: 0% 20% 0% 20%;
+	margin: 0% 20%;
 	padding: 0;
 	overflow: hidden;
 	background-color: rgb(51, 51, 51);
