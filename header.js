@@ -29,7 +29,6 @@ class HeaderPort extends HTMLElement {
 		  <li class="contact"><a href="https://www.youtube.com/@BenTheHun1" class="contact"><img src="/img/yt.png" alt="YouTube" Title="YouTube"></a></li>
 		  <li class="contact"><a href="https://github.com/BenTheHun1" class="contact"><img src="/img/git.ico" alt="GitHub" Title="GitHub"></a></li>
 		  <li class="contact"><a href="https://www.twitch.tv/benthehun1" class="contact"><img src="/img/twitch.png" alt="Twitch" Title="Twitch"></a></li>
-		  <li class="contact"><a href="https://www.curseforge.com/members/benthehun1" class="contact"><img src="/img/anvil.svg" alt="CurseForge" Title="CurseForge" height="28px" style="filter: invert(1);"></a></li>
 	  </ul>
 	  </center>
 	  <ul class="bar">
@@ -57,7 +56,6 @@ class HeaderGeneric extends HTMLElement {
 		  <li class="contact"><a href="https://www.youtube.com/@BenTheHun1" class="contact"><img src="/img/yt.png" alt="YouTube" Title="YouTube"></a></li>
 		  <li class="contact"><a href="https://github.com/BenTheHun1" class="contact"><img src="/img/git.ico" alt="GitHub" Title="GitHub"></a></li>
 		  <li class="contact"><a href="https://www.twitch.tv/benthehun1" class="contact"><img src="/img/twitch.png" alt="Twitch" Title="Twitch"></a></li>
-		  <li class="contact"><a href="https://www.curseforge.com/members/benthehun1" class="contact"><img src="/img/anvil.svg" alt="CurseForge" Title="CurseForge" height="28px" style="filter: invert(1);"></a></li>
 	  </ul>
 	  </center>
 	  <ul class="bar">
@@ -85,7 +83,6 @@ class HeaderVerse extends HTMLElement {
 		  <li class="contact"><a href="https://www.youtube.com/@BenTheHun1" class="contact"><img src="/img/yt.png" alt="YouTube" Title="YouTube"></a></li>
 		  <li class="contact"><a href="https://github.com/BenTheHun1" class="contact"><img src="/img/git.ico" alt="GitHub" Title="GitHub"></a></li>
 		  <li class="contact"><a href="https://www.twitch.tv/benthehun1" class="contact"><img src="/img/twitch.png" alt="Twitch" Title="Twitch"></a></li>
-		  <li class="contact"><a href="https://www.curseforge.com/members/benthehun1" class="contact"><img src="/img/anvil.svg" alt="CurseForge" Title="CurseForge" height="28px" style="filter: invert(1);"></a></li>
 	  </ul>
 	  </center>
 	  <ul class="bar">
