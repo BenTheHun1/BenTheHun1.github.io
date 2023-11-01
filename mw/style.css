@@ -160,3 +160,14 @@ div.char {
 div.char img {
     image-rendering: pixelated;
 }
+
+/* Mobile */
+@media (max-width: 767px) {
+	div.blog, #hello{
+		padding: 5px 10%;
+	}
+
+	ul.bar {	
+	margin: 0 10%;
+	}
+}
