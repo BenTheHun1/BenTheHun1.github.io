@@ -55,6 +55,22 @@ li.bar {
 	float: left;
 }
 
+
+/* Two columns */
+.row {
+	display: flex;
+}
+  
+.column {
+	flex: 50%;
+	padding: 0 10px;
+}
+
+.column a {
+	border: 1px solid black;
+	margin-top: 1px;
+}
+
 /* Mobile */
 @media (max-width: 767px) {
 	div.blog, #hello{
@@ -63,6 +79,10 @@ li.bar {
 
 	ul.bar {	
 	margin: 0 10%;
+	}
+
+	.row {
+		display: inline;
 	}
 }
 
@@ -241,15 +261,7 @@ img.pixel {
 	font-size: x-large;
 }
 
-/* Two columns */
-.row {
-	display: flex;
-}
-  
-.column {
-	flex: 50%;
-	padding: 0 10px;
-}
+
 
 /* Nice button */
 li a.btn, a.btn {
