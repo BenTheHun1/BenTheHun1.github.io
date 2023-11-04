@@ -21,6 +21,8 @@ div.blog {
 
 ul.contact {
 	list-style-type: none;
+	margin: 0;
+	padding-inline-start: 0;
 }
 
 li.contact {
@@ -246,16 +248,18 @@ img.pixel {
   
 .column {
 	flex: 50%;
+	padding: 0 10px;
 }
 
 /* Nice button */
-li a.btn {
+li a.btn, a.btn {
 	display: block;
 	color: black;
 	text-align: center;
 	text-decoration: none;
-	background-color: #c7cedb;
-	border-radius: 2px;
+	background-color: #98a1b1;
+	border-radius: 3px;
+	padding: 14px 16px;
 }
 
 li a.btn:hover {
