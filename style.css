@@ -71,10 +71,60 @@ li.bar {
 	margin-top: 1px;
 }
 
+div.port {
+	margin: 10px 20%;
+	text-align: center;
+}
+
+.portfolio {
+	background-size: cover;
+	background-position: center;
+	width: 315px;
+	height: 250px;
+	background-repeat: no-repeat;
+	border: solid black 5px;
+	margin: 12px;
+	position: relative;
+	display: inline-block;
+	text-align: center;
+}
+
+.port a {
+	text-decoration: none;
+}
+
+.portfolio .bl, .portfolio .tr, .portfolio .br {
+	position: absolute;
+	color: black;
+	background-color: white;
+	margin: 5px;
+	font-size: large;
+	border: 1px black solid;
+}
+
+.portfolio .bl {
+	bottom: 0;
+	left: 0;
+}
+
+.portfolio .tr {
+	top: 0;
+	right: 0;
+}
+
+.portfolio .br {
+	bottom: 0;
+	right: 0;
+}
+
 /* Mobile */
 @media (max-width: 767px) {
 	div.blog, #hello{
 		padding: 5px 10%;
+	}
+
+	div.port {
+		margin: 5px 10%;
 	}
 
 	ul.bar {	
@@ -84,33 +134,6 @@ li.bar {
 	.row {
 		display: inline;
 	}
-}
-
-img.wwlogo {
-	width: 500px;
-	height: 300px;
-	object-fit: contain;
-	/*background-color: white;*/
-}
-img.wwlogo2 {
-	width: 400px;
-	height: 200px;
-	object-fit: contain;
-	/*background-color: white;*/
-}
-
-img.ww {
-    height: 450px;
-	object-fit: cover;
-	
-}
-img.ww2 {
-    height: 175px;
-	object-fit: cover;
-}
-img.ww3 {
-    height: 100px;
-	object-fit: cover;
 }
 
 li a {
@@ -156,18 +179,19 @@ span.port {
 	text-align: center;
 }
 
-.bottom-right {
+.bottom-left {
 	position: absolute;
-	bottom: 0px;
-	left: 16px;
+	bottom: 16px;
+	left: 14px;
 	font-size: large;
 	background-color: white;
+	margin: 0;
 }
 
-.top-left {
+.top-right {
 	position: absolute;
-	bottom: 210px;
-	right: 16px;
+	bottom: 220px;
+	right: 14px;
 	font-size: large;
 	background-color: white;
 }
@@ -274,7 +298,7 @@ li a.btn, a.btn {
 	padding: 14px 16px;
 }
 
-li a.btn:hover {
+li a.btn:hover, a.btn:hover {
 	background-color: #a0aab2;
 }
 
