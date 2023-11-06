@@ -89,11 +89,25 @@ div.port {
 	text-align: center;
 }
 
+.pixel {
+	image-rendering: pixelated;
+	image-rendering: -moz-crisp-edges;
+	border: none;
+	background-size: contain;
+}
+
+
+
+div.skinny {
+	width: 250px;
+	height: 250px;
+}
+
 .port a {
 	text-decoration: none;
 }
 
-.portfolio .bl, .portfolio .tr, .portfolio .br {
+.portfolio .bl, .portfolio .tr, .portfolio .br, .portfolio .tl {
 	position: absolute;
 	color: black;
 	background-color: white;
@@ -112,9 +126,25 @@ div.port {
 	right: 0;
 }
 
+.portfolio .tl {
+	top: 0;
+	left: 0;
+}
+
 .portfolio .br {
 	bottom: 0;
 	right: 0;
+}
+
+.portfolio .centered {
+	position: absolute;
+	color: black;
+	background-color: white;
+	margin: 5px;
+	font-size: large;
+	border: 1px black solid;
+	top: 50%;
+	left: 50%;
 }
 
 /* Mobile */
