@@ -107,7 +107,7 @@ div.skinny {
 	text-decoration: none;
 }
 
-.portfolio .bl, .portfolio .tr, .portfolio .br, .portfolio .tl {
+.portfolio .bl, .portfolio .tr, .portfolio .tr2, .portfolio .br, .portfolio .tl {
 	position: absolute;
 	color: black;
 	background-color: white;
@@ -126,6 +126,11 @@ div.skinny {
 	right: 0;
 }
 
+.portfolio .tr2 {
+	top: 20%;
+	right: 5px;
+}
+
 .portfolio .tl {
 	top: 0;
 	left: 0;
@@ -139,12 +144,11 @@ div.skinny {
 .portfolio .centered {
 	position: absolute;
 	color: black;
-	background-color: white;
 	margin: 5px;
-	font-size: large;
-	border: 1px black solid;
+	font-size: 2em;
 	top: 50%;
-	left: 50%;
+	width: 96%;
+	left: 0;
 }
 
 /* Mobile */
@@ -163,6 +167,13 @@ div.skinny {
 
 	.row {
 		display: inline;
+	}
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+	div.port {
+		margin: 0;
 	}
 }
 
