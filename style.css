@@ -151,6 +151,14 @@ div.skinny {
 	left: 0;
 }
 
+.visible-md {
+	display: block;
+}
+
+.visible-xs {
+	display: none;
+}
+
 /* Mobile */
 @media (max-width: 767px) {
 	div.blog, #hello{
@@ -167,6 +175,14 @@ div.skinny {
 
 	.row {
 		display: inline;
+	}
+
+	.visible-md {
+		display: none;
+	}
+
+	.visible-xs {
+		display: block;
 	}
 }
 
