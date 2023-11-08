@@ -27,6 +27,8 @@ body {
 	background-color: lightgray;
 }
 
+
+
 .total-container {
 	transform: scale(.9);
 	margin-top: 0
@@ -90,6 +92,19 @@ body {
 
 .body {
 	margin: 0px 20%;
+}
+/* Mobile */
+@media (max-width: 767px) {
+	.body {
+		margin: 0px 10%;
+	}
+}
+
+/* XS Mobile */
+@media (max-width: 576px) {
+	.body {
+		margin: 0px 5%;
+	}
 }
 
 h1.title {

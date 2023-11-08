@@ -186,7 +186,7 @@ div.skinny {
 	}
 }
 
-/* Mobile */
+/* XS Mobile */
 @media (max-width: 576px) {
 	div.port {
 		margin: 0;
