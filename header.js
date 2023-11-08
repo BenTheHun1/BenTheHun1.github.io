@@ -146,8 +146,8 @@ class HeaderIF extends HTMLElement {
 	connectedCallback() {
 	  this.innerHTML = `
 	  	<ul class="bar">
-		<li style="float:right" class="bar"><a href="/games/index.html">Back to: Projects</a></li>
-		<li class="bar"><a href="" class="active">Interactive Fiction Hub</a></li>
+		<li style="float:right" class="bar"><a href="/portfolio/index.html">Back to: Portfolio</a></li>
+		<li class="bar"><a href="" class="active">I.F. Hub</a></li>
 		</ul>
 		<p></p>
 	  `;
