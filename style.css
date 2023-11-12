@@ -159,6 +159,10 @@ div.skinny {
 	display: none;
 }
 
+.visible-xxs {
+	display: none;
+}
+
 /* Mobile */
 @media (max-width: 767px) {
 	div.blog, #hello{
@@ -190,6 +194,12 @@ div.skinny {
 @media (max-width: 576px) {
 	div.port {
 		margin: 0;
+	}
+	.visible-xs {
+		display: none;
+	}
+	.visible-xxs {
+		display: block;
 	}
 }
 
