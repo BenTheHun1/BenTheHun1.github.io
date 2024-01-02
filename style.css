@@ -457,3 +457,90 @@ div.mv > .main {
 	background-color: rgb(194, 181, 165);
 	color: white;
 }
+
+/* Marvel */
+div.mcu {
+	margin: 0px 20%;
+	text-align: center;
+}
+
+#legacy {
+	background-color: white;
+}
+
+#phase1 {
+	background-color: red;
+}
+
+#phase2 {
+	background-color: gray;
+}
+
+#phase3 {
+	background-color: rgb(172, 19, 172);
+}
+#phase4 {
+	background-color: rgb(7, 5, 138);
+	color: white;
+}
+#phase5 {
+	background-color: green;
+}
+
+#dceu {
+	background-color: rgb(112, 148, 245);
+}
+
+.mcu h1 {
+	position: relative;
+	margin: 0px;
+}
+
+.mcu div {
+	background-size: cover;
+	background-position: center;
+	width: 150px;
+	height: 225px;
+	background-repeat: no-repeat;
+	border: solid black 5px;
+	margin: 5px;
+	position: relative;
+	display: inline-block;
+	text-align: center;
+}
+
+.mcu .top {
+	position: relative;
+	color: white;
+	font-size: large;
+	display: block;
+}
+
+.mcu .sony {
+	background-color: blue;
+}
+
+.mcu .fox {
+	background-color: gold;
+	color: black;
+}
+
+.mcu .marvel {
+	background-color: rgb(128, 14, 14);
+}
+
+.mcu .fear {
+	background-color: rgb(37, 4, 4);
+}
+
+.mcu .netflix {
+	background-color: rgb(190, 15, 15);
+}
+
+.mcu .abc {
+	background-color: rgb(5, 4, 27);
+}
+
+.mcu .hulu {
+	background-color: green;
+}
