@@ -516,6 +516,15 @@ div.mcu {
 	display: block;
 }
 
+.mcu .season {
+	position: absolute;
+	color: white;
+	font-size: large;
+	display: block;
+	bottom: 0;
+	right: 0
+}
+
 .mcu .sony {
 	background-color: blue;
 }
