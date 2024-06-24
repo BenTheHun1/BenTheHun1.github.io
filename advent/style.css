@@ -6,6 +6,7 @@ div {
   padding: 25px 25% 0px 25%;
   text-align: left;
 }
+
 p {
 color: white
 }
@@ -34,6 +35,18 @@ li.bar {
 	float: left;
 }
 
+ul.choices {
+	padding: 0;
+}
+
+ul.choices li {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
 li a {
 	display: block;
 	color: white;
@@ -45,4 +58,13 @@ li a {
 /* Change the link color to #111 (black) on hover */
 li a:hover {
 	background-color: rgb(17, 17, 17);
+}
+
+div.blog {
+	padding: 10px 20%;
+	text-align: left;
+}
+
+.big {
+		font-size: x-large;
 }
