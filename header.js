@@ -119,7 +119,7 @@ class HeaderIF extends HTMLElement {
 	  this.innerHTML = `
 	  	<ul class="bar">
 		<li style="float:right" class="bar"><a href="/portfolio/index.html">Back to: Portfolio</a></li>
-		<li class="bar"><a href="" class="active">I.F. Hub</a></li>
+		<li class="bar"><a href="" class="active">Interactive Fiction Hub</a></li>
 		</ul>
 		<p></p>
 	  `;
