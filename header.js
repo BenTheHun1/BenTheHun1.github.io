@@ -23,13 +23,6 @@ class HeaderPort extends HTMLElement {
 	  this.innerHTML = `
 	  <center>
 	  <p><img src="/benthehun1.svg" alt="BenTheHun1" width=40%></p>
-	  <ul class="contact">
-		  <li class="contact"><a href="mailto:benhunsicker1@gmail.com" class="contact"><img src="/img/mail.ico" alt="Email" Title="Email"></a></li>
-		  <li class="contact"><a href="https://twitter.com/benthehun1" class="contact"><img src="/img/tweet.ico" alt="Twitter" Title="Twitter"></a></li>
-		  <li class="contact"><a href="https://www.youtube.com/@BenTheHun1" class="contact"><img src="/img/yt.png" alt="YouTube" Title="YouTube"></a></li>
-		  <li class="contact"><a href="https://github.com/BenTheHun1" class="contact"><img src="/img/git.ico" alt="GitHub" Title="GitHub"></a></li>
-		  <li class="contact"><a href="https://www.twitch.tv/benthehun1" class="contact"><img src="/img/twitch.png" alt="Twitch" Title="Twitch"></a></li>
-	  </ul>
 	  </center>
 	  <ul class="bar">
 		  <li class="bar"><a href="/index.html">Blog</a></li>
@@ -50,13 +43,6 @@ class HeaderAbout extends HTMLElement {
 	  this.innerHTML = `
 	  <center>
 	  <p><img src="/benthehun1.svg" alt="BenTheHun1" width=40%></p>
-	  <ul class="contact">
-		  <li class="contact"><a href="mailto:benhunsicker1@gmail.com" class="contact"><img src="/img/mail.ico" alt="Email" Title="Email"></a></li>
-		  <li class="contact"><a href="https://twitter.com/benthehun1" class="contact"><img src="/img/tweet.ico" alt="Twitter" Title="Twitter"></a></li>
-		  <li class="contact"><a href="https://www.youtube.com/@BenTheHun1" class="contact"><img src="/img/yt.png" alt="YouTube" Title="YouTube"></a></li>
-		  <li class="contact"><a href="https://github.com/BenTheHun1" class="contact"><img src="/img/git.ico" alt="GitHub" Title="GitHub"></a></li>
-		  <li class="contact"><a href="https://www.twitch.tv/benthehun1" class="contact"><img src="/img/twitch.png" alt="Twitch" Title="Twitch"></a></li>
-	  </ul>
 	  </center>
 	  <ul class="bar">
 		  <li class="bar"><a href="/index.html">Blog</a></li>
@@ -77,13 +63,6 @@ class HeaderGeneric extends HTMLElement {
 	  this.innerHTML = `
 	  <center>
 	  <p><img src="/benthehun1.svg" alt="BenTheHun1" width=40%></p>
-	  <ul class="contact">
-		  <li class="contact"><a href="mailto:benhunsicker1@gmail.com" class="contact"><img src="/img/mail.ico" alt="Email" Title="Email"></a></li>
-		  <li class="contact"><a href="https://twitter.com/benthehun1" class="contact"><img src="/img/tweet.ico" alt="Twitter" Title="Twitter"></a></li>
-		  <li class="contact"><a href="https://www.youtube.com/@BenTheHun1" class="contact"><img src="/img/yt.png" alt="YouTube" Title="YouTube"></a></li>
-		  <li class="contact"><a href="https://github.com/BenTheHun1" class="contact"><img src="/img/git.ico" alt="GitHub" Title="GitHub"></a></li>
-		  <li class="contact"><a href="https://www.twitch.tv/benthehun1" class="contact"><img src="/img/twitch.png" alt="Twitch" Title="Twitch"></a></li>
-	  </ul>
 	  </center>
 	  <ul class="bar">
 		  <li class="bar"><a href="/index.html">Blog</a></li>
@@ -104,13 +83,6 @@ class HeaderVerse extends HTMLElement {
 	  this.innerHTML = `
 	  <center>
 	  <p><img src="/benthehun1.svg" alt="BenTheHun1" width=40%></p>
-	  <ul class="contact">
-		  <li class="contact"><a href="mailto:benhunsicker1@gmail.com" class="contact"><img src="/img/mail.ico" alt="Email" Title="Email"></a></li>
-		  <li class="contact"><a href="https://twitter.com/benthehun1" class="contact"><img src="/img/tweet.ico" alt="Twitter" Title="Twitter"></a></li>
-		  <li class="contact"><a href="https://www.youtube.com/@BenTheHun1" class="contact"><img src="/img/yt.png" alt="YouTube" Title="YouTube"></a></li>
-		  <li class="contact"><a href="https://github.com/BenTheHun1" class="contact"><img src="/img/git.ico" alt="GitHub" Title="GitHub"></a></li>
-		  <li class="contact"><a href="https://www.twitch.tv/benthehun1" class="contact"><img src="/img/twitch.png" alt="Twitch" Title="Twitch"></a></li>
-	  </ul>
 	  </center>
 	  <ul class="bar">
 		  <li class="bar"><a href="/index.html">Blog</a></li>

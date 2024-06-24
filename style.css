@@ -12,6 +12,10 @@ div.blog {
 	text-align: center;
 }
 
+.title {
+	font-style: italic;
+	text-align: center;
+}
 
 
 /* Navbar */
